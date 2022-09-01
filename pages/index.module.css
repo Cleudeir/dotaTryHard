@@ -1,0 +1,32 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+.containerList{
+display: flex;
+flex-direction: column;
+justify-content: center;
+align-items: center;
+overflow-x: scroll;
+overflow-y: hidden;
+height: auto;
+margin: 10px;
+}
+.list_cards {
+display: inline-flex;
+justify-content: center;
+align-items: stretch;
+flex-wrap: nowrap;
+flex-direction: row;
+margin-right: auto;
+}
+.title {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    flex-wrap: nowrap;
+    flex-direction: row;
+    margin: auto;
+    padding-top: 10px;
+    }
