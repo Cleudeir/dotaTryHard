@@ -10,7 +10,7 @@ import React, {useState} from 'react';
 function Header() {
   const [useValue, setValue]=useState('');
   async function add() {
-    await fetch(`/api/player/${useValue}`);
+    await fetch(`/api/add/${useValue}`);
     window.location.href = `/matches/${useValue}`;
   }
   return (
@@ -38,10 +38,10 @@ function Header() {
                   title="Regions"
                   id={`offcanvasNavbarDropdown-expand-${'sm'}`}
                 >
-                  <NavDropdown.Item href="/?region=sa">South America</NavDropdown.Item>
-                  <NavDropdown.Item href="/?region=na">North America</NavDropdown.Item>
-                  <NavDropdown.Item href="/?region=eu">Europe</NavDropdown.Item>
-                  <NavDropdown.Item href="/?region=ch">China</NavDropdown.Item>
+                  <NavDropdown.Item href="/?region=south_america">South America</NavDropdown.Item>
+                  <NavDropdown.Item href="/?region=north_america">North America</NavDropdown.Item>
+                  <NavDropdown.Item href="/?region=europe">Europe</NavDropdown.Item>
+                  <NavDropdown.Item href="/?region=china">China</NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="/">World</NavDropdown.Item>
                 </NavDropdown>

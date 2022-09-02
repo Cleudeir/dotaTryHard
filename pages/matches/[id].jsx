@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
-import {useState} from 'react';
 import CardCarousel from '../../component/CardCarousel';
 const React = require('react');
 
@@ -23,7 +22,6 @@ export async function getStaticProps(context) {
 }
 
 export default function Matches({data}) {
-  console.log(data);
   return (
     <div>
       <Header />
