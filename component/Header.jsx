@@ -14,9 +14,9 @@ function Header() {
     window.location.href = `/matches/${useValue}`;
   }
   return (
-    <>
+    <div>
       <Navbar key={'sm'} bg="light" expand={'sm'} className="mb-3">
-        <Container fluid>
+        <Container fluid >
           <Navbar.Brand href="/">
            Dota Try Hard
           </Navbar.Brand>
@@ -28,7 +28,7 @@ function Header() {
           >
             <Offcanvas.Header closeButton>
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'sm'}`}>
-                  Offcanvas
+              Dota Try Hard
               </Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
@@ -60,7 +60,7 @@ function Header() {
           </Navbar.Offcanvas>
         </Container>
       </Navbar>
-    </>
+    </div>
   );
 }
 

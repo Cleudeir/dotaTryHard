@@ -24,9 +24,8 @@ export async function getStaticProps(context) {
 
 export default function Matches({data}) {
   console.log(data);
-  const [useItem, setItem] = useState(0);
   return (
-    <div >
+    <div>
       <Header />
       <CardCarousel data={data.matches}/>
     </div>

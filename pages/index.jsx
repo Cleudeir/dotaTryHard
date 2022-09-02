@@ -28,7 +28,7 @@ export default function Home({data}) {
         <div className={styles.containerList} >
 
           <div className={styles.list_cards} >
-            {data.slice(0, 50).map((item, index)=>(<CardPlayer key={index} index={index+1}item={item}/> ))}
+            {data.slice(0, 50).map((item, index)=>(<CardPlayer key={item.profile.personaname} index={index+1}item={item}/> ))}
           </div>
         </div>
       </>
@@ -37,7 +37,7 @@ export default function Home({data}) {
           <h2 className={styles.title}>Top 200</h2>
           <div className={styles.containerList} >
             <div className={styles.list_cards} >
-              {data.slice(50, 200).map((item, index)=>(<CardPlayer key={index} index={index+1}item={item}/> ))}
+              {data.slice(50, 200).map((item, index)=>(<CardPlayer key={index} index={index+50}item={item}/> ))}
             </div>
           </div>
         </>
@@ -47,7 +47,7 @@ export default function Home({data}) {
           <h2 className={styles.title}>Top 400</h2>
           <div className={styles.containerList} >
             <div className={styles.list_cards} >
-              {data.slice(200, 400).map((item, index)=>(<CardPlayer key={index} index={index+1}item={item}/> ))}
+              {data.slice(200, 400).map((item, index)=>(<CardPlayer key={index} index={index+200}item={item}/> ))}
             </div>
           </div>
         </>
