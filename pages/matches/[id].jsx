@@ -27,7 +27,7 @@ export default function Matches({data}) {
   return (
     <div>
       <Header />
-      <CardCarousel data={data.matches}/>
+      <CardCarousel _match={data.matches} _avg={data.avg}/>
     </div>
   );
 }
