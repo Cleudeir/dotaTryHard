@@ -3,6 +3,7 @@ import styles from './index.module.css';
 import Header from '../component/Header';
 import {useRouter} from 'next/router';
 import {useEffect, useState} from 'react';
+import Tables from '../component/Tables';
 
 const React = require('react');
 
@@ -40,38 +41,12 @@ export default function Home({data}) {
   }, [router]);
   return (
     <div className={styles.container} >
-      <Header/>
+      <Header style={{marginBottom: 53}}/>
       <h1 style={{margin: 'auto', padding: 5}}>{router.query.region?router.query.region.toLocaleUpperCase().replace('_', ' '):'WORLD'}</h1>
       {useData && <main>
         <span>
-          <h2 className={styles.title}>Top 50</h2>
-          <div className={styles.containerList} >
-
-            <div className={styles.list_cards} >
-              {useData.slice(0, 50).map((item, index)=>(<CardPlayer key={item.profile.personaname} index={index+1}item={item}/> ))}
-            </div>
-          </div>
+          <Tables _matches={useData} number={50}/>
         </span>
-        {useData.length>50 &&(
-          <span>
-            <h2 className={styles.title}>Top 200</h2>
-            <div className={styles.containerList} >
-              <div className={styles.list_cards} >
-                {useData.slice(50, 200).map((item, index)=>(<CardPlayer key={index} index={index+50}item={item}/> ))}
-              </div>
-            </div>
-          </span>
-        )}
-        {useData.length>200 &&(
-          <span>
-            <h2 className={styles.title}>Top 400</h2>
-            <div className={styles.containerList} >
-              <div className={styles.list_cards} >
-                {useData.slice(200, 400).map((item, index)=>(<CardPlayer key={index} index={index+200}item={item}/> ))}
-              </div>
-            </div>
-          </span>
-        )}
       </main>}
       {!useData && <h4 style={{margin: 'auto', padding: 30}}>nenhum jogador encontrado!</h4>}
     </div>
