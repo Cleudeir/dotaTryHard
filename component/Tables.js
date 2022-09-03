@@ -39,8 +39,8 @@ function Tables({_matches, number}) {
         <Accordion.Body style={{margin: 0, padding: 1}} >
           <Table bordered striped={true} responsive={true}
             style={document.documentElement.clientWidth < 580 ?
-          {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center'} :
-          {textAlign: 'center'}}>
+          {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center', maxWidth: 1200, margin: 'auto'} :
+          {textAlign: 'center', maxWidth: 1200, margin: 'auto'}}>
             <thead>
               <tr>
                 <th style={{width: 70}}>Pos  </th>
