@@ -14,7 +14,7 @@ function Header() {
     window.location.href = `/matches/${useValue}`;
   }
   return (
-    <div style={{ marginBottom: 60}}>
+    <div style={{marginBottom: 60}}>
       <Navbar style={{position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 999}}
         key={'sm'} bg="light" expand={'sm'} className="mb-3">
         <Container fluid >

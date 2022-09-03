@@ -1,4 +1,3 @@
-import CardPlayer from '../component/CardPlayer';
 import styles from './index.module.css';
 import Header from '../component/Header';
 import {useRouter} from 'next/router';
@@ -41,7 +40,7 @@ export default function Home({data}) {
   }, [router]);
   return (
     <div className={styles.container} >
-      <Header style={{marginBottom: 53}}/>
+      <Header />
       <h1 style={{margin: 'auto', padding: 5}}>{router.query.region?router.query.region.toLocaleUpperCase().replace('_', ' '):'WORLD'}</h1>
       {useData && <main>
         <span>

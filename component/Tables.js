@@ -36,7 +36,7 @@ function Tables({_matches, number}) {
         <Accordion.Header onClick={()=>{
           window.scrollTo(0, 0);
         }}>Top {number*(index+1)}</Accordion.Header>
-        <Accordion.Body style={{margin: 0, padding: 1 }} >
+        <Accordion.Body style={{margin: 0, padding: 1}} >
           <Table bordered striped={true} responsive={true}
             style={document.documentElement.clientWidth < 580 ?
           {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center'} :
