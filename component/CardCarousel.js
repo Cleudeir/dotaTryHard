@@ -31,7 +31,7 @@ function CardCarousel({_match, _avg}) {
       <Accordion.Item eventKey="0">
         <Accordion.Header>Matches</Accordion.Header>
         <Accordion.Body style={{margin: 0, padding: 1}}>
-          <Carousel variant="dark" keyboard={'md'} indicators={false} interval={300000} touch={false} style={{width: '100%', maxWidth: 1100, margin: 'auto'}}>
+          <Carousel variant="dark" keyboard={'md'} indicators={false} interval={300000} touch={false} style={{width: '100%', maxWidth: 1200, margin: 'auto'}}>
             {_match.map((match) => (
               <Carousel.Item key={match.match_id}>
                 <Card className="text-center">
