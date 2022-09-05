@@ -15,11 +15,8 @@ function Tables({_matches, number}) {
     setData(data);
   }, []);
 
-  function colorWinStyle(win) {
-    if (win === 0) {
-      return {backgroundColor: 'rgba(234,67,53,0.3)', whiteSpace: 'nowrap'};
-    }
-    return {backgroundColor: 'rgba(58,182,132,0.3)', whiteSpace: 'nowrap'};
+  function styleTd() {
+    return {whiteSpace: 'nowrap'};
   }
   function imageStyle(url) {
     return {margin: 0, padding: 0, backgroundImage: `url(${url})`, backgroundRepeat: 'no-repeat', backgroundSize: 'cover', backgroundPosition: 'center'};
@@ -46,6 +43,7 @@ function Tables({_matches, number}) {
                 <th style={{width: 70}}>Pos  </th>
                 <th colSpan="2">Nick</th>
                 <th>Rate</th>
+                <th>WinRate</th>
                 <th>kills</th>
                 <th>deaths</th>
                 <th>Assis</th>
@@ -61,38 +59,40 @@ function Tables({_matches, number}) {
             <tbody>
               {data.map((player, i) => (
                 <tr key={player.profile.account_id}>
-                  <td style={colorWinStyle(player.win)}>
+                  <td style={styleTd(player.win)}>
                     {(i+1)+number*index}
                   </td>
                   <td style={imageStyle(player.profile.avatarfull)}>
                     <ImageSize />
                   </td>
-                  <td style={colorWinStyle(player.win)}>
+                  <td style={styleTd(player.win)}>
                     <a href={`/matches/${player.profile.account_id}`}>
                       {player.profile.personaname.slice(0, 15)}
                     </a></td>
-                  <td style={colorWinStyle(player.win)}>
+                  <td style={styleTd(player.win)}>
                     {player.rankingRate} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.kills} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.deaths} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.assists} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.last_hits}</td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.denies}</td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.gold_per_min.toLocaleString('pt-BR')} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.xp_per_min.toLocaleString('pt-BR')}</td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.hero_damage.toLocaleString('pt-BR')} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.tower_damage.toLocaleString('pt-BR')} </td>
-                  <td style={colorWinStyle(player.win)}>
-                    {player.hero_healing.toLocaleString('pt-BR')} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.winRate.toFixed(1)}% </td>
+                  <td style={styleTd(player.win)}>
+                    {player.kills.toFixed(1)} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.deaths.toFixed(1)} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.assists.toFixed(1)} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.last_hits.toFixed(1)}</td>
+                  <td style={styleTd(player.win)}>
+                    {player.denies.toFixed(1)}</td>
+                  <td style={styleTd(player.win)}>
+                    {player.gold_per_min.toFixed(0)} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.xp_per_min.toFixed(0)}</td>
+                  <td style={styleTd(player.win)}>
+                    {player.hero_damage.toFixed(0)} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.tower_damage.toFixed(0)} </td>
+                  <td style={styleTd(player.win)}>
+                    {player.hero_healing.toFixed(0)} </td>
                 </tr>
               ))}
             </tbody>

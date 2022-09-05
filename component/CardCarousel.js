@@ -31,15 +31,17 @@ function CardCarousel({_match, _avg}) {
       <Accordion.Item eventKey="0">
         <Accordion.Header>Matches</Accordion.Header>
         <Accordion.Body style={{margin: 0, padding: 1}}>
-          <Carousel variant="dark" keyboard={'md'} indicators={false} interval={300000} touch={false} style={{width: '100%', maxWidth: 1200, margin: 'auto'}}>
+          <Carousel keyboard={'md'} indicators={false} interval={300000} touch={false} style={{width: '100%', maxWidth: 1200, margin: 'auto'}}>
             {_match.map((match) => (
-              <Carousel.Item key={match.match_id}>
-                <Card className="text-center">
-                  {unixToHMS(match.start_time)}
-                  <Card.Header>
-                    Radiant score <Button variant="primary">{match.radiant_score}</Button> - <Button variant="primary">{match.dire_score}</Button> Dire score
+              <Carousel.Item key={match.match_id} >
+                <Card className="text-center" style={{marginTop: 10, borderRadius: 0}} >
+                  <Card.Header >
+                    <div style={{margin: 'auto'}} >⠀⠀⠀Match score</div>
+                    <div> Radiant <Button variant="primary">{match.radiant_score}</Button> - <Button variant="primary">{match.dire_score}</Button> Dire
+                    </div>
+                    {unixToHMS(match.start_time)}<br />
                   </Card.Header>
-                  <Card.Footer className="text-muted">{_avg.profile.personaname} match_id: {match.match_id}</Card.Footer>
+                  <Card.Footer className="text-muted">{_avg.profile.personaname} - match_id: {match.match_id}</Card.Footer>
                 </Card>
                 <Table bordered striped={true} responsive={true} style={document.documentElement.clientWidth < 580 ? {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center'} : {textAlign: 'center'}}>
                   <thead>
@@ -68,12 +70,11 @@ function CardCarousel({_match, _avg}) {
                     }).map((player, index) => (
                       <tr key={player.profile.account_id}>
                         <td style={colorWinStyle(player.win)}>
-                          {index+1}
+                          {index + 1}
                         </td>
                         <td style={imageStyle(player.profile.avatarfull)}>
                           <ImageSize />
                         </td>
-
                         <td style={colorWinStyle(player.win)}>
                           <a href={`/matches/${player.profile.account_id}`}>
                             {player.profile.personaname.slice(0, 15)}
