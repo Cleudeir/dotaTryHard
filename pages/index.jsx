@@ -33,7 +33,7 @@ export default function Home({regionData, regionsNames}) {
   const [useRegion, setRegion] = useState(false);
   useEffect(()=>{
     console.log('data: ', regionData, regionData[useRegion]);
-    setRegion(0);
+    setRegion(1);
   }, []);
 
   function filterRegion(region) {
