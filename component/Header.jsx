@@ -7,12 +7,13 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React, {useState} from 'react';
 
-function Header() {
+function Header({filterRegion}) {
   const [useValue, setValue]=useState('');
   async function add() {
     await fetch(`/api/add/${useValue}`);
     window.location.href = `/matches/${useValue}`;
   }
+
   return (
     <div style={{marginBottom: 60}}>
       <Navbar style={{position: 'fixed', top: 0, left: 0, width: '100%', zIndex: 999}}
@@ -39,12 +40,12 @@ function Header() {
                   title="Regions"
                   id={`offcanvasNavbarDropdown-expand-${'sm'}`}
                 >
-                  <NavDropdown.Item href="/?region=south_america">South America</NavDropdown.Item>
-                  <NavDropdown.Item href="/?region=north_america">North America</NavDropdown.Item>
-                  <NavDropdown.Item href="/?region=europe">Europe</NavDropdown.Item>
-                  <NavDropdown.Item href="/?region=china">China</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>filterRegion(1)}>South America</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>filterRegion(2)}>North America</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>filterRegion(3)}>Europe</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>filterRegion(4)}>China</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="/">World</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>filterRegion(0)}>World</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
               <Form className="d-flex">
