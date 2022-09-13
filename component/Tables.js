@@ -8,8 +8,8 @@ function Tables({_matches, number}) {
   useEffect(() => {
     setMounted(true);
     const data = [];
-    for (let i = 0; i < _matches.length/number; i++) {
-      data.push(_matches.slice(i*number, (i+1)*(number)));
+    for (let i = 0; i < _matches.length / number; i++) {
+      data.push(_matches.slice(i * number, (i + 1) * (number)));
     }
     console.log(data);
     setData(data);
@@ -30,14 +30,14 @@ function Tables({_matches, number}) {
   function AccordionTable({data, index}) {
     return (
       <Accordion.Item id={`accordion${index}`} eventKey={index} >
-        <Accordion.Header onClick={()=>{
+        <Accordion.Header onClick={() => {
           window.scrollTo(0, 0);
-        }}>Top {number*(index+1)}</Accordion.Header>
+        }}>Top {number * (index + 1)}</Accordion.Header>
         <Accordion.Body style={{margin: 0, padding: 1}} >
           <Table bordered striped={true} responsive={true}
             style={document.documentElement.clientWidth < 580 ?
-          {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center', maxWidth: 1200, margin: 'auto'} :
-          {textAlign: 'center', maxWidth: 1200, margin: 'auto'}}>
+              {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center', maxWidth: 1200, margin: 'auto'} :
+              {textAlign: 'center', maxWidth: 1200, margin: 'auto'}}>
             <thead>
               <tr>
                 <th style={{width: 70}}>Pos  </th>
@@ -60,7 +60,7 @@ function Tables({_matches, number}) {
               {data.map((player, i) => (
                 <tr key={player.profile.account_id}>
                   <td style={styleTd(player.win)}>
-                    {(i+1)+number*index}
+                    {player.pos}
                   </td>
                   <td style={imageStyle(player.profile.avatarfull)}>
                     <ImageSize />
@@ -104,8 +104,8 @@ function Tables({_matches, number}) {
 
   return (
     mounted && <Accordion defaultActiveKey={0}>
-      {useData && useData.map((matches, index)=> (
-        <AccordionTable key={index} data={matches} index={index}/>
+      {useData && useData.map((matches, index) => (
+        <AccordionTable key={index} data={matches} index={index} />
       ))}
     </Accordion >
   );

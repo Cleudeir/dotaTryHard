@@ -8,18 +8,17 @@ const React = require('react');
 
 export async function getStaticProps() {
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/ranking`);
-  const data = await resp.json();
-
+  const resp = await fetch(`${process.env.backUrl}/ranking?limit=400`);
+  const data = (await resp.json());
   const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA'];
   const regionData = [];
   for (let i = 0; i < regionsNames.length; i++) {
     const element = regionsNames[i];
     if (element !== 'WORLD') {
-      const filter = data.slice(0, 300).filter((item)=> item.profile.loccountrycode === element);
+      const filter = data.filter((item)=> item.profile.loccountrycode === element);
       regionData.push(filter);
     } else {
-      regionData.push(data.slice(0, 300));
+      regionData.push(data);
     }
   }
 
