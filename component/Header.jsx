@@ -40,12 +40,22 @@ function Header({filterRegion}) {
                   title="Regions"
                   id={`offcanvasNavbarDropdown-expand-${'sm'}`}
                 >
-                  <NavDropdown.Item onClick={()=>filterRegion(1)}>South America</NavDropdown.Item>
-                  <NavDropdown.Item onClick={()=>filterRegion(2)}>North America</NavDropdown.Item>
-                  <NavDropdown.Item onClick={()=>filterRegion(3)}>Europe</NavDropdown.Item>
-                  <NavDropdown.Item onClick={()=>filterRegion(4)}>China</NavDropdown.Item>
+                  <NavDropdown.Item href="#" onClick={()=>{
+                    document.querySelector('.btn-close').click(); filterRegion(1);
+                  }}>South America</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>{
+                    document.querySelector('.btn-close').click(); filterRegion(2);
+                  }}>North America</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>{
+                    document.querySelector('.btn-close').click(); filterRegion(3);
+                  }}>Europe</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>{
+                    document.querySelector('.btn-close').click(); filterRegion(4);
+                  }}>China</NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item onClick={()=>filterRegion(0)}>World</NavDropdown.Item>
+                  <NavDropdown.Item onClick={()=>{
+                    document.querySelector('.btn-close').click(); filterRegion(0);
+                  }}>World</NavDropdown.Item>
                 </NavDropdown>
               </Nav>
               <Form className="d-flex">
