@@ -48,7 +48,7 @@ export default function Home({regionData, regionsNames}) {
   useEffect(()=>{
     window.document.addEventListener(
         'scroll',
-        function() {
+        () =>{
           if ((document.documentElement.scrollTop+ screen.height) > window.document.documentElement.offsetHeight ) {
             const value = useRange+200;
             setData(regionData[useRegion].slice(0, value));
