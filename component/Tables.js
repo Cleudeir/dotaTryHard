@@ -28,7 +28,7 @@ function Tables({useData, setData, useSave, setLoading}) {
   }
   return (
     mounted &&
-    <Table bordered striped={true} responsive={true}
+    <Table bordered striped={true} responsive={document.documentElement.clientWidth < 580 ? true : false}
       style={document.documentElement.clientWidth < 580 ?
         {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center', maxWidth: 1200, whiteSpace: 'nowrap', margin: 'auto'} :
         {textAlign: 'center', maxWidth: 1200, whiteSpace: 'nowrap', margin: 'auto'}}>

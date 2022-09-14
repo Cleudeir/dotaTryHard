@@ -43,7 +43,7 @@ function CardCarousel({_match, _avg}) {
               </Card.Header>
               <Card.Footer className="text-muted">{_avg.profile.personaname} - match_id: {match.match_id}</Card.Footer>
             </Card>
-            <Table bordered striped={true} responsive={true} style={document.documentElement.clientWidth < 580 ? {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center'} : {textAlign: 'center'}}>
+            <Table bordered striped={true} responsive={document.documentElement.clientWidth < 580 ? true : false} style={document.documentElement.clientWidth < 580 ? {textAlign: 'center', fontSize: '0.85rem', verticalAlign: 'center'} : {textAlign: 'center'}}>
               <thead>
                 <tr>
                   <th style={{width: 70}}>Pos  </th>
