@@ -33,30 +33,12 @@ export default function Home({regionData, regionsNames}) {
   const [useRegion, setRegion] = useState(1);
   const [useData, setData] = useState(false);
   const [useLoading, setLoading] = useState(false);
-  const [useRange, setRange] = useState(200);
 
   useEffect(()=>{
     console.log('data: ', regionData, regionData[useRegion]);
-    setData(regionData[useRegion].slice(0, useRange));
+    setData(regionData[useRegion]);
     setLoading(true);
   }, []);
-
-  useEffect(()=>{
-    console.log('useRange: ', useRange);
-  }, [useRange]);
-
-  useEffect(()=>{
-    window.document.addEventListener(
-        'scroll',
-        () =>{
-          if ((document.documentElement.scrollTop+ screen.height) > window.document.documentElement.offsetHeight ) {
-            const value = useRange+200;
-            setData(regionData[useRegion].slice(0, value));
-            setRange(value);
-          }
-        } );
-  }, []);
-
 
   function filterRegion(region) {
     console.log(region);
@@ -71,7 +53,6 @@ export default function Home({regionData, regionsNames}) {
   return (
     <div className={styles.container} >
       <Header filterRegion={filterRegion} />
-
       <main id="main" style={{padding: 5, minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
         { useLoading &&
         <>

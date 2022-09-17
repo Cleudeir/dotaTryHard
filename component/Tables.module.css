@@ -1,0 +1,31 @@
+.table{
+  max-width: 1200px;
+  margin-left: 13%;
+  white-space: nowrap;
+}
+
+.table thead {
+  display: fixed;
+  max-height: 1200px;
+  padding: 0;
+}
+
+.header {
+  position:fixed;
+  top:50px;
+  height: 60px;
+  margin-left: 12.9%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: flex-start;
+  align-items: flex-end;
+  max-width: 1300px;
+  white-space: nowrap;
+  background-color: #ffff;
+}
+
+.header > div {
+  background-color: #ffff;
+  padding: 9.0px;
+}
