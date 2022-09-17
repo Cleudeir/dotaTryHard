@@ -1,5 +1,5 @@
 .table{
-  max-width: 1200px;
+  max-width: 1300px;
   margin-left: 13%;
   white-space: nowrap;
 }
@@ -14,18 +14,18 @@
   position:fixed;
   top:50px;
   height: 60px;
-  margin-left: 12.9%;
+  margin-left: calc(13% - 5px);
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   justify-content: flex-start;
   align-items: flex-end;
-  max-width: 1300px;
+  width: 1310px;
   white-space: nowrap;
   background-color: #ffff;
 }
 
 .header > div {
   background-color: #ffff;
-  padding: 10px;
+  padding: 9.8px;
 }
