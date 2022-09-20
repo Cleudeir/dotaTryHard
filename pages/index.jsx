@@ -56,7 +56,7 @@ export default function Home({regionData, regionsNames}) {
       <main id="main" style={{padding: 5, minHeight: '100vh', display: 'flex', flexDirection: 'column'}}>
         { useLoading &&
         <>
-          <h1 style={{marginLeft: 'auto', marginRight: 'auto', padding: 5}}>{regionsNames[useRegion]}</h1>
+          <h1 style={{marginLeft: 'auto', marginRight: 'auto', padding: 5, marginTop: 70}}>{regionsNames[useRegion]}</h1>
           <Tables useSave={regionData[useRegion]} useData={useData} setData={setData} setLoading={setLoading}/>
         </>
         }
