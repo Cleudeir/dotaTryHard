@@ -45,7 +45,7 @@ export default function FriendsGamed({data, type}) {
                 </th>
                 <th >
                   {useSave && <div style={{display: 'flex', flexDirection: 'row', marginLeft: 5}}>
-                    <Form.Control style={{display: 'flex', color: '#37e', width: 130, flexDirection: 'row', marginLeft: 5, height: 25}} type='text' placeholder='search' onChange={(e) => {
+                    <Form.Control style={{display: 'flex', color: '#37e', width: 90, flexDirection: 'row', height: 25}} type='text' placeholder='search' onChange={(e) => {
                       filterName(e.target.value);
                     }} />
                   </div>
@@ -75,7 +75,7 @@ export default function FriendsGamed({data, type}) {
                     <ImageSize />
                   </td>
                   <td >
-                    {player.profile.personaname.slice(0, 15)}
+                    {player.profile.personaname.slice(0, 10)}
                   </td>
                   <td >
                     {player.win}
