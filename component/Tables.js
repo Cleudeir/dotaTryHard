@@ -36,7 +36,7 @@ function Tables({useData, setData, useSave, setLoading}) {
     mounted &&
     <>
       <Table style={{maxWidth: 1300,
-        whiteSpace: 'nowrap',
+        whiteSpace: 'nowrap', marginLeft: 'auto', marginRight: 'auto',
       }} bordered striped={true} responsive={true}>
         <thead>
           <tr>
