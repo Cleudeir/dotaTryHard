@@ -31,7 +31,7 @@ export default function FriendsGamed({data, type}) {
       {useLoading &&
         <>
           <h2 style={{marginTop: 100, textAlign: 'center'}} >{type}</h2>
-          <Table bordered striped={true} style={{whiteSpace: 'nowrap', textAlign: 'center'}} >
+          <Table bordered striped={true} style={{whiteSpace: 'nowrap', textAlign: 'center'}} responsive={true}>
             <thead>
               <tr>
                 <th style={{width: 70}}>

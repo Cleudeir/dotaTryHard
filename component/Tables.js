@@ -2,7 +2,6 @@ import React, {useEffect, useState} from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import orderTable from './orderTable';
-import style from './Tables.module.css';
 
 function Tables({useData, setData, useSave, setLoading}) {
   const [mounted, setMounted] = useState(false);
@@ -36,7 +35,9 @@ function Tables({useData, setData, useSave, setLoading}) {
   return (
     mounted &&
     <>
-      <Table className={style.table} bordered striped={true} >
+      <Table style={{maxWidth: 1300,
+        whiteSpace: 'nowrap',
+      }} bordered striped={true} responsive={true}>
         <thead>
           <tr>
             <th style={{width: 70}}>
