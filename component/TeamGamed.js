@@ -4,7 +4,6 @@ import Form from 'react-bootstrap/Form';
 import orderTable from './orderTable';
 
 export default function FriendsGamed({data, type}) {
-  console.log(data);
   const [useData, setData] = useState(data);
   const [useSave] = useState(data);
   const [useLoading, setLoading] = useState(false);
@@ -31,12 +30,9 @@ export default function FriendsGamed({data, type}) {
       {useLoading &&
         <>
           <h2 style={{marginTop: 100, textAlign: 'center'}} >{type}</h2>
-          <Table bordered striped={true} style={{whiteSpace: 'nowrap', textAlign: 'center'}} responsive={true}>
+          <Table bordered striped={true} style={{whiteSpace: 'nowrap', textAlign: 'center', margin: 10}} responsive={true}>
             <thead>
               <tr>
-                <th style={{width: 70}}>
-                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('pos', e, useData, setData)}>Pos ↑</span>
-                </th>
                 <th>
                   {useSave && <div style={{display: 'flex', flexDirection: 'row', marginLeft: 5}}>
                     <span style={{color: '#37e', cursor: 'pointer', margin: 'auto'}} onClick={(e) => orderTable('profile.personaname', e, useData, setData)}>Nick ↓</span>
@@ -68,9 +64,6 @@ export default function FriendsGamed({data, type}) {
             <tbody >
               {useData && useData.map((player, i) => (
                 <tr key={player.profile.account_id} >
-                  <td >
-                    {i + 1}
-                  </td>
                   <td style={imageStyle(player.profile.avatarfull)}>
                     <ImageSize />
                   </td>

@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
 import TeamGamed from '../../component/TeamGamed';
+import {useEffect, useState} from 'react';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -23,11 +24,14 @@ export async function getStaticProps(context) {
 
 export default function Matches({data}) {
   console.log(data);
+  const [useSreen, setScreen] = useState(false);
+  useEffect(()=>{
+    setScreen(window.screen.width);
+  }, []);
   return (
-    <>
+    useSreen && <>
       <Header />
-      <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
-
+      <div style={useSreen<580?{}:{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
         <TeamGamed type={'See Your Win Rate with your friends'} data={data.alliesPlayers.slice(0, 100)}/>
         <TeamGamed type={'See Your Loss Rate with your enemies'} data={data.enemyPlayers.slice(0, 100)}/>
       </div>
