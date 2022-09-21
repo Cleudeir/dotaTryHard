@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
-import CardCarousel from '../../component/CardCarousel';
+import FriendsGamed from '../../component/FriendsGamed';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const {id} = context.params;
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}&limit=30`);
+  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}`);
   const data = await resp.json();
   return {
     props: {data},
@@ -26,7 +26,7 @@ export default function Matches({data}) {
   return (
     <div>
       <Header />
-      <CardCarousel _match={data.matches.slice(0, 30)} _avg={data.avg}/>
+      <FriendsGamed friendsGamed={data.friendsGamed}/>
     </div>
   );
 }

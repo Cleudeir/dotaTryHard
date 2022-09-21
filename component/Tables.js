@@ -6,16 +6,14 @@ import style from './Tables.module.css';
 
 function Tables({useData, setData, useSave, setLoading}) {
   const [mounted, setMounted] = useState(false);
-  const [useSize, setSize] = useState(false);
 
   useEffect(() => {
     setMounted(true);
-    setSize(document.documentElement.clientWidth);
   }, []);
 
   useEffect(() => {
     window.addEventListener('resize', () => {
-      setSize(document.documentElement.clientWidth);
+
     });
   }, []);
 
@@ -117,8 +115,10 @@ function Tables({useData, setData, useSave, setLoading}) {
                 <a href={`/matches/${player.profile.account_id}`} onClick={() => setLoading(false)} >
                   {player.matches}  👀
                 </a> </td>
-              <td style={styleTd(player.win)}>
-                {player.winRate.toFixed(1)}% </td>
+              <td style={styleTd(player.win)} >
+                <a href={`/infos/${player.profile.account_id}`} onClick={() => setLoading(false)} >
+                  {player.winRate.toFixed(1)}%   👀
+                </a> </td>
               <td style={styleTd(player.win)}>
                 {player.kills.toFixed(1)} </td>
               <td style={styleTd(player.win)}>
