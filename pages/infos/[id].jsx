@@ -24,10 +24,13 @@ export async function getStaticProps(context) {
 export default function Matches({data}) {
   console.log(data);
   return (
-    <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+    <>
       <Header />
-      <TeamGamed type={'See Your Win Rate with your friends'} data={data.alliesPlayers.slice(0, 100)}/>
-      <TeamGamed type={'See Your Loss Rate with your enemies'} data={data.enemyPlayers.slice(0, 100)}/>
-    </div>
+      <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
+
+        <TeamGamed type={'See Your Win Rate with your friends'} data={data.alliesPlayers.slice(0, 100)}/>
+        <TeamGamed type={'See Your Loss Rate with your enemies'} data={data.enemyPlayers.slice(0, 100)}/>
+      </div>
+    </>
   );
 }
