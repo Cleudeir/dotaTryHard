@@ -22,6 +22,9 @@ export default function FriendsGamed({data, type}) {
     );
   }
 
+  function filterName(e) {
+    if (useSave) setData(useSave.filter((x) => x.profile.personaname.slice(0, e.length).toUpperCase().includes(e.toUpperCase())));
+  }
 
   return (
 
@@ -42,7 +45,7 @@ export default function FriendsGamed({data, type}) {
               </th>
               <th >
                 {useSave && <div style={{display: 'flex', flexDirection: 'row'}}>
-                  <Form.Control style={{display: 'flex', color: '#37e', width: 90, margin: 'auto', flexDirection: 'row', height: 20}} type='text' placeholder='search' onChange={(e) => {
+                  <Form.Control style={{display: 'flex', color: '#37e', width: 90, margin: 'auto', flexDirection: 'row', height: 25}} type='text' placeholder='search' onChange={(e) => {
                     filterName(e.target.value);
                   }} />
                 </div>
