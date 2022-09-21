@@ -25,7 +25,7 @@ export default function FriendsGamed({data, type}) {
 
   return (
 
-    <div style={{display: 'flex', flexDirection: 'column', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto', marginTop: 100}} >
+    <div style={{display: 'flex', flexDirection: 'column', maxWidth: 600, marginLeft: 'auto', marginRight: 'auto'}} >
       {!useLoading && <img src={'https://i.pinimg.com/originals/cd/77/f3/cd77f35d8796025d03b5452d65269e9d.gif'} style={{margin: 'auto', filter: 'invert(1)'}} />}
 
       {useLoading &&
@@ -52,16 +52,16 @@ export default function FriendsGamed({data, type}) {
                   }
                 </th>
                 <th>
-                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('win', e, useData, setData)}>Win ↓</span>
+                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('win', e, useData, setData)}>{type.includes('Win') ? 'Win ↓' : 'Loss ↓'}</span>
                 </th>
                 <th>
-                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('loss', e, useData, setData)}>Loss ↓</span>
+                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('loss', e, useData, setData)}>{type.includes('Win') ? 'Loss ↓' : 'Win ↓'}</span>
                 </th>
                 <th>
                   <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('matches', e, useData, setData)}>Matches ↓</span>
                 </th>
                 <th>
-                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('winRate', e, useData, setData)}>WinRate ↓</span>
+                  <span style={{color: '#37e', cursor: 'pointer'}} onClick={(e) => orderTable('winRate', e, useData, setData)}>{type.includes('Win') ? 'WinRate ↓' : 'LossRate ↓'}</span>
                 </th>
               </tr>
             </thead>
@@ -84,9 +84,8 @@ export default function FriendsGamed({data, type}) {
                     {player.loss}
                   </td>
                   <td >
-                    <a href={`/matches/${player.profile.account_id}`} onClick={() => setLoading(false)} >
-                      {player.matches}  👀
-                    </a> </td>
+                    {player.matches}
+                  </td>
                   <td >
                     {player.winRate.toFixed(1)}% </td>
                 </tr>

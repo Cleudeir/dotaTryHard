@@ -13,7 +13,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const {id} = context.params;
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}`);
+  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}`);
   const data = await resp.json();
   return {
     props: {data},
@@ -26,8 +26,8 @@ export default function Matches({data}) {
   return (
     <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
       <Header />
-      <TeamGamed type={'See Your win Rate with your friends'} data={data.alliesPlayers.slice(0, 100)}/>
-      <TeamGamed type={'See Your loss Rate with your enemies'} data={data.enemyPlayers.slice(0, 100)}/>
+      <TeamGamed type={'See Your Win Rate with your friends'} data={data.alliesPlayers.slice(0, 100)}/>
+      <TeamGamed type={'See Your Loss Rate with your enemies'} data={data.enemyPlayers.slice(0, 100)}/>
     </div>
   );
 }
