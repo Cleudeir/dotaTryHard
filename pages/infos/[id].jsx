@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
-import FriendsGamed from '../../component/FriendsGamed';
+import TeamGamed from '../../component/TeamGamed';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -17,16 +17,17 @@ export async function getStaticProps(context) {
   const data = await resp.json();
   return {
     props: {data},
-    revalidate: 1*60*60,
+    revalidate: 24*60*60,
   };
 }
 
 export default function Matches({data}) {
   console.log(data);
   return (
-    <div>
+    <div style={{display: 'flex', flexDirection: 'row', flexWrap: 'wrap'}}>
       <Header />
-      <FriendsGamed friendsGamed={data.friendsGamed}/>
+      <TeamGamed type={'See Your win Rate with your friends'} data={data.alliesPlayers.slice(0, 100)}/>
+      <TeamGamed type={'See Your loss Rate with your enemies'} data={data.enemyPlayers.slice(0, 100)}/>
     </div>
   );
 }
