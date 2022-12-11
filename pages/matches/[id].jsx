@@ -11,22 +11,22 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps(context) {
-  const {id} = context.params;
+  const { id } = context.params;
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}&limit=30`);
+  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}&limit=10`);
   const data = await resp.json();
   return {
-    props: {data},
-    revalidate: 1*60*60,
+    props: { data },
+    revalidate: 1 * 60 * 60,
   };
 }
 
-export default function Matches({data}) {
+export default function Matches({ data }) {
   console.log(data);
   return (
     <div>
       <Header />
-      <CardCarousel _match={data.matches.slice(0, 30)} _avg={data.avg}/>
+      <CardCarousel _match={data.matches.slice(0, 30)} _avg={data.avg} />
     </div>
   );
 }

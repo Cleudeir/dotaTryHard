@@ -1,13 +1,37 @@
 {
-    "cSpell.words": [
-        "akamaihd",
-        "avatarfull",
-        "datdota",
-        "linebreak",
-        "loccountrycode",
-        "personaname",
-        "Rankeamento",
-        "steamcdn",
-        "steamuserimages"
-    ]
+  "cSpell.words": [
+    "datetime",
+    "datetimepicker",
+    "deslogar",
+    "Deslogar",
+    "devs",
+    "endereco",
+    "Entypo",
+    "Everton",
+    "funcao",
+    "funcionario",
+    "Funcionario",
+    "guiscrcpy",
+    "Imput",
+    "Ionicons",
+    "JUVE",
+    "Lanc",
+    "Lanç",
+    "permissao",
+    "Pressable",
+    "rdos",
+    "relement",
+    "scrcpy",
+    "selectbox",
+    "situacao",
+    "tcpip",
+    "textinput",
+    "Tottenham",
+    "Usuario",
+    "USUARIOS"
+  ],
+  "editor.formatOnSave": true,
+  "[javascriptreact]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }
