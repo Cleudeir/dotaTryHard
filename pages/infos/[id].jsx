@@ -48,8 +48,6 @@ export default function Matches({ data }) {
             </Accordion.Body>
           </Accordion.Item>
         </Accordion>
-
-
       </div>
     </>
   );
