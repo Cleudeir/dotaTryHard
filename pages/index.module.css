@@ -1,36 +1,40 @@
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: calc(100vh - 63px);
-  }
-.containerList{
-display: flex;
-flex-direction: column;
-justify-content: center;
-align-items: center;
-overflow-x: scroll;
-overflow-y: hidden;
-height: auto;
-box-shadow: 0px 0px 10px -3px #000000;
-margin-top: 10px;
-margin-bottom: 10px;
-padding: 8px;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  min-height: 100vh;
+  width: "100%";
 }
+
+.containerList {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  overflow-x: scroll;
+  overflow-y: hidden;
+  height: auto;
+  box-shadow: 0px 0px 10px -3px #000000;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
 .list_cards {
-display: inline-flex;
-justify-content: center;
-align-items: stretch;
-flex-wrap: nowrap;
-flex-direction: row;
-margin-right: auto;
+  display: inline-flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin-right: auto;
 }
+
 .title {
-    display: flex;
-    justify-content: center;
-    align-items: stretch;
-    flex-wrap: nowrap;
-    flex-direction: row;
-    margin: auto;
-    padding-top: 10px;
-    }
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: nowrap;
+  flex-direction: row;
+  margin: auto;
+  padding-top: 10px;
+}

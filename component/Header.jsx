@@ -15,7 +15,7 @@ function Header({ filterRegion }) {
   }
 
   return (
-    <div style={{ marginBottom: 60 }}>
+    <div >
       <Navbar
         style={{
           position: "fixed",
@@ -23,6 +23,7 @@ function Header({ filterRegion }) {
           left: 0,
           width: "100%",
           zIndex: 999,
+          marginBottom: 100
         }}
         key={"sm"}
         bg="light"

@@ -10,8 +10,14 @@ function Tables({ useData, setData, useSave, setLoading }) {
     setMounted(true);
   }, []);
 
+  const [useResponsiveTable, setResponsiveTable] = useState(true);
   useEffect(() => {
-    window.addEventListener("resize", () => {});
+    const sizeWidth = window.screen.width
+    const sizeHeight = window.screen.height
+    console.log({ sizeWidth, sizeHeight })
+    if (sizeWidth > 768 && sizeWidth > sizeHeight) {
+      setResponsiveTable(false)
+    }
   }, []);
 
   function styleTd() {
@@ -28,7 +34,7 @@ function Tables({ useData, setData, useSave, setLoading }) {
     };
   }
   function ImageSize() {
-    return <div style={{ margin: 0, padding: 0, width: 50, height: 50 }}></div>;
+    return <div style={{ margin: 0, padding: 0, width: 45, height: 45 }}></div>;
   }
 
   function filterName(e) {
@@ -44,16 +50,24 @@ function Tables({ useData, setData, useSave, setLoading }) {
   }
   return (
     mounted && (
-      <>
+      <div style={{
+        whiteSpace: "nowrap",
+        width: "100%",
+        maxWidth: 1300,
+        padding: 5,
+        margin: 0,
+        fontSize: 14
+      }}>
         <Table
           style={{
+            width: "100%",
             whiteSpace: "nowrap",
-            marginLeft: "auto",
-            marginRight: "auto",
+            padding: 0,
+            margin: 0
           }}
           bordered
           striped={true}
-          responsive={true}
+          responsive={useResponsiveTable}
         >
           <thead>
             <tr>
@@ -294,7 +308,7 @@ function Tables({ useData, setData, useSave, setLoading }) {
               ))}
           </tbody>
         </Table>
-      </>
+      </div>
     )
   );
 }

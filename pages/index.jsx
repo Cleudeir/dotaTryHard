@@ -62,36 +62,42 @@ export default function Home({ regionData, regionsNames }) {
       <Header filterRegion={filterRegion} />
       <main
         id="main"
-        style={{
-          padding: 5,
-          minHeight: "100vh",
-          maxWidth: 1300,
-          display: "flex",
-          flexDirection: "column",
-          alignItems: "center",
-          marginLeft: "auto",
-          marginRight: "auto",
-        }}
       >
         {useLoading && (
-          <>
+          <div style={{
+            padding: 5,
+            maxWidth: 1300,
+            width: "100%",
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            marginLeft: "auto",
+            marginRight: "auto",
+            marginTop: 70
+          }}>
             <h1
               style={{
-                marginLeft: "auto",
-                marginRight: "auto",
                 padding: 5,
-                marginTop: 70,
               }}
             >
               {regionsNames[useRegion]}
             </h1>
             <Tables
+              style={{
+                padding: 5,
+                maxWidth: 1300,
+                display: "flex",
+                flexDirection: "column",
+                alignItems: "center",
+                marginLeft: "auto",
+                marginRight: "auto",
+              }}
               useSave={regionData[useRegion]}
               useData={useData}
               setData={setData}
               setLoading={setLoading}
             />
-          </>
+          </div>
         )}
         {!useLoading && (
           <img
