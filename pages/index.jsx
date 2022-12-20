@@ -32,7 +32,7 @@ export async function getStaticProps() {
 
   return {
     props: { regionData: regionData, regionsNames },
-    revalidate: 10 * 60,
+    revalidate: 4 * 60 * 60,
   };
 }
 

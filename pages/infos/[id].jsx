@@ -19,7 +19,7 @@ export async function getStaticProps(context) {
   const data = await resp.json();
   return {
     props: { data },
-    revalidate: 24 * 60 * 60,
+    revalidate: 1 * 60 * 60,
   };
 }
 
