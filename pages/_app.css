@@ -1,29 +1,36 @@
 @import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Indie+Flower&family=Roboto:wght@100;300&family=Ubuntu+Mono&display=swap');
+
 html,
-body { 
+body {
   font-family: 'Ubuntu Mono', monospace;
+  background-color: rgb(251, 253, 251);
 }
 
-a {  
+a {
   text-decoration: none;
 }
 
 * {
   box-sizing: border-box;
   padding: 0px;
-  margin: 0px; 
+  margin: 0px;
 }
-::placeholder { /* Chrome, Firefox, Opera, Safari 10.1+ */
+
+::placeholder {
+  /* Chrome, Firefox, Opera, Safari 10.1+ */
   color: rgba(255, 255, 255, 0.527);
-  opacity: 1; /* Firefox */
+  opacity: 1;
+  /* Firefox */
 }
-:root{
-  --cor01 : #1c2026;
-  --cor02 : #222d43;
-  --cor03 : #6c7077;
-  --cor04 : #8685af;
-  --cor05 : #2da078b8; 
+
+:root {
+  --cor01: #1c2026;
+  --cor02: #222d43;
+  --cor03: #6c7077;
+  --cor04: #8685af;
+  --cor05: #2da078b8;
 }
+
 input[type='number'] {
-  -moz-appearance:textfield;
+  -moz-appearance: textfield;
 }
