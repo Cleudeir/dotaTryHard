@@ -104,7 +104,11 @@ export default function Home({ regionData, regionsNames }) {
             src={
               "https://i.pinimg.com/originals/cd/77/f3/cd77f35d8796025d03b5452d65269e9d.gif"
             }
-            style={{ margin: "auto", filter: "invert(1)" }}
+            style={{
+              marginLeft: "auto",
+              marginRight: "auto",
+              filter: "invert(1)"
+            }}
           />
         )}
       </main>
