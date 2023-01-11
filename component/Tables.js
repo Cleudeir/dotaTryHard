@@ -12,11 +12,11 @@ function Tables({ useData, setData, useSave, setLoading }) {
 
   const [useResponsiveTable, setResponsiveTable] = useState(true);
   useEffect(() => {
-    const sizeWidth = window.screen.width
-    const sizeHeight = window.screen.height
-    console.log({ sizeWidth, sizeHeight })
+    const sizeWidth = window.screen.width;
+    const sizeHeight = window.screen.height;
+    console.log({ sizeWidth, sizeHeight });
     if (sizeWidth > 768 && sizeWidth > sizeHeight) {
-      setResponsiveTable(false)
+      setResponsiveTable(false);
     }
   }, []);
 
@@ -41,29 +41,28 @@ function Tables({ useData, setData, useSave, setLoading }) {
     if (useSave)
       setData(
         useSave.filter((x) =>
-          x.profile.personaname
-            .slice(0, e.length)
-            .toUpperCase()
-            .includes(e.toUpperCase())
+          x.profile.personaname.toUpperCase().includes(e.toUpperCase())
         )
       );
   }
   return (
     mounted && (
-      <div style={{
-        whiteSpace: "nowrap",
-        width: "100%",
-        maxWidth: 1300,
-        padding: 5,
-        margin: 0,
-        fontSize: 14
-      }}>
+      <div
+        style={{
+          whiteSpace: "nowrap",
+          width: "100%",
+          maxWidth: 1300,
+          padding: 5,
+          margin: 0,
+          fontSize: 14,
+        }}
+      >
         <Table
           style={{
             width: "100%",
             whiteSpace: "nowrap",
             padding: 0,
-            margin: 0
+            margin: 0,
           }}
           bordered
           striped={true}

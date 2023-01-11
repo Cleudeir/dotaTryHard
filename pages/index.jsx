@@ -7,7 +7,7 @@ const React = require("react");
 
 export async function getStaticProps() {
   console.log("getStatic - Home: ");
-  const resp = await fetch(`${process.env.backUrl}/ranking?limit=400`);
+  const resp = await fetch(`${process.env.backUrl}/ranking?limit=1000`);
   const data = await resp.json();
   const regionsNames = [
     "WORLD",
@@ -31,7 +31,7 @@ export async function getStaticProps() {
   }
 
   return {
-    props: { regionData: regionData, regionsNames },
+    props: { regionData, regionsNames },
     revalidate: 4 * 60 * 60,
   };
 }
@@ -60,21 +60,21 @@ export default function Home({ regionData, regionsNames }) {
   return (
     <div className={styles.container}>
       <Header filterRegion={filterRegion} />
-      <main
-        id="main"
-      >
+      <main id="main">
         {useLoading && (
-          <div style={{
-            padding: 5,
-            maxWidth: 1300,
-            width: "100%",
-            display: "flex",
-            flexDirection: "column",
-            alignItems: "center",
-            marginLeft: "auto",
-            marginRight: "auto",
-            marginTop: 70
-          }}>
+          <div
+            style={{
+              padding: 5,
+              maxWidth: 1300,
+              width: "100%",
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "center",
+              marginLeft: "auto",
+              marginRight: "auto",
+              marginTop: 70,
+            }}
+          >
             <h1
               style={{
                 padding: 5,
@@ -93,7 +93,7 @@ export default function Home({ regionData, regionsNames }) {
                 marginRight: "auto",
               }}
               useSave={regionData[useRegion]}
-              useData={useData}
+              useData={useData.slice(0, 300)}
               setData={setData}
               setLoading={setLoading}
             />
@@ -107,7 +107,7 @@ export default function Home({ regionData, regionsNames }) {
             style={{
               marginLeft: "auto",
               marginRight: "auto",
-              filter: "invert(1)"
+              filter: "invert(1)",
             }}
           />
         )}
