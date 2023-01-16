@@ -26,21 +26,27 @@ export async function getStaticProps(context) {
 
 export default function Matches({data, account_id}) {
   const [infos, setInfos] = useState(false);
-  const [useLoading, setLoading] = useState(false);
+
   useEffect(() => {
     (async () => {
       const {playersMatches, _matchIds} = data;
       console.log('{ playersMatches, _matchIds }: ', {playersMatches, _matchIds});
 
       if (playersMatches && _matchIds) {
-        const _infos = await mathInfos({playersMatches, _matchIds, account_id});
-        setInfos(_infos);
-        setLoading(true);
+        mathInfos({playersMatches, _matchIds, account_id})
+            .then((_infos)=> setInfos(_infos));
       }
     })();
   }, [data]);
-  return (
-    useLoading && (
+  if (!infos) {
+    return (
+      <>
+           Carregando!!!
+      </>
+    );
+  }
+  if (infos) {
+    return (
       <>
         <Header />
         <div style={{display: 'flex', flexDirection: 'column', maxWidth: 600, marginTop: 90, marginLeft: 'auto', marginRight: 'auto'}}>
@@ -61,6 +67,6 @@ export default function Matches({data, account_id}) {
           </Accordion>
         </div>
       </>
-    )
-  );
+    );
+  }
 }
