@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const {id} = context.params;
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}&limit=500`);
+  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}&limit=300`);
   const data = await resp.json();
   return {
     props: {data, account_id: Number(id)},
