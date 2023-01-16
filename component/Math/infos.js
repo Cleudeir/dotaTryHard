@@ -1,10 +1,10 @@
-export default async function mathInfos({ playersMatches, _matchIds, account_id }) {
+export default async function mathInfos({playersMatches, _matchIds, account_id}) {
   const matches = [];
   _matchIds.forEach((item) =>
     matches.push({
       match_id: item.match_id,
       players: playersMatches.filter((y) => y.match_id === item.match_id),
-    })
+    }),
   );
   const playersAlliesTeamGame = [];
   const playersEnemyTeamGame = [];
@@ -12,7 +12,7 @@ export default async function mathInfos({ playersMatches, _matchIds, account_id 
   const uniqueEnemyPlayers = new Set();
   let person = undefined;
   matches.map((item) => {
-    const [{ player_slot, win, profile }] = item.players.filter((x) => x.account_id === account_id);
+    const [{player_slot, win, profile}] = item.players.filter((x) => x.account_id === account_id);
     person = profile;
     item.players.map((x) => {
       if (x.account_id > 150 && x.account_id !== account_id && x.player_slot > 100 && player_slot > 100) {
@@ -46,7 +46,7 @@ export default async function mathInfos({ playersMatches, _matchIds, account_id 
 
   const alliesPlayers = await orderAlliesEnemy(uniqueAlliesPlayers, playersAlliesTeamGame);
   const enemyPlayers = await orderAlliesEnemy(uniqueEnemyPlayers, playersEnemyTeamGame);
-  return { alliesPlayers, enemyPlayers, profile: person };
+  return {alliesPlayers, enemyPlayers, profile: person};
 }
 
 async function orderAlliesEnemy(playersUnique, gamed) {
@@ -55,16 +55,16 @@ async function orderAlliesEnemy(playersUnique, gamed) {
   uniqueToArray.map((id) => {
     let win = 0;
     let loss = 0;
-    const [{ profile }] = gamed
-      .filter((x) => x.profile.account_id === id)
-      .map((x) => {
-        if (x.win === 1) {
-          win++;
-        } else {
-          loss++;
-        }
-        return x;
-      });
+    const [{profile}] = gamed
+        .filter((x) => x.profile.account_id === id)
+        .map((x) => {
+          if (x.win === 1) {
+            win++;
+          } else {
+            loss++;
+          }
+          return x;
+        });
     PlayersWinRate.push({
       profile,
       win,
