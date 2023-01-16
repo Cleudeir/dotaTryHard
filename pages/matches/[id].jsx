@@ -10,7 +10,7 @@ export async function getStaticPaths() {
   };
 }
 
-const qnt = 20;
+const qnt = 30;
 
 export async function getStaticProps(context) {
   const { id } = context.params;
@@ -24,6 +24,8 @@ export async function getStaticProps(context) {
 }
 
 export default function Matches({ data }) {
+  console.log("data: ", data);
+
   return (
     <div>
       <Header />

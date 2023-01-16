@@ -16,7 +16,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(context) {
   const { id } = context.params;
   console.log("getStatic - Home: ");
-  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}&limit=600`);
+  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}&limit=500`);
   const data = await resp.json();
   return {
     props: { data, account_id: Number(id) },
@@ -30,6 +30,8 @@ export default function Matches({ data, account_id }) {
   useEffect(() => {
     (async () => {
       const { playersMatches, _matchIds } = data;
+      console.log("{ playersMatches, _matchIds }: ", { playersMatches, _matchIds });
+
       if (playersMatches && _matchIds) {
         const _infos = await mathInfos({ playersMatches, _matchIds, account_id });
         setInfos(_infos);
