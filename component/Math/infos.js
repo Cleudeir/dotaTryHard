@@ -3,7 +3,7 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
   _matchIds.forEach((item) =>
     matches.push({
       match_id: item.match_id,
-      players: playersMatches.filter((y) => y.match_id === item.match_id),
+      players: playersMatches.filter((y) => y.match_id === item),
     }),
   );
   const playersAlliesTeamGame = [];
