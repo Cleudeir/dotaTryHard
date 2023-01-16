@@ -15,7 +15,7 @@ function Header({ filterRegion }) {
   }
 
   return (
-    <div >
+    <div>
       <Navbar
         style={{
           position: "fixed",
@@ -23,7 +23,7 @@ function Header({ filterRegion }) {
           left: 0,
           width: "100%",
           zIndex: 999,
-          marginBottom: 100
+          marginBottom: 100,
         }}
         key={"sm"}
         bg="light"
@@ -33,23 +33,14 @@ function Header({ filterRegion }) {
         <Container fluid>
           <Navbar.Brand href="/">Dota Try Hard</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${"sm"}`} />
-          <Navbar.Offcanvas
-            id={`offcanvasNavbar-expand-${"sm"}`}
-            aria-labelledby={`offcanvasNavbarLabel-expand-${"sm"}`}
-            placement="end"
-          >
+          <Navbar.Offcanvas id={`offcanvasNavbar-expand-${"sm"}`} aria-labelledby={`offcanvasNavbarLabel-expand-${"sm"}`} placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${"sm"}`}>
-                Dota Try Hard
-              </Offcanvas.Title>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${"sm"}`}>Dota Try Hard</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="/">Ranking</Nav.Link>
-                <NavDropdown
-                  title="Regions"
-                  id={`offcanvasNavbarDropdown-expand-${"sm"}`}
-                >
+                <NavDropdown title="Regions" id={`offcanvasNavbarDropdown-expand-${"sm"}`}>
                   <NavDropdown.Item
                     href="#"
                     onClick={() => {
@@ -103,13 +94,7 @@ function Header({ filterRegion }) {
                 </NavDropdown>
               </Nav>
               <Form className="d-flex">
-                <Form.Control
-                  type="number"
-                  placeholder="Account_id"
-                  className="me-2"
-                  aria-label="Search"
-                  onChange={(e) => setValue(e.target.value)}
-                />
+                <Form.Control type="number" placeholder="Account_id" className="me-2" aria-label="Search" onChange={(e) => setValue(e.target.value)} />
                 <Button onClick={add} variant="outline-success">
                   Add/Update
                 </Button>

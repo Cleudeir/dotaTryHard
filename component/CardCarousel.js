@@ -47,10 +47,7 @@ function CardCarousel({ _match, _avg, qnt }) {
         <div style={{ width: "100%", maxWidth: 1360, margin: "auto" }}>
           {_match.map((match) => (
             <div key={match.match_id}>
-              <Card
-                className="text-center"
-                style={{ marginTop: 10, borderRadius: 0 }}
-              >
+              <Card className="text-center" style={{ marginTop: 10, borderRadius: 0 }}>
                 <Card.Header>
                   <div style={{ margin: "auto" }}>⠀⠀⠀Match score</div>
                   <div>
@@ -75,9 +72,7 @@ function CardCarousel({ _match, _avg, qnt }) {
               <Table
                 bordered
                 striped={true}
-                responsive={
-                  document.documentElement.clientWidth < 580 ? true : false
-                }
+                responsive={document.documentElement.clientWidth < 580 ? true : false}
                 style={
                   document.documentElement.clientWidth < 580
                     ? {
@@ -119,39 +114,17 @@ function CardCarousel({ _match, _avg, qnt }) {
                         <td style={imageStyle(player.profile.avatarfull)}>
                           <ImageSize />
                         </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.profile.personaname.slice(0, 15)}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.kills}{" "}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.deaths}{" "}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.assists}{" "}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.last_hits}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.denies}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.gold_per_min.toLocaleString("pt-BR")}{" "}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.xp_per_min.toLocaleString("pt-BR")}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.hero_damage.toLocaleString("pt-BR")}{" "}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.tower_damage.toLocaleString("pt-BR")}{" "}
-                        </td>
-                        <td style={colorWinStyle(player.win)}>
-                          {player.hero_healing.toLocaleString("pt-BR")}{" "}
-                        </td>
+                        <td style={colorWinStyle(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
+                        <td style={colorWinStyle(player.win)}>{player.kills} </td>
+                        <td style={colorWinStyle(player.win)}>{player.deaths} </td>
+                        <td style={colorWinStyle(player.win)}>{player.assists} </td>
+                        <td style={colorWinStyle(player.win)}>{player.last_hits}</td>
+                        <td style={colorWinStyle(player.win)}>{player.denies}</td>
+                        <td style={colorWinStyle(player.win)}>{player.gold_per_min.toLocaleString("pt-BR")} </td>
+                        <td style={colorWinStyle(player.win)}>{player.xp_per_min.toLocaleString("pt-BR")}</td>
+                        <td style={colorWinStyle(player.win)}>{player.hero_damage.toLocaleString("pt-BR")} </td>
+                        <td style={colorWinStyle(player.win)}>{player.tower_damage.toLocaleString("pt-BR")} </td>
+                        <td style={colorWinStyle(player.win)}>{player.hero_healing.toLocaleString("pt-BR")} </td>
                         <td style={imageStyle(player.hero_id)}>
                           <div
                             style={{

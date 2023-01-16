@@ -9,21 +9,12 @@ export async function getStaticProps() {
   console.log("getStatic - Home: ");
   const resp = await fetch(`${process.env.backUrl}/ranking?limit=1000`);
   const data = await resp.json();
-  const regionsNames = [
-    "WORLD",
-    "SOUTH AMERICA",
-    "NORTH AMERICA",
-    "EUROPE",
-    "CHINA",
-    "unknown",
-  ];
+  const regionsNames = ["WORLD", "SOUTH AMERICA", "NORTH AMERICA", "EUROPE", "CHINA", "unknown"];
   const regionData = [];
   for (let i = 0; i < regionsNames.length; i++) {
     const element = regionsNames[i];
     if (element !== "WORLD") {
-      const filter = data.filter(
-        (item) => item.profile.loccountrycode === element
-      );
+      const filter = data.filter((item) => item.profile.loccountrycode === element);
       regionData.push(filter);
     } else {
       regionData.push(data);
@@ -48,9 +39,7 @@ export default function Home({ regionData, regionsNames }) {
   }, []);
 
   function filterRegion(region) {
-    setData(
-      regionData[region].slice(0, 30).map((x, i) => ({ ...x, pos: i + 1 }))
-    );
+    setData(regionData[region].slice(0, 30).map((x, i) => ({ ...x, pos: i + 1 })));
     setRegion(region);
     setTimeout(() => {
       setData(regionData[region].map((x, i) => ({ ...x, pos: i + 1 })));
@@ -101,9 +90,7 @@ export default function Home({ regionData, regionsNames }) {
         )}
         {!useLoading && (
           <img
-            src={
-              "https://i.pinimg.com/originals/cd/77/f3/cd77f35d8796025d03b5452d65269e9d.gif"
-            }
+            src={"https://i.pinimg.com/originals/cd/77/f3/cd77f35d8796025d03b5452d65269e9d.gif"}
             style={{
               marginLeft: "auto",
               marginRight: "auto",

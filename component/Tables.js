@@ -38,12 +38,7 @@ function Tables({ useData, setData, useSave, setLoading }) {
   }
 
   function filterName(e) {
-    if (useSave)
-      setData(
-        useSave.filter((x) =>
-          x.profile.personaname.toUpperCase().includes(e.toUpperCase())
-        )
-      );
+    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())));
   }
   return (
     mounted && (
@@ -71,10 +66,7 @@ function Tables({ useData, setData, useSave, setLoading }) {
           <thead>
             <tr>
               <th style={{ width: 70 }}>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("pos", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("pos", e, useData, setData)}>
                   Pos ↑
                 </span>
               </th>
@@ -93,9 +85,7 @@ function Tables({ useData, setData, useSave, setLoading }) {
                         cursor: "pointer",
                         margin: "auto",
                       }}
-                      onClick={(e) =>
-                        orderTable("profile.personaname", e, useData, setData)
-                      }
+                      onClick={(e) => orderTable("profile.personaname", e, useData, setData)}
                     >
                       Nick ↓
                     </span>
@@ -130,116 +120,67 @@ function Tables({ useData, setData, useSave, setLoading }) {
                 )}
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) =>
-                    orderTable("rankingRate", e, useData, setData)
-                  }
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("rankingRate", e, useData, setData)}>
                   Rate ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("matches", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("matches", e, useData, setData)}>
                   Matches ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("winRate", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("winRate", e, useData, setData)}>
                   WinRate ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("kills", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("kills", e, useData, setData)}>
                   kills ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("deaths", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("deaths", e, useData, setData)}>
                   Deaths ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("assists", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("assists", e, useData, setData)}>
                   Assis ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("last_hits", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("last_hits", e, useData, setData)}>
                   Lasts ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("denies", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("denies", e, useData, setData)}>
                   Denies ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) =>
-                    orderTable("gold_per_min", e, useData, setData)
-                  }
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("gold_per_min", e, useData, setData)}>
                   GPM ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) => orderTable("xp_per_min", e, useData, setData)}
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("xp_per_min", e, useData, setData)}>
                   XPM ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) =>
-                    orderTable("hero_damage", e, useData, setData)
-                  }
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("hero_damage", e, useData, setData)}>
                   Hero ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) =>
-                    orderTable("tower_damage", e, useData, setData)
-                  }
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("tower_damage", e, useData, setData)}>
                   Tower ↓
                 </span>
               </th>
               <th>
-                <span
-                  style={{ color: "#37e", cursor: "pointer" }}
-                  onClick={(e) =>
-                    orderTable("hero_healing", e, useData, setData)
-                  }
-                >
+                <span style={{ color: "#37e", cursor: "pointer" }} onClick={(e) => orderTable("hero_healing", e, useData, setData)}>
                   Heal ↓
                 </span>
               </th>
@@ -253,56 +194,28 @@ function Tables({ useData, setData, useSave, setLoading }) {
                   <td style={imageStyle(player.profile.avatarfull)}>
                     <ImageSize />
                   </td>
-                  <td style={styleTd(player.win)}>
-                    {player.profile.personaname.slice(0, 15)}
-                  </td>
+                  <td style={styleTd(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
                   <td style={styleTd(player.win)}>{player.rankingRate} </td>
                   <td style={styleTd(player.win)}>
-                    <a
-                      href={`/matches/${player.profile.account_id}`}
-                      onClick={() => setLoading(false)}
-                    >
+                    <a href={`/matches/${player.profile.account_id}`} onClick={() => setLoading(false)}>
                       {player.matches} 👀
                     </a>{" "}
                   </td>
                   <td style={styleTd(player.win)}>
-                    <a
-                      href={`/infos/${player.profile.account_id}`}
-                      onClick={() => setLoading(false)}
-                    >
+                    <a href={`/infos/${player.profile.account_id}`} onClick={() => setLoading(false)}>
                       {player.winRate.toFixed(1)}% 👀
                     </a>{" "}
                   </td>
-                  <td style={styleTd(player.win)}>
-                    {player.kills.toFixed(1)}{" "}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.deaths.toFixed(1)}{" "}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.assists.toFixed(1)}{" "}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.last_hits.toFixed(1)}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.denies.toFixed(1)}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.gold_per_min.toFixed(0)}{" "}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.xp_per_min.toFixed(0)}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.hero_damage.toFixed(0)}{" "}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.tower_damage.toFixed(0)}{" "}
-                  </td>
-                  <td style={styleTd(player.win)}>
-                    {player.hero_healing.toFixed(0)}{" "}
-                  </td>
+                  <td style={styleTd(player.win)}>{player.kills.toFixed(1)} </td>
+                  <td style={styleTd(player.win)}>{player.deaths.toFixed(1)} </td>
+                  <td style={styleTd(player.win)}>{player.assists.toFixed(1)} </td>
+                  <td style={styleTd(player.win)}>{player.last_hits.toFixed(1)}</td>
+                  <td style={styleTd(player.win)}>{player.denies.toFixed(1)}</td>
+                  <td style={styleTd(player.win)}>{player.gold_per_min.toFixed(0)} </td>
+                  <td style={styleTd(player.win)}>{player.xp_per_min.toFixed(0)}</td>
+                  <td style={styleTd(player.win)}>{player.hero_damage.toFixed(0)} </td>
+                  <td style={styleTd(player.win)}>{player.tower_damage.toFixed(0)} </td>
+                  <td style={styleTd(player.win)}>{player.hero_healing.toFixed(0)} </td>
                 </tr>
               ))}
           </tbody>

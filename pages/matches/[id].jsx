@@ -10,14 +10,12 @@ export async function getStaticPaths() {
   };
 }
 
-const qnt = 15;
+const qnt = 20;
 
 export async function getStaticProps(context) {
   const { id } = context.params;
   console.log("getStatic - Home: ");
-  const resp = await fetch(
-    `${process.env.backUrl}/player?account_id=${id}&limit=${qnt}`
-  );
+  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}&limit=${qnt}`);
   const data = await resp.json();
   return {
     props: { data },
@@ -26,16 +24,10 @@ export async function getStaticProps(context) {
 }
 
 export default function Matches({ data }) {
-  console.log(data);
-
   return (
     <div>
       <Header />
-      <CardCarousel
-        _match={data.matches.slice(0, qnt)}
-        qnt={qnt}
-        _avg={data.avg}
-      />
+      <CardCarousel _match={data.matches.slice(0, qnt)} qnt={qnt} _avg={data.avg} />
     </div>
   );
 }

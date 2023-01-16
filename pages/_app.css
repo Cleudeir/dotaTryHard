@@ -1,8 +1,8 @@
-@import url('https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Indie+Flower&family=Roboto:wght@100;300&family=Ubuntu+Mono&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cinzel:wght@500&family=Indie+Flower&family=Roboto:wght@100;300&family=Ubuntu+Mono&display=swap");
 
 html,
 body {
-  font-family: 'Ubuntu Mono', monospace;
+  font-family: "Ubuntu Mono", monospace;
   background-color: rgb(251, 253, 251);
 }
 
@@ -31,6 +31,6 @@ a {
   --cor05: #2da078b8;
 }
 
-input[type='number'] {
+input[type="number"] {
   -moz-appearance: textfield;
 }

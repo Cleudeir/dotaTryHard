@@ -1,45 +1,38 @@
 module.exports = {
-  'env': {
-    'browser': true,
-    'es2021': true,
-    'node': true,
+  env: {
+    browser: true,
+    es2021: true,
+    node: true,
   },
-  'extends': [
-    'plugin:react/recommended',
-    'google',
-    "prettier"
-  ],
-  'overrides': [
-  ],
-  'parserOptions': {
-    'ecmaVersion': 'latest',
-    'sourceType': 'module',
+  extends: ["plugin:react/recommended", "google", "prettier"],
+  overrides: [],
+  parserOptions: {
+    ecmaVersion: "latest",
+    sourceType: "module",
   },
-  'plugins': [
-    'react',
-  ],
-  'rules': {
-    'linebreak-style': 0,
-    'no-console': 'off',
-    'no-restricted-syntax': [
-      'error',
+  plugins: ["react"],
+  rules: {
+    "linebreak-style": 0,
+    "no-console": "off",
+    "no-restricted-syntax": [
+      "error",
       {
-        'selector': 'CallExpression[callee.object.name=\'console\'][callee.property.name!=/^(log|warn|error|info|trace)$/]',
-        'message': 'Unexpected property on console object was called',
+        selector: "CallExpression[callee.object.name='console'][callee.property.name!=/^(log|warn|error|info|trace)$/]",
+        message: "Unexpected property on console object was called",
       },
     ],
-    'react/jsx-props-no-spreading': 0,
-    'react/jsx-one-expression-per-line': 0,
-    'react/jsx-first-prop-new-line': 0,
-    'react/jsx-max-props-per-line': 0,
-    'no-shadow': 0,
-    'import/no-extraneous-dependencies': 0,
-    'no-continue': 0,
-    'react/prop-types': 0,
-    'consistent-return': 0,
-    'no-promise-executor-return': 0,
-    'no-await-in-loop': 0,
-    'max-len': 0,
-    'require-jsdoc': 0,
+    "react/jsx-props-no-spreading": 0,
+    "react/jsx-one-expression-per-line": 0,
+    "react/jsx-first-prop-new-line": 0,
+    "react/jsx-max-props-per-line": 0,
+    "no-shadow": 0,
+    "import/no-extraneous-dependencies": 0,
+    "no-continue": 0,
+    "react/prop-types": 0,
+    "consistent-return": 0,
+    "no-promise-executor-return": 0,
+    "no-await-in-loop": 0,
+    "max-len": 0,
+    "require-jsdoc": 0,
   },
 };
