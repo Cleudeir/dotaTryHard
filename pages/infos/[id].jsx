@@ -7,6 +7,7 @@ import styles from './[id].module.css';
 import mathInfos from '../../component/Math/infos';
 import ContainerRow from './../../component/ContainerRow/index';
 import Container from './../../component/Container/index';
+import Head from 'next/head';
 
 export async function getStaticPaths() {
   return {
@@ -42,6 +43,12 @@ export default function Matches({data, account_id}) {
   if (infos) {
     return (
       <div className={styles.container}>
+        <Head>
+          <title>DotaTryHard</title>
+          <meta name="description" content="DotaTryHard" />
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+          <link rel="icon" href="/favicon.png" />
+        </Head>
         <Header />
         <Container isLoading={Boolean(infos)}>
           <h3>Hello! {infos.profile.personaname}</h3>

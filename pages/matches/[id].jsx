@@ -1,6 +1,7 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
 import CardCarousel from '../../component/CardCarousel';
+import Head from 'next/head';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -26,6 +27,12 @@ export async function getStaticProps(context) {
 export default function Matches({data}) {
   return (
     <div>
+      <Head>
+        <title>DotaTryHard</title>
+        <meta name="description" content="DotaTryHard" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Header />
       <CardCarousel _match={data.matches.slice(0, qnt)} qnt={qnt} _avg={data.avg} />
     </div>
