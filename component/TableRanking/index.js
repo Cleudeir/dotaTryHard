@@ -3,6 +3,7 @@ import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import orderTable from '../orderTable';
 import styles from './index.module.css';
+import Link from 'next/link';
 function TableRanking({useData, setData, useSave, setLoading}) {
   const [useResponsiveTable, setResponsiveTable] = useState(true);
   useEffect(() => {
@@ -106,14 +107,19 @@ function TableRanking({useData, setData, useSave, setLoading}) {
                 <td style={styleTd(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
                 <td style={styleTd(player.win)}>{player.rankingRate} </td>
                 <td style={styleTd(player.win)}>
-                  <a href={`/matches/${player.profile.account_id}`} onClick={() => setLoading(false)}>
-                    {player.matches} 👀
-                  </a>{' '}
+                  <Link href={`/matches/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
+                    <a>
+                      {player.matches} 👀
+                    </a>
+
+                  </Link>{' '}
                 </td>
                 <td style={styleTd(player.win)}>
-                  <a href={`/infos/${player.profile.account_id}`} onClick={() => setLoading(false)}>
-                    {player.winRate.toFixed(1)}% 👀
-                  </a>{' '}
+                  <Link href={`/infos/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
+                    <a>
+                      {player.winRate.toFixed(1)}% 👀
+                    </a>
+                  </Link>{' '}
                 </td>
                 <td style={styleTd(player.win)}>{player.kills.toFixed(1)} </td>
                 <td style={styleTd(player.win)}>{player.deaths.toFixed(1)} </td>
