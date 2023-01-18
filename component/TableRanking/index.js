@@ -112,11 +112,9 @@ function TableRanking({useData, setData, useSave}) {
                   </a>
                 </td>
                 <td style={styleTd(player.win)}>
-                  <Link href={`/infos/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
-                    <a>
-                      {player.winRate.toFixed(1)}% 👀
-                    </a>
-                  </Link>
+                  <a href={`/infos/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
+                    {player.winRate.toFixed(1)}% 👀
+                  </a>
                 </td>
                 <td style={styleTd(player.win)}>{player.kills.toFixed(1)} </td>
                 <td style={styleTd(player.win)}>{player.deaths.toFixed(1)} </td>
