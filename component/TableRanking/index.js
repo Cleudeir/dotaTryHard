@@ -3,7 +3,6 @@ import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import orderTable from '../orderTable';
 import styles from './index.module.css';
-import Link from 'next/link';
 function TableRanking({useData, setData, useSave}) {
   const [useResponsiveTable, setResponsiveTable] = useState(true);
   useEffect(() => {
