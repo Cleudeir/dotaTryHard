@@ -47,11 +47,11 @@ export default function Matches({data, account_id}) {
           <h3>Hello! {infos.profile.personaname}</h3>
           <ContainerRow>
             <Container>
-              <h3>See Your Win Rate with your friends</h3>
+              <h4>See Your Win Rate with your friends</h4>
               <TableInfos type={'See Your Win Rate with your friends'} data={infos.alliesPlayers.slice(0, 100)} />
             </Container>
             <Container>
-              <h3>See Your Loss Rate with your enemies</h3>
+              <h4>See Your Loss Rate with your enemies</h4>
               <TableInfos type={'See Your Loss Rate with your enemies'} data={infos.enemyPlayers.slice(0, 100)} />
             </Container>
           </ContainerRow>

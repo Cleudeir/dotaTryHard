@@ -55,7 +55,7 @@ export default function FriendsGamed({data, type}) {
                   <td>
                     <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                   </td>
-                  <td>{player.profile.personaname.slice(0, 20)}</td>
+                  <td>{player.profile.personaname.slice(0, 10)}</td>
                   <td>{player.winRate.toFixed(1)}% </td>
                   <td>{player.win}</td>
                   <td>{player.loss}</td>
