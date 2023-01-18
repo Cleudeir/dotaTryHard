@@ -30,12 +30,9 @@ export async function getStaticProps() {
 export default function Home({regionData, regionsNames}) {
   const [useRegion, setRegion] = useState(1);
   const [useData, setData] = useState(false);
-  const [isLoading, setLoading] = useState(false);
-
   useEffect(() => {
     console.log('data: ', regionData, regionData[useRegion]);
     setData(regionData[useRegion]);
-    setLoading(true);
   }, []);
 
   function filterRegion(region) {
@@ -49,7 +46,7 @@ export default function Home({regionData, regionsNames}) {
   return (
     <div className={styles.container}>
       <Header filterRegion={filterRegion} />
-      <Container isLoading={isLoading}>
+      <Container isLoading={Boolean(useData)}>
         <h1> {regionsNames[useRegion]} </h1>
         <TableRanking
           className={styles.table}
