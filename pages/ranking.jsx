@@ -54,7 +54,7 @@ export default function Home({regionData, regionsNames}) {
         <TableRanking
           className={styles.table}
           useSave={regionData[useRegion]}
-          useData={useData}
+          useData={useData.slice(0, 300)}
           setData={setData}
           setLoading={setLoading}
         />
