@@ -4,7 +4,7 @@
   padding: 0px;
   margin: 0px;
   font-size: 12pt;
-  height: calc(100vh - 130px);
+  height: calc(100vh - 200px);
   overflow: auto;
 }
 
@@ -13,7 +13,7 @@
   max-width: 1300px;
   white-space: nowrap;
   padding: 0px;
-  margin: 0px;
+  margin: 0px;                       
   border-collapse: collapse;
   position: relative;
 }

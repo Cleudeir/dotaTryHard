@@ -1,48 +1,18 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import orderTable from '../orderTable';
 import styles from './index.module.css';
-function TableRanking({useData, setData, useSave}) {
-  const [useResponsiveTable, setResponsiveTable] = useState(true);
-  useEffect(() => {
-    const sizeWidth = window.screen.width;
-    const sizeHeight = window.screen.height;
-    console.log({sizeWidth, sizeHeight});
-    if (sizeWidth > 768 && sizeWidth > sizeHeight) {
-      setResponsiveTable(false);
-    }
-  }, []);
-  function styleTd() {
-    return {whiteSpace: 'nowrap'};
-  }
-  function imageStyle(url) {
-    return {
-      margin: 0,
-      padding: 0,
-      backgroundImage: `url(${url})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    };
-  }
-  function ImageSize() {
-    return <div style={{margin: 0, padding: 0, width: 45, height: 45}}></div>;
-  }
-
-  function filterName(e) {
-    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, 300));
-  }
+function TableRanking({isData, filterName, order, setData}) {
   return (
     <div className={styles.container}>
-      <Table className={styles.table} bordered striped={true} responsive={useResponsiveTable}>
+      <Table className={styles.table} bordered striped={true}>
         <thead>
           <tr>
             <th>
-              <span onClick={(e) => orderTable('pos', e, useData, setData)}>Pos ↑</span>
+              <span onClick={(e) => order('pos', e)}>Pos ↑</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('profile.personaname', e, useData, setData)}>Nick ↓</span>
+              <span onClick={(e) => order('profile.personaname', e)}>Nick ↓</span>
             </th>
             <th>
               <Form.Control
@@ -55,76 +25,76 @@ function TableRanking({useData, setData, useSave}) {
               />
             </th>
             <th>
-              <span onClick={(e) => orderTable('rankingRate', e, useData, setData)}>Rate ↓</span>
+              <span onClick={(e) => order('rankingRate', e)}>Rate ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('matches', e, useData, setData)}>Matches ↓</span>
+              <span onClick={(e) => order('matches', e)}>Matches ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('winRate', e, useData, setData)}>WinRate ↓</span>
+              <span onClick={(e) => order('winRate', e)}>WinRate ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('kills', e, useData, setData)}>kills ↓</span>
+              <span onClick={(e) => order('kills', e)}>kills ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('deaths', e, useData, setData)}>Deaths ↓</span>
+              <span onClick={(e) => order('deaths', e)}>Deaths ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('assists', e, useData, setData)}>Assis ↓</span>
+              <span onClick={(e) => order('assists', e)}>Assis ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('last_hits', e, useData, setData)}>Lasts ↓</span>
+              <span onClick={(e) => order('last_hits', e)}>Lasts ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('denies', e, useData, setData)}>Denies ↓</span>
+              <span onClick={(e) => order('denies', e)}>Denies ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('gold_per_min', e, useData, setData)}>GPM ↓</span>
+              <span onClick={(e) => order('gold_per_min', e)}>GPM ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('xp_per_min', e, useData, setData)}>XPM ↓</span>
+              <span onClick={(e) => order('xp_per_min', e)}>XPM ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('hero_damage', e, useData, setData)}>Hero ↓</span>
+              <span onClick={(e) => order('hero_damage', e)}>Hero ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('tower_damage', e, useData, setData)}>Tower ↓</span>
+              <span onClick={(e) => order('tower_damage', e)}>Tower ↓</span>
             </th>
             <th>
-              <span onClick={(e) => orderTable('hero_healing', e, useData, setData)}>Heal ↓</span>
+              <span onClick={(e) => order('hero_healing', e)}>Heal ↓</span>
             </th>
           </tr>
         </thead>
         <tbody>
-          {useData &&
-            useData.map((player, i) => (
+          {isData &&
+            isData.map((player, i) => (
               <tr key={player.profile.account_id}>
-                <td style={styleTd(player.win)}>{player.pos}</td>
-                <td style={imageStyle(player.profile.avatarfull)}>
-                  <ImageSize />
+                <td>{player.pos}</td>
+                <td>
+                  <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                 </td>
-                <td style={styleTd(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
-                <td style={styleTd(player.win)}>{player.rankingRate} </td>
-                <td style={styleTd(player.win)}>
+                <td>{player.profile.personaname.slice(0, 20)}</td>
+                <td>{player.rankingRate} </td>
+                <td>
                   <a href={`/matches/${player.profile.account_id}`} onClick={() => setData(false)}>
                     {player.matches} 👀
                   </a>
                 </td>
-                <td style={styleTd(player.win)}>
+                <td>
                   <a href={`/infos/${player.profile.account_id}`} onClick={() => setData(false)}>
                     {player.winRate.toFixed(1)}% 👀
                   </a>
                 </td>
-                <td style={styleTd(player.win)}>{player.kills.toFixed(1)} </td>
-                <td style={styleTd(player.win)}>{player.deaths.toFixed(1)} </td>
-                <td style={styleTd(player.win)}>{player.assists.toFixed(1)} </td>
-                <td style={styleTd(player.win)}>{player.last_hits.toFixed(1)}</td>
-                <td style={styleTd(player.win)}>{player.denies.toFixed(1)}</td>
-                <td style={styleTd(player.win)}>{player.gold_per_min.toFixed(0)} </td>
-                <td style={styleTd(player.win)}>{player.xp_per_min.toFixed(0)}</td>
-                <td style={styleTd(player.win)}>{player.hero_damage.toFixed(0)} </td>
-                <td style={styleTd(player.win)}>{player.tower_damage.toFixed(0)} </td>
-                <td style={styleTd(player.win)}>{player.hero_healing.toFixed(0)} </td>
+                <td>{player.kills.toFixed(1)} </td>
+                <td>{player.deaths.toFixed(1)} </td>
+                <td>{player.assists.toFixed(1)} </td>
+                <td>{player.last_hits.toFixed(1)}</td>
+                <td>{player.denies.toFixed(1)}</td>
+                <td>{player.gold_per_min.toFixed(0)} </td>
+                <td>{player.xp_per_min.toFixed(0)}</td>
+                <td>{player.hero_damage.toFixed(0)} </td>
+                <td>{player.tower_damage.toFixed(0)} </td>
+                <td>{player.hero_healing.toFixed(0)} </td>
               </tr>
             ))}
         </tbody>

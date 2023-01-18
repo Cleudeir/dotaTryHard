@@ -1,9 +1,9 @@
-import styles from '../styles/ranking.module.css';
+import styles from './ranking.module.css';
 import Header from '../component/Header';
-import {useEffect, useState} from 'react';
 import TableRanking from '../component/TableRanking';
 import Container from '../component/Container';
 import Head from 'next/head';
+import useRanking from './../hook/useRanking';
 
 const React = require('react');
 
@@ -11,7 +11,7 @@ export async function getStaticProps() {
   console.log('getStatic - Home: ');
   const resp = await fetch(`${process.env.backUrl}/ranking?limit=1000`);
   const data = await resp.json();
-  const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA', 'unknown'];
+  const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA'];
   const regionData = [];
   for (let i = 0; i < regionsNames.length; i++) {
     const element = regionsNames[i];
@@ -29,22 +29,7 @@ export async function getStaticProps() {
 }
 
 export default function Home({regionData, regionsNames}) {
-  const [useRegion, setRegion] = useState(1);
-  const [useData, setData] = useState(false);
-  useEffect(() => {
-    console.log('data: ', regionData, regionData[useRegion]);
-    setData(regionData[useRegion].slice(0, 300));
-  }, []);
-
-  function filterRegion(region) {
-    setData(regionData[region].slice(0, 30).map((x, i) => ({...x, pos: i + 1})));
-    setRegion(region);
-    setTimeout(() => {
-      setData(
-          regionData[region].slice(0, 300).map((x, i) => ({...x, pos: i + 1})),
-      );
-    }, 1000);
-  }
+  const {filterRegion, isData, setData, filterName, order, isRegion} = useRanking({regionData});
 
   return (
     <div className={styles.container}>
@@ -55,12 +40,12 @@ export default function Home({regionData, regionsNames}) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Header filterRegion={filterRegion} />
-      <Container isLoading={Boolean(useData)}>
-        <h1> {regionsNames[useRegion]} </h1>
+      <Container isLoading={Boolean(isData)}>
+        <h2> {regionsNames[isRegion]} </h2>
         <TableRanking
-          className={styles.table}
-          useSave={regionData[useRegion]}
-          useData={useData}
+          isData={isData}
+          filterName={filterName}
+          order={order}
           setData={setData}
         />
       </Container>

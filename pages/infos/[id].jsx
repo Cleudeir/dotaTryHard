@@ -1,10 +1,12 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
-import TeamGamed from '../../component/TeamGamed';
+import TableInfos from '../../component/TableInfos.js';
 import {useEffect, useState} from 'react';
 const React = require('react');
-import Accordion from 'react-bootstrap/Accordion';
+import styles from './[id].module.css';
 import mathInfos from '../../component/Math/infos';
+import ContainerRow from './../../component/ContainerRow/index';
+import Container from './../../component/Container/index';
 
 export async function getStaticPaths() {
   return {
@@ -30,8 +32,6 @@ export default function Matches({data, account_id}) {
   useEffect(() => {
     (async () => {
       const {playersMatches, _matchIds} = data;
-      console.log('{ playersMatches, _matchIds }: ', {playersMatches, _matchIds});
-
       if (playersMatches && _matchIds) {
         mathInfos({playersMatches, _matchIds, account_id})
             .then((_infos)=> setInfos(_infos));
@@ -41,26 +41,22 @@ export default function Matches({data, account_id}) {
 
   if (infos) {
     return (
-      <>
+      <div className={styles.container}>
         <Header />
-        <div style={{display: 'flex', flexDirection: 'column', maxWidth: 600, marginTop: 90, marginLeft: 'auto', marginRight: 'auto'}}>
-          <h2 style={{marginLeft: 'auto', marginRight: 'auto'}}>Hello! {infos.profile.personaname}</h2>
-          <Accordion defaultActiveKey="0">
-            <Accordion.Item eventKey="0">
-              <Accordion.Header>See Your Win Rate with your friends</Accordion.Header>
-              <Accordion.Body style={{whiteSpace: 'nowrap', textAlign: 'center', width: '100%', margin: 0, padding: 0}}>
-                <TeamGamed type={'See Your Win Rate with your friends'} data={infos.alliesPlayers.slice(0, 100)} />
-              </Accordion.Body>
-            </Accordion.Item>
-            <Accordion.Item eventKey="1">
-              <Accordion.Header>See Your Loss Rate with your enemies</Accordion.Header>
-              <Accordion.Body style={{whiteSpace: 'nowrap', textAlign: 'center', width: '100%', margin: 0, padding: 0}}>
-                <TeamGamed type={'See Your Loss Rate with your enemies'} data={infos.enemyPlayers.slice(0, 100)} />
-              </Accordion.Body>
-            </Accordion.Item>
-          </Accordion>
-        </div>
-      </>
+        <Container isLoading={Boolean(infos)}>
+          <h3>Hello! {infos.profile.personaname}</h3>
+          <ContainerRow>
+            <Container>
+              <h3>See Your Win Rate with your friends</h3>
+              <TableInfos type={'See Your Win Rate with your friends'} data={infos.alliesPlayers.slice(0, 100)} />
+            </Container>
+            <Container>
+              <h3>See Your Loss Rate with your enemies</h3>
+              <TableInfos type={'See Your Loss Rate with your enemies'} data={infos.enemyPlayers.slice(0, 100)} />
+            </Container>
+          </ContainerRow>
+        </Container>
+      </div>
     );
   }
 }

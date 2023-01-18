@@ -2,6 +2,9 @@ import styles from './index.module.css';
 import React from 'react';
 
 export default function Container({isLoading, children}) {
+  if (isLoading === undefined) {
+    isLoading = true;
+  }
   if ( !isLoading ) {
     return (
       <div className={styles.container}>

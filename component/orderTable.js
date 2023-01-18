@@ -1,6 +1,8 @@
-export default function orderTable(type, e, useData, setData) {
-  e.target.parentElement.parentElement.parentElement.parentElement.scrollIntoView();
-  const save = useData;
+export default function orderTable({type, e, isData, setData}) {
+  console.log('{type, e, isData, setData}: ', {type, e, isData, setData});
+  const target = e.target.parentElement.parentElement.parentElement.parentElement;
+  target.scrollIntoView();
+  const save = isData;
   const [name, filterDirection] = e.target.innerHTML.split(' ');
   const prop = type.split('.');
   if (prop.length === 1) {
@@ -37,7 +39,6 @@ export default function orderTable(type, e, useData, setData) {
       }, 300);
     }
   }
-
   if (prop.length === 2) {
     if (filterDirection === '↓') {
       const _sort = save.sort(function(a, b) {

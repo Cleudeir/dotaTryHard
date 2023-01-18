@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+}
+
+.img {
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 150px;
+  height: 150px;
+}
