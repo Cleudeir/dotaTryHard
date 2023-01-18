@@ -28,7 +28,7 @@ function Header({filterRegion}) {
               <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'sm'}`}>Dota Try Hard</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
-              <Nav className="justify-content-end flex-grow-1 pe-3">
+              <Nav className="justify-content-end flex-grow-1 pe-3" style={{marginRight: 80}}>
                 { filterRegion &&<NavDropdown title="Regions" id={`offcanvasNavbarDropdown-expand-${'sm'}`}>
                   { regionsNames.map((name, index) => (
                     <NavDropdown.Item key={index}
