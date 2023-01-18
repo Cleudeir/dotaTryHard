@@ -1,14 +1,14 @@
-import Button from "react-bootstrap/Button";
-import Container from "react-bootstrap/Container";
-import Form from "react-bootstrap/Form";
-import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
-import NavDropdown from "react-bootstrap/NavDropdown";
-import Offcanvas from "react-bootstrap/Offcanvas";
-import React, { useState } from "react";
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Form from 'react-bootstrap/Form';
+import Nav from 'react-bootstrap/Nav';
+import Navbar from 'react-bootstrap/Navbar';
+import NavDropdown from 'react-bootstrap/NavDropdown';
+import Offcanvas from 'react-bootstrap/Offcanvas';
+import React, {useState} from 'react';
 
-function Header({ filterRegion }) {
-  const [useValue, setValue] = useState("");
+function Header({filterRegion}) {
+  const [useValue, setValue] = useState('');
   async function add() {
     await fetch(`/api/add/${useValue}`);
     window.location.href = `/matches/${useValue}`;
@@ -18,33 +18,33 @@ function Header({ filterRegion }) {
     <div>
       <Navbar
         style={{
-          position: "fixed",
+          position: 'fixed',
           top: 0,
           left: 0,
-          width: "100%",
+          width: '100%',
           zIndex: 999,
           marginBottom: 100,
         }}
-        key={"sm"}
+        key={'sm'}
         bg="light"
-        expand={"sm"}
+        expand={'sm'}
         className="mb-3"
       >
         <Container fluid>
           <Navbar.Brand href="/">Dota Try Hard</Navbar.Brand>
-          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${"sm"}`} />
-          <Navbar.Offcanvas id={`offcanvasNavbar-expand-${"sm"}`} aria-labelledby={`offcanvasNavbarLabel-expand-${"sm"}`} placement="end">
+          <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'sm'}`} />
+          <Navbar.Offcanvas id={`offcanvasNavbar-expand-${'sm'}`} aria-labelledby={`offcanvasNavbarLabel-expand-${'sm'}`} placement="end">
             <Offcanvas.Header closeButton>
-              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${"sm"}`}>Dota Try Hard</Offcanvas.Title>
+              <Offcanvas.Title id={`offcanvasNavbarLabel-expand-${'sm'}`}>Dota Try Hard</Offcanvas.Title>
             </Offcanvas.Header>
             <Offcanvas.Body>
               <Nav className="justify-content-end flex-grow-1 pe-3">
                 <Nav.Link href="/">Ranking</Nav.Link>
-                <NavDropdown title="Regions" id={`offcanvasNavbarDropdown-expand-${"sm"}`}>
+                <NavDropdown title="Regions" id={`offcanvasNavbarDropdown-expand-${'sm'}`}>
                   <NavDropdown.Item
                     href="#"
                     onClick={() => {
-                      document.querySelector(".btn-close").click();
+                      document.querySelector('.btn-close').click();
                       filterRegion(1);
                     }}
                   >
@@ -52,7 +52,7 @@ function Header({ filterRegion }) {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={() => {
-                      document.querySelector(".btn-close").click();
+                      document.querySelector('.btn-close').click();
                       filterRegion(2);
                     }}
                   >
@@ -60,7 +60,7 @@ function Header({ filterRegion }) {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={() => {
-                      document.querySelector(".btn-close").click();
+                      document.querySelector('.btn-close').click();
                       filterRegion(3);
                     }}
                   >
@@ -68,7 +68,7 @@ function Header({ filterRegion }) {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={() => {
-                      document.querySelector(".btn-close").click();
+                      document.querySelector('.btn-close').click();
                       filterRegion(4);
                     }}
                   >
@@ -76,7 +76,7 @@ function Header({ filterRegion }) {
                   </NavDropdown.Item>
                   <NavDropdown.Item
                     onClick={() => {
-                      document.querySelector(".btn-close").click();
+                      document.querySelector('.btn-close').click();
                       filterRegion(5);
                     }}
                   >
@@ -85,7 +85,7 @@ function Header({ filterRegion }) {
                   <NavDropdown.Divider />
                   <NavDropdown.Item
                     onClick={() => {
-                      document.querySelector(".btn-close").click();
+                      document.querySelector('.btn-close').click();
                       filterRegion(0);
                     }}
                   >

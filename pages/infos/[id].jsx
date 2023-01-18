@@ -20,7 +20,7 @@ export async function getStaticProps(context) {
   const data = await resp.json();
   return {
     props: {data, account_id: Number(id)},
-    revalidate: 1 * 60 * 60,
+    revalidate: 15 * 60 * 60,
   };
 }
 
@@ -38,13 +38,7 @@ export default function Matches({data, account_id}) {
       }
     })();
   }, [data]);
-  if (!infos) {
-    return (
-      <>
-           Carregando!!!
-      </>
-    );
-  }
+
   if (infos) {
     return (
       <>

@@ -1,4 +1,5 @@
 export default function orderTable(type, e, useData, setData) {
+  e.target.parentElement.parentElement.parentElement.parentElement.scrollIntoView();
   const save = useData;
   const [name, filterDirection] = e.target.innerHTML.split(' ');
   const prop = type.split('.');
