@@ -107,19 +107,16 @@ function TableRanking({useData, setData, useSave, setLoading}) {
                 <td style={styleTd(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
                 <td style={styleTd(player.win)}>{player.rankingRate} </td>
                 <td style={styleTd(player.win)}>
-                  <Link href={`/matches/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
-                    <a>
-                      {player.matches} 👀
-                    </a>
-
-                  </Link>{' '}
+                  <a href={`/matches/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
+                    {player.matches} 👀
+                  </a>
                 </td>
                 <td style={styleTd(player.win)}>
                   <Link href={`/infos/${player.profile.account_id}`} passHref onClick={() => setLoading(false)}>
                     <a>
                       {player.winRate.toFixed(1)}% 👀
                     </a>
-                  </Link>{' '}
+                  </Link>
                 </td>
                 <td style={styleTd(player.win)}>{player.kills.toFixed(1)} </td>
                 <td style={styleTd(player.win)}>{player.deaths.toFixed(1)} </td>
