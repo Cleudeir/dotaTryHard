@@ -31,7 +31,7 @@ function TableRanking({useData, setData, useSave}) {
   }
 
   function filterName(e) {
-    if (useSave) setData(useSave.slice(0, 300).filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())));
+    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, 300));
   }
   return (
     <div className={styles.container}>
