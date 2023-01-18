@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import orderTable from '../orderTable';
 import styles from './index.module.css';
 import Link from 'next/link';
-function TableRanking({useData, setData, useSave, setLoading}) {
+function TableRanking({useData, setData, useSave}) {
   const [useResponsiveTable, setResponsiveTable] = useState(true);
   useEffect(() => {
     const sizeWidth = window.screen.width;
@@ -32,7 +32,7 @@ function TableRanking({useData, setData, useSave, setLoading}) {
   }
 
   function filterName(e) {
-    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())));
+    if (useSave) setData(useSave.slice(0, 300).filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())));
   }
   return (
     <div className={styles.container}>

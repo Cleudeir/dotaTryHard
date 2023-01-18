@@ -32,14 +32,16 @@ export default function Home({regionData, regionsNames}) {
   const [useData, setData] = useState(false);
   useEffect(() => {
     console.log('data: ', regionData, regionData[useRegion]);
-    setData(regionData[useRegion]);
+    setData(regionData[useRegion].slice(0, 300));
   }, []);
 
   function filterRegion(region) {
     setData(regionData[region].slice(0, 30).map((x, i) => ({...x, pos: i + 1})));
     setRegion(region);
     setTimeout(() => {
-      setData(regionData[region].map((x, i) => ({...x, pos: i + 1})));
+      setData(
+          regionData[region].slice(0, 300).map((x, i) => ({...x, pos: i + 1})),
+      );
     }, 1000);
   }
 
@@ -51,9 +53,8 @@ export default function Home({regionData, regionsNames}) {
         <TableRanking
           className={styles.table}
           useSave={regionData[useRegion]}
-          useData={useData.slice(0, 300)}
+          useData={useData}
           setData={setData}
-          setLoading={setLoading}
         />
       </Container>
     </div>
