@@ -3,6 +3,7 @@ import Header from '../component/Header';
 import {useEffect, useState} from 'react';
 import TableRanking from '../component/TableRanking';
 import Container from '../component/Container';
+import Head from 'next/head';
 
 const React = require('react');
 
@@ -47,6 +48,12 @@ export default function Home({regionData, regionsNames}) {
 
   return (
     <div className={styles.container}>
+      <Head>
+        <title>DotaTryHard</title>
+        <meta name="description" content="DotaTryHard" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="icon" href="/favicon.png" />
+      </Head>
       <Header filterRegion={filterRegion} />
       <Container isLoading={Boolean(useData)}>
         <h1> {regionsNames[useRegion]} </h1>
