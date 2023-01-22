@@ -24,7 +24,7 @@ export async function getStaticProps() {
   }
   return {
     props: {regionData, regionsNames},
-    revalidate: 4 * 60 * 60,
+    revalidate: 10 * 60,
   };
 }
 
