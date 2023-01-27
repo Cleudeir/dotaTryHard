@@ -41,9 +41,5 @@
     "Tottenham",
     "Usuario",
     "USUARIOS"
-  ],
-  "editor.formatOnSave": true,
-  "[javascriptreact]": {
-    "editor.defaultFormatter": "esbenp.prettier-vscode"
-  }
+  ]
 }
