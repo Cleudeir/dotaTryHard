@@ -4,7 +4,10 @@ import Form from 'react-bootstrap/Form';
 import styles from './index.module.css';
 function TableRanking( {isData, filterName, order, setData, avgGlobal} ) {
   function AvgCompare( {player, type} ) {
-    const value = Math.floor(Number( (player[type] - avgGlobal[type]) / avgGlobal[type] * 100 )*1)/1;
+    let value = Math.floor(Number( (player[type] - avgGlobal[type]) / avgGlobal[type] * 100 )*1)/1;
+    If (type === 'deaths'){
+      value = value * -1
+    }
     if ( value > 0 ) {
       return ( <><br/><span className={ styles.positivo }>+{ value }%</span> </>);
     } else {
