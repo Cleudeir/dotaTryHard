@@ -6,7 +6,11 @@ function TableRanking( {isData, filterName, order, setData, avgGlobal} ) {
   function AvgCompare( {player, type} ) {
     let value = Math.floor(Number( (player[type] - avgGlobal[type]) / avgGlobal[type] * 100 )*1)/1;
     if (type === 'deaths'){
-      value = value * -1
+      if ( value > 0 ) {
+      return ( <><br/><span className={ styles.negative }>+{ value }%</span> </>);
+      } else {
+      return ( <><br/> <span className={ styles.positivo }>{ value }%</span></> );
+      }
     }
     if ( value > 0 ) {
       return ( <><br/><span className={ styles.positivo }>+{ value }%</span> </>);
