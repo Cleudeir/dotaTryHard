@@ -5,7 +5,7 @@ import styles from './index.module.css';
 function TableRanking( {isData, filterName, order, setData, avgGlobal} ) {
   function AvgCompare( {player, type} ) {
     let value = Math.floor(Number( (player[type] - avgGlobal[type]) / avgGlobal[type] * 100 )*1)/1;
-    If (type === 'deaths'){
+    if (type === 'deaths'){
       value = value * -1
     }
     if ( value > 0 ) {
