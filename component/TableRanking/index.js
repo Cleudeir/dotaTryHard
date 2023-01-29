@@ -4,11 +4,11 @@ import Form from 'react-bootstrap/Form';
 import styles from './index.module.css';
 function TableRanking( {isData, filterName, order, setData, avgGlobal} ) {
   function AvgCompare( {player, type} ) {
-    const value = Math.floor(Number( (player[type] - avgGlobal[type]) / avgGlobal[type] * 100 )*10)/10;
+    const value = Math.floor(Number( (player[type] - avgGlobal[type]) / avgGlobal[type] * 100 )*1)/1;
     if ( value > 0 ) {
-      return ( <><br/><span className={ styles.positivo }>+{ value }</span> </>);
+      return ( <><br/><span className={ styles.positivo }>+{ value }%</span> </>);
     } else {
-      return ( <><br/> <span className={ styles.negative }>{ value }</span></> );
+      return ( <><br/> <span className={ styles.negative }>{ value }%</span></> );
     }
   }
   return (
