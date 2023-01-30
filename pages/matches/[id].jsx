@@ -2,6 +2,7 @@
 import Header from '../../component/Header';
 import CardCarousel from '../../component/CardCarousel';
 import Head from 'next/head';
+import TableMatches from '../../component/TableMatches';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -34,7 +35,7 @@ export default function Matches({data}) {
         <link rel="icon" href="/favicon.png" />
       </Head>
       <Header />
-      <CardCarousel _match={data.matches.slice(0, qnt)} qnt={qnt} _avg={data.avg} />
+      <TableMatches _match={data.matches.slice(0, qnt)} qnt={qnt} _avg={data.avg} />
     </div>
   );
 }
