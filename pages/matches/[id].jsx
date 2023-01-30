@@ -1,6 +1,5 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
-import CardCarousel from '../../component/CardCarousel';
 import Head from 'next/head';
 import TableMatches from '../../component/TableMatches';
 const React = require('react');

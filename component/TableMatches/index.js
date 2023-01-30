@@ -1,8 +1,6 @@
 import Carousel from 'react-bootstrap/Carousel';
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import {Table} from 'react-bootstrap';
-import Button from 'react-bootstrap/Button';
-import Card from 'react-bootstrap/Card';
 import {unixToHMS} from '../Maths';
 import styles from './index.module.css';
 
@@ -12,16 +10,6 @@ function TableMatches({_match, _avg, qnt}) {
       return {backgroundColor: 'rgba(234,67,53,0.3)', whiteSpace: 'nowrap'};
     }
     return {backgroundColor: 'rgba(58,182,132,0.3)', whiteSpace: 'nowrap'};
-  }
-  function imageStyle(url) {
-    return {
-      margin: 0,
-      padding: 0,
-      backgroundImage: `url(${url})`,
-      backgroundRepeat: 'no-repeat',
-      backgroundSize: 'cover',
-      backgroundPosition: 'center',
-    };
   }
   return (
     <div className={styles.container}>

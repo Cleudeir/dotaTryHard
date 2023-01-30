@@ -4,7 +4,6 @@ import TableRanking from '../component/TableRanking';
 import Container from '../component/Container';
 import Head from 'next/head';
 import useRanking from './../hook/useRanking';
-import Matches from './matches/[id]';
 
 const React = require('react');
 
