@@ -20,7 +20,7 @@ function TableMatches({_match, _avg, qnt}) {
         {_match.map((match) => (
           <div key={match.match_id} className={styles.match}>
             <div className={styles.score}>
-              <h3>Match score</h3>
+              <h3>MATCH SCORE</h3>
               <h4>RADIANT {match.radiant_score} - {match.dire_score} DIRE</h4>
               <h5>{unixToHMS(match.start_time)}</h5>
             </div>
