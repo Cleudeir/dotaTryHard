@@ -1,10 +1,10 @@
-import styles from './ranking.module.css';
-import Header from '../component/Header';
-import TableRanking from '../component/TableRanking';
-import Container from '../component/Container';
+import styles from './index.module.css';
+import Header from '../../component/Header';
+import TableRanking from '../../component/TableRanking';
+import Container from '../../component/Container';
 import Head from 'next/head';
-import useRanking from './../hook/useRanking';
-import Footer from '../component/Footer';
+import useRanking from '../../hook/useRanking';
+import Footer from '../../component/Footer';
 
 const React = require('react');
 

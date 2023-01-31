@@ -1,3 +1,4 @@
+// refactors this code
 export default async function mathInfos({playersMatches, _matchIds, account_id}) {
   const matches = [];
   _matchIds.forEach((item) =>
@@ -10,36 +11,26 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
   const playersEnemyTeamGame = [];
   const uniqueAlliesPlayers = new Set();
   const uniqueEnemyPlayers = new Set();
-  let person = undefined;
+  let person;
+
   matches.map((item) => {
     const [{player_slot, win, profile}] = item.players.filter((x) => x.account_id === account_id);
+
     person = profile;
+
     item.players.map((x) => {
-      if (x.account_id > 150 && x.account_id !== account_id && x.player_slot > 100 && player_slot > 100) {
-        playersAlliesTeamGame.push({
-          profile: x.profile,
-          win: win,
-        });
-        uniqueAlliesPlayers.add(x.account_id);
-      } else if (x.account_id > 150 && x.account_id !== account_id && x.player_slot < 100 && player_slot < 100) {
-        playersAlliesTeamGame.push({
-          profile: x.profile,
-          win: win,
-        });
-        uniqueAlliesPlayers.add(x.account_id);
-      }
-      if (x.account_id > 150 && x.account_id !== account_id && x.player_slot < 100 && player_slot > 100) {
-        playersEnemyTeamGame.push({
-          profile: x.profile,
-          win: win === 0 ? 1 : 0,
-        });
-        uniqueEnemyPlayers.add(x.account_id);
-      } else if (x.account_id > 150 && x.account_id !== account_id && x.player_slot > 100 && player_slot < 100) {
-        playersEnemyTeamGame.push({
-          profile: x.profile,
-          win: win === 0 ? 1 : 0,
-        });
-        uniqueEnemyPlayers.add(x.account_id);
+      if (x.account_id > 150 && x.account_id !== account_id) {
+        let teamGame;
+
+        if (x.player_slot < 100 && player_slot < 100 || x.player_slot > 100 && player_slot > 100) {
+          teamGame = playersAlliesTeamGame;
+          uniqueAlliesPlayers.add(x.account_id);
+        } else {
+          teamGame = playersEnemyTeamGame;
+          uniqueEnemyPlayers.add(x.account_id);
+        }
+
+        teamGame.push({profile: x.profile, win: win === 0 ? 1 : 0});
       }
     });
   });
