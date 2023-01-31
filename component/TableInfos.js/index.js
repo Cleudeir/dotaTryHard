@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import orderTable from '../orderTable';
+import orderTable from '../Math/orderTable';
 import styles from './index.module.css';
 export default function FriendsGamed({data, type}) {
   const [isData, setData] = useState(data);

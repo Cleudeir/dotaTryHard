@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import orderTable from '../component/orderTable';
+import orderTable from '../component/Math/orderTable';
 
 export default function useRanking({regionData}) {
   const [isRegion, setRegion] = useState(1);

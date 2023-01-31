@@ -4,6 +4,7 @@ import TableRanking from '../component/TableRanking';
 import Container from '../component/Container';
 import Head from 'next/head';
 import useRanking from './../hook/useRanking';
+import Footer from '../component/Footer';
 
 const React = require('react');
 
@@ -60,6 +61,7 @@ export default function Home({regionData, regionsNames, avgGlobal}) {
           setData={setData}
         />
       </Container>
+      <Footer/>
     </div>
   );
 }

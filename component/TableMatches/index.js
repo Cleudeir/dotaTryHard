@@ -1,7 +1,7 @@
 import Carousel from 'react-bootstrap/Carousel';
 import React from 'react';
 import {Table} from 'react-bootstrap';
-import {unixToHMS} from '../Maths';
+import {unixToHMS} from '../Math/unixToHMS';
 import styles from './index.module.css';
 
 function TableMatches({_match, _avg, qnt}) {
@@ -28,7 +28,8 @@ function TableMatches({_match, _avg, qnt}) {
               <Table className={styles.table} bordered striped={true}>
                 <thead>
                   <tr>
-                    <th colSpan="2">Nick</th>
+                    <th>Avatar</th>
+                    <th>Nick</th>
                     <th>kills</th>
                     <th>deaths</th>
                     <th>Assis</th>
@@ -73,16 +74,24 @@ function TableMatches({_match, _avg, qnt}) {
                             <img src={player.hero_id} alt={''} />
                           </td>
                           <td>
-                            <img src={player.ability_0} alt={''} />
+                            <img src={player.ability_0} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
                           </td>
                           <td>
-                            <img src={player.ability_1} alt={''} />
+                            <img src={player.ability_1} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
                           </td>
                           <td>
-                            <img src={player.ability_2} alt={''} />
+                            <img src={player.ability_2} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }} />
                           </td>
                           <td>
-                            <img src={player.ability_3} alt={''} />
+                            <img src={player.ability_3} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
                           </td>
                         </tr>
                       ))}
