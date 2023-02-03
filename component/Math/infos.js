@@ -15,7 +15,7 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
 
   matches.map((item) => {
     const [{player_slot, win, profile}] = item.players.filter((x) => x.account_id === account_id);
-
+    console.log(item);
     person = profile;
 
     item.players.map((x) => {

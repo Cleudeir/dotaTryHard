@@ -5,6 +5,7 @@ import {unixToHMS} from '../Math/unixToHMS';
 import styles from './index.module.css';
 
 function TableMatches({_match, _avg, qnt}) {
+  console.log('_match, _avg, qnt: ', _match, _avg, qnt);
   function colorWinStyle(win) {
     if (win === 0) {
       return {backgroundColor: 'rgba(234,67,53,0.3)', whiteSpace: 'nowrap'};
@@ -40,8 +41,12 @@ function TableMatches({_match, _avg, qnt}) {
                     <th>Hero</th>
                     <th>Tower</th>
                     <th>Heal</th>
+                    <th>Level</th>
                     <th>Hero</th>
                     <th colSpan="4">Skills</th>
+                    <th>{' '}</th>
+                    <th colSpan="6">Itens</th>
+                    <th colSpan="3">Itens used</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -53,7 +58,7 @@ function TableMatches({_match, _avg, qnt}) {
                       })
                       .map((player, index) => (
                         <tr key={player.profile.account_id}>
-                          <td className={styles.avatarfull}>
+                          <td className={player.leaver_status === 1 ? styles.avatarfullleave : styles.avatarfull }>
                             <img
                               src={player.profile.avatarfull}
                               alt={player.profile.account_id}
@@ -70,6 +75,7 @@ function TableMatches({_match, _avg, qnt}) {
                           <td style={colorWinStyle(player.win)}>{player.hero_damage.toLocaleString('pt-BR')} </td>
                           <td style={colorWinStyle(player.win)}>{player.tower_damage.toLocaleString('pt-BR')} </td>
                           <td style={colorWinStyle(player.win)}>{player.hero_healing.toLocaleString('pt-BR')} </td>
+                          <td>{player.Hero_level}</td>
                           <td className={styles.hero} >
                             <img src={player.hero_id} alt={''} />
                           </td>
@@ -92,6 +98,49 @@ function TableMatches({_match, _avg, qnt}) {
                             <img src={player.ability_3} alt={''} onError={(e)=>{
                               e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
                             }}/>
+                          </td>
+                          <td>{' '}</td>
+                          <td>
+                            <img src={player.item_0} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
+                          </td>
+                          <td>
+                            <img src={player.item_1} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
+                          </td>
+                          <td>
+                            <img src={player.item_2} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }} />
+                          </td>
+                          <td>
+                            <img src={player.item_3} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
+                          </td>
+                          <td>
+                            <img src={player.item_4} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
+                          </td>
+                          <td>
+                            <img src={player.item_5} alt={''} onError={(e)=>{
+                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+                            }}/>
+                          </td>
+                          <td>
+                            <img src={'https://cdn.datdota.com/images/items/ultimate_scepter.png'} alt={''}
+                              style={player.aghanims_scepter === 0 ? {filter: 'grayscale(100%)'}: {filter: 'none'}} />
+                          </td>
+                          <td>
+                            <img src={'https://cdn.datdota.com/images/items/aghanims_shard.png'} alt={''}
+                              style={player.aghanims_shard === 0 ? {filter: 'grayscale(100%)'}: {filter: 'none'}} />
+                          </td>
+                          <td>
+                            <img src={'https://cdn.datdota.com/images/items/moon_shard.png'} alt={''}
+                              style={player.moonshard === 0 ? {filter: 'grayscale(100%)'}: {filter: 'none'}} />
                           </td>
                         </tr>
                       ))}
