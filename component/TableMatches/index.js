@@ -12,17 +12,23 @@ function TableMatches({_match, _avg, qnt}) {
     }
     return {backgroundColor: 'rgba(58,182,132,0.3)', whiteSpace: 'nowrap'};
   }
+  const urlImg1 = 'https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
+  const urlImg2 = 'https://www.segalfamilyfoundation.org/wp-content/uploads/2021/07/white-background.jpg';
   return (
     <div className={styles.container}>
       <div>
-        <h2>{_avg.profile.personaname}, See the last {qnt} Matches</h2>
+        <h2>
+          {_avg.profile.personaname}, See the last {qnt} Matches
+        </h2>
       </div>
       <div>
         {_match.map((match) => (
           <div key={match.match_id} className={styles.match}>
             <div className={styles.score}>
               <h3>MATCH SCORE</h3>
-              <h4>RADIANT {match.radiant_score} - {match.dire_score} DIRE</h4>
+              <h4>
+                RADIANT {match.radiant_score} - {match.dire_score} DIRE
+              </h4>
               <h5>{unixToHMS(match.start_time)}</h5>
             </div>
             <div className={styles.containerTable}>
@@ -42,10 +48,12 @@ function TableMatches({_match, _avg, qnt}) {
                     <th>Tower</th>
                     <th>Heal</th>
                     <th>Level</th>
+                    <th> </th>
                     <th>Hero</th>
                     <th colSpan="4">Skills</th>
-                    <th>{' '}</th>
+                    <th> </th>
                     <th colSpan="6">Itens</th>
+                    <th> </th>
                     <th colSpan="3">Itens used</th>
                   </tr>
                 </thead>
@@ -58,11 +66,8 @@ function TableMatches({_match, _avg, qnt}) {
                       })
                       .map((player, index) => (
                         <tr key={player.profile.account_id}>
-                          <td className={player.leaver_status === 1 ? styles.avatarfullleave : styles.avatarfull }>
-                            <img
-                              src={player.profile.avatarfull}
-                              alt={player.profile.account_id}
-                            />
+                          <td className={player.leaver_status === 1 ? styles.avatarfullleave : styles.avatarfull}>
+                            <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                           </td>
                           <td style={colorWinStyle(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
                           <td style={colorWinStyle(player.win)}>{player.kills} </td>
@@ -76,71 +81,113 @@ function TableMatches({_match, _avg, qnt}) {
                           <td style={colorWinStyle(player.win)}>{player.tower_damage.toLocaleString('pt-BR')} </td>
                           <td style={colorWinStyle(player.win)}>{player.hero_healing.toLocaleString('pt-BR')} </td>
                           <td>{player.Hero_level}</td>
-                          <td className={styles.hero} >
+                          <td> </td>
+                          <td className={styles.hero}>
                             <img src={player.hero_id} alt={''} />
                           </td>
                           <td>
-                            <img src={player.ability_0} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
+                            <img
+                              src={player.ability_0 === urlImg1 ? urlImg2 : player.ability_0}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={player.ability_1} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
+                            <img
+                              src={player.ability_1 === urlImg1 ? urlImg2 : player.ability_1}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={player.ability_2} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }} />
+                            <img
+                              src={player.ability_2 === urlImg1 ? urlImg2 : player.ability_2}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={player.ability_3} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
+                            <img
+                              src={player.ability_3 === urlImg1 ? urlImg2 : player.ability_3}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
-                          <td>{' '}</td>
+                          <td> </td>
                           <td>
-                            <img src={player.item_0} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
-                          </td>
-                          <td>
-                            <img src={player.item_1} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
-                          </td>
-                          <td>
-                            <img src={player.item_2} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }} />
+                            <img
+                              src={player.item_0 === urlImg1 ? urlImg2 : player.item_0}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={player.item_3} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
+                            <img
+                              src={player.item_1 === urlImg1 ? urlImg2 : player.item_1}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={player.item_4} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
+                            <img
+                              src={player.item_2 === urlImg1 ? urlImg2 : player.item_2}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={player.item_5} alt={''} onError={(e)=>{
-                              e.target.src ='https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-                            }}/>
+                            <img
+                              src={player.item_3 === urlImg1 ? urlImg2 : player.item_3}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={'https://cdn.datdota.com/images/items/ultimate_scepter.png'} alt={''}
-                              style={player.aghanims_scepter === 0 ? {filter: 'grayscale(100%)'}: {filter: 'none'}} />
+                            <img
+                              src={player.item_4 === urlImg1 ? urlImg2 : player.item_4}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
                           </td>
                           <td>
-                            <img src={'https://cdn.datdota.com/images/items/aghanims_shard.png'} alt={''}
-                              style={player.aghanims_shard === 0 ? {filter: 'grayscale(100%)'}: {filter: 'none'}} />
+                            <img
+                              src={player.item_5 === urlImg1 ? urlImg2 : player.item_5}
+                              alt={''}
+                              onError={(e) => {
+                                e.target.src = urlImg2;
+                              }}
+                            />
+                          </td>
+                          <td> </td>
+                          <td>
+                            <img src={'https://cdn.datdota.com/images/items/ultimate_scepter.png'}
+                              alt={''} style={player.aghanims_scepter === 0 ? {opacity: 0} : {filter: 'none'}} />
                           </td>
                           <td>
-                            <img src={'https://cdn.datdota.com/images/items/moon_shard.png'} alt={''}
-                              style={player.moonshard === 0 ? {filter: 'grayscale(100%)'}: {filter: 'none'}} />
+                            <img src={'https://cdn.datdota.com/images/items/aghanims_shard.png'}
+                              alt={''} style={player.aghanims_shard === 0 ? {opacity: 0} : {filter: 'none'}} />
+                          </td>
+                          <td>
+                            <img src={'https://cdn.datdota.com/images/items/moon_shard.png'}
+                              alt={''} style={player.moonshard === 0 ? {opacity: 0} : {filter: 'none'}} />
                           </td>
                         </tr>
                       ))}
