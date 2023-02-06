@@ -1,6 +1,6 @@
 /* eslint-disable no-nested-ternary */
 import Header from '../../component/Header';
-import TableInfos from '../../component/TableInfos.js';
+import TableInfos from '../../component/TableInfos/index.js';
 import {useEffect, useState} from 'react';
 const React = require('react');
 import styles from './[id].module.css';
@@ -58,15 +58,15 @@ export default function Matches({data, account_id}) {
           <ContainerRow>
             <Container>
               <h4>See Your Win Rate with your friends</h4>
-              <TableInfos type={'See Your Win Rate with your friends'} data={infos.alliesPlayers.slice(0, 100)} />
+              <TableInfos type={'Win'} data={infos.alliesPlayers.slice(0, 100)} />
             </Container>
             <Container>
               <h4>See Your Loss Rate with your enemies</h4>
-              <TableInfos type={'See Your Loss Rate with your enemies'} data={infos.enemyPlayers.slice(0, 100)} />
+              <TableInfos type={'Loss'} data={infos.enemyPlayers.slice(0, 100)} />
             </Container>
             <Container>
-              <h4>See Your Loss Rate with your enemies</h4>
-              <TableAbility type={'See Your Loss Rate with your Ability picks'} data={infos.uniqueInfosAbility} />
+              <h4>See Your win Rate with your Ability picks</h4>
+              <TableAbility data={infos.uniqueInfosAbility} />
             </Container>
           </ContainerRow>
         </Container>

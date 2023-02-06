@@ -3,7 +3,7 @@ import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import orderTable from '../Math/orderTable';
 import styles from './index.module.css';
-export default function FriendsGamed({data, type}) {
+export default function TableInfos({data, type}) {
   const [isData, setData] = useState(data);
   const [isSave] = useState(data);
   function filterName(e) {

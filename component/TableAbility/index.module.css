@@ -9,7 +9,7 @@
 
 .table {
   width: 100%;
-  white-space: nowrap;
+
   padding: 0px;
   margin: 0px;                       
   border-collapse: collapse;
@@ -29,6 +29,7 @@
   text-align: center;
   vertical-align: middle;
 }
+
 .table tbody tr td {
   text-align: center;
   vertical-align: middle;
@@ -36,7 +37,15 @@
   padding: 0;
 }
 
+.table tbody tr td:nth-child(1){
+  margin: 0;
+  padding: 0px 5px;
+  width: 230px;
+  word-wrap:normal;
+}
+
 .table .form {
+  width: 200px;
   display: flex;
   color: #37e;
   flex-direction: row;

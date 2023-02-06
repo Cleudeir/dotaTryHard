@@ -4,7 +4,7 @@ import Form from 'react-bootstrap/Form';
 import orderTable from '../Math/orderTable';
 import styles from './index.module.css';
 import {useEffect} from 'react';
-export default function TableAbility({data}) {
+export default function TableAbility({data, type}) {
   const [isData, setData] = useState(null);
   const [isSave, setSave] = useState(data);
   function filterName(e) {
@@ -33,10 +33,10 @@ export default function TableAbility({data}) {
       }
     }
     const dataSort = dataWithWinRate.sort(function(a, b) {
-      if (a.winRate > b.winRate) {
+      if (a.count > b.count) {
         return -1;
       }
-      if (a.winRate < b.winRate) {
+      if (a.count < b.count) {
         return 1;
       }
       return 0;
