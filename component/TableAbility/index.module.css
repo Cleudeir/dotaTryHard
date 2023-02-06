@@ -1,0 +1,55 @@
+.container {
+  max-width: 100vw;
+  padding: 0px;
+  margin: 0px;
+  font-size: 12pt;
+  height: calc(100vh - 200px);
+  overflow: auto;
+}
+
+.table {
+  width: 100%;
+  white-space: nowrap;
+  padding: 0px;
+  margin: 0px;                       
+  border-collapse: collapse;
+  position: relative;
+}
+
+.table thead {
+  background: white;
+  position: sticky;
+  top: 0;
+  box-shadow: 2px 2px 2px rgba(0, 0, 0, 0.1);
+}
+
+.table thead tr th {
+  color: #37e;
+  cursor: pointer;
+  text-align: center;
+  vertical-align: middle;
+}
+.table tbody tr td {
+  text-align: center;
+  vertical-align: middle;
+  margin: 0;
+  padding: 0;
+}
+
+.table .form {
+  display: flex;
+  color: #37e;
+  flex-direction: row;
+  margin-left: 5px;
+  height: 25px;
+}
+
+.table td img{
+  margin: 0;
+  padding: 0;
+  background-repeat: 'no-repeat';
+  background-size: 'cover';
+  background-position: 'center';
+  width: 60px;
+  height: 50px
+}

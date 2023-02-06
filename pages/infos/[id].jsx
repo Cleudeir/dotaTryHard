@@ -8,6 +8,7 @@ import mathInfos from '../../component/Math/infos';
 import ContainerRow from './../../component/ContainerRow/index';
 import Container from './../../component/Container/index';
 import Head from 'next/head';
+import TableAbility from '../../component/TableAbility';
 
 export async function getStaticPaths() {
   return {
@@ -35,7 +36,9 @@ export default function Matches({data, account_id}) {
       const {playersMatches, _matchIds} = data;
       if (playersMatches && _matchIds) {
         mathInfos({playersMatches, _matchIds, account_id})
-            .then((_infos)=> setInfos(_infos));
+            .then((_infos)=> {
+              console.log(_infos); setInfos(_infos);
+            });
       }
     })();
   }, [data]);
@@ -60,6 +63,10 @@ export default function Matches({data, account_id}) {
             <Container>
               <h4>See Your Loss Rate with your enemies</h4>
               <TableInfos type={'See Your Loss Rate with your enemies'} data={infos.enemyPlayers.slice(0, 100)} />
+            </Container>
+            <Container>
+              <h4>See Your Loss Rate with your enemies</h4>
+              <TableAbility type={'See Your Loss Rate with your Ability picks'} data={infos.uniqueInfosAbility} />
             </Container>
           </ContainerRow>
         </Container>
