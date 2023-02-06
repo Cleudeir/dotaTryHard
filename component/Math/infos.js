@@ -1,6 +1,3 @@
-// refactors this code
-import Matches from './../../pages/matches/[id]';
-
 export default async function mathInfos({playersMatches, _matchIds, account_id}) {
   const matches = [];
   _matchIds.forEach((item) =>
