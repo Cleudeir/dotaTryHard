@@ -4,11 +4,11 @@ import Form from 'react-bootstrap/Form';
 import orderTable from '../Math/orderTable';
 import styles from './index.module.css';
 import {useEffect} from 'react';
-export default function TableAbility({data, type}) {
+export default function TableAbility({data}) {
   const [isData, setData] = useState(null);
   const [isSave, setSave] = useState(data);
   function filterName(e) {
-    if (isSave) setData(isSave.filter((x) => x.name.slice(0, e.length).toUpperCase().includes(e.toUpperCase())));
+    if (isSave) setData(isSave.filter((x) => x.name.toUpperCase().includes(e.toUpperCase())));
   }
   useEffect(() => {
     const dataWithWinRate = [];
@@ -39,7 +39,7 @@ export default function TableAbility({data, type}) {
       return 0;
     });
     setData(dataSort.slice(0, 300));
-    setSave(dataSort);
+    setSave(dataSort.slice(0, 300));
   }, []);
   return (
     isData && <div className={styles.container}>
@@ -62,7 +62,7 @@ export default function TableAbility({data, type}) {
           </tr>
         </thead>
         <tbody>{
-          isData && isData.map((player, i) =>(
+          isData.map((player) =>(
             <tr key={player.name}>
               <td>{player.name}</td>
               <td>
