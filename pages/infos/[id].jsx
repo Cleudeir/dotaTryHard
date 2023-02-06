@@ -8,7 +8,7 @@ import mathInfos from '../../component/Math/infos';
 import ContainerRow from './../../component/ContainerRow/index';
 import Container from './../../component/Container/index';
 import Head from 'next/head';
-import TableAbility from '../../component/TableAbility';
+import TableAbility from '../../component/TableInfoAbilityItems';
 
 export async function getStaticPaths() {
   return {

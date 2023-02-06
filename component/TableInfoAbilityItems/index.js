@@ -21,7 +21,7 @@ export default function TableAbility({data, type}) {
           continue;
         }
         const name = key.replace(`https://cdn.datdota.com/images/${type}/`, '').replace('.png', '').split('_').join(' ');
-        if (data[key].count > 1) {
+        if (data[key].count >= 0) {
           dataWithWinRate.push({
             url: key,
             name,
@@ -41,8 +41,8 @@ export default function TableAbility({data, type}) {
       }
       return 0;
     });
-    setData(dataSort.slice(0, 300));
-    setSave(dataSort.slice(0, 300));
+    setData(dataSort.slice(0, 200));
+    setSave(dataSort.slice(0, 200));
   }, [data]);
   return (
     isData && <div className={styles.container}>
