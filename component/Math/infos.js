@@ -97,23 +97,29 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
           uniqueInfosItem[x.item_5].count += 1;
         }
         // item used ---------------------------------------------
-        if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png']) {
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'] = {win: x.aghanims_shard, count: 1};
-        } else {
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'].win += x.aghanims_shard;
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'].count += 1;
+        if (Boolean(x.aghanims_shard)) {
+          if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png']) {
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'] = {win: x.win, count: 1};
+          } else {
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'].win += x.win;
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'].count += 1;
+          }
         }
-        if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png']) {
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'] = {win: x.aghanims_scepter, count: 1};
-        } else {
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'].win += x.aghanims_scepter;
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'].count += 1;
+        if (Boolean(x.aghanims_scepter) ) {
+          if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png']) {
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'] = {win: x.win, count: 1};
+          } else {
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'].win += x.win;
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'].count += 1;
+          }
         }
-        if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png']) {
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'] = {win: x.moonshard, count: 1};
-        } else {
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].win += x.moonshard;
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].count += 1;
+        if (Boolean(x.moonshard)) {
+          if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png']) {
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'] = {win: x.win, count: 1};
+          } else {
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].win += x.win;
+            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].count += 1;
+          }
         }
       }
     });
