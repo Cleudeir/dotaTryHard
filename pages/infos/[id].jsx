@@ -57,16 +57,24 @@ export default function Matches({data, account_id}) {
           <h3>Hello! {infos.profile.personaname}</h3>
           <ContainerRow>
             <Container>
-              <h4>See Your Win Rate with your friends</h4>
+              <h4>Win Rate with your friends</h4>
               <TableInfos type={'Win'} data={infos.alliesPlayers.slice(0, 100)} />
             </Container>
             <Container>
-              <h4>See Your Loss Rate with your enemies</h4>
+              <h4>Loss Rate with your enemies</h4>
               <TableInfos type={'Loss'} data={infos.enemyPlayers.slice(0, 100)} />
             </Container>
             <Container>
-              <h4>See Your win Rate with your Ability picks</h4>
-              <TableAbility data={infos.uniqueInfosAbility} />
+              <h4>win Rate with your Ability picks</h4>
+              <TableAbility type={'ability'} data={infos.uniqueInfosAbility} />
+            </Container>
+            <Container>
+              <h4>win rate with your purchased items</h4>
+              <TableAbility type={'items'} data={infos.uniqueInfosItem} />
+            </Container>
+            <Container>
+              <h4>win rate with your purchased items used</h4>
+              <TableAbility type={'items'} data={infos.uniqueInfosItemUsed} />
             </Container>
           </ContainerRow>
         </Container>
