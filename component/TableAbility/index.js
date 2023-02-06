@@ -11,6 +11,9 @@ export default function TableAbility({data}) {
     if (isSave) setData(isSave.filter((x) => x.name.toUpperCase().includes(e.toUpperCase())));
   }
   useEffect(() => {
+    if (!data) {
+      return;
+    }
     const dataWithWinRate = [];
     for (const key in data) {
       if (Object.hasOwnProperty.call(data, key)) {
@@ -40,7 +43,7 @@ export default function TableAbility({data}) {
     });
     setData(dataSort.slice(0, 300));
     setSave(dataSort.slice(0, 300));
-  }, []);
+  }, [data]);
   return (
     isData && <div className={styles.container}>
       <Table className={styles.table} bordered striped={true}>
