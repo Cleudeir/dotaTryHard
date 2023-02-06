@@ -113,7 +113,7 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
           uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'] = {win: x.moonshard, count: 1};
         } else {
           uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].win += x.moonshard;
-          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].count += x.moonshard;
+          uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].count += 1;
         }
       }
     });
