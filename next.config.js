@@ -1,7 +1,7 @@
 module.exports = {
   swcMinify: false,
   images: {
-    domains: ['steamcdn-a.akamaihd.net', 'steamuserimages-a.akamaihd.net', 'cdn.datdota.com', 'segalfamilyfoundation.org'],
+    domains: ['steamcdn-a.akamaihd.net', 'steamuserimages-a.akamaihd.net', 'cdn.datdota.com', 'www.segalfamilyfoundation.org'],
   },
   async headers() {
     return [

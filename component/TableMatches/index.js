@@ -35,7 +35,7 @@ function TableMatches({_match, _avg, qnt}) {
               <Table className={styles.table} bordered striped={true}>
                 <thead>
                   <tr>
-                    <th>Avatar</th>
+                    <th>ico</th>
                     <th>Nick</th>
                     <th>kills</th>
                     <th>deaths</th>
