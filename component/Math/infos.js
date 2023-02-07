@@ -98,27 +98,27 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
         }
         // item used ---------------------------------------------
         if (Boolean(x.aghanims_shard)) {
-          if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png']) {
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'] = {win: x.win, count: 1};
+          if (!uniqueInfosItemUsed['aghanims_shard']) {
+            uniqueInfosItemUsed['aghanims_shard'] = {win: x.win, count: 1};
           } else {
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'].win += x.win;
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/aghanims_shard.png'].count += 1;
+            uniqueInfosItemUsed['aghanims_shard'].win += x.win;
+            uniqueInfosItemUsed['aghanims_shard'].count += 1;
           }
         }
         if (Boolean(x.aghanims_scepter) ) {
-          if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png']) {
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'] = {win: x.win, count: 1};
+          if (!uniqueInfosItemUsed['ultimate_scepter']) {
+            uniqueInfosItemUsed['ultimate_scepter'] = {win: x.win, count: 1};
           } else {
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'].win += x.win;
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/ultimate_scepter.png'].count += 1;
+            uniqueInfosItemUsed['ultimate_scepter'].win += x.win;
+            uniqueInfosItemUsed['ultimate_scepter'].count += 1;
           }
         }
         if (Boolean(x.moonshard)) {
-          if (!uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png']) {
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'] = {win: x.win, count: 1};
+          if (!uniqueInfosItemUsed['moon_shard']) {
+            uniqueInfosItemUsed['moon_shard'] = {win: x.win, count: 1};
           } else {
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].win += x.win;
-            uniqueInfosItemUsed['https://cdn.datdota.com/images/items/moon_shard.png'].count += 1;
+            uniqueInfosItemUsed['moon_shard'].win += x.win;
+            uniqueInfosItemUsed['moon_shard'].count += 1;
           }
         }
       }

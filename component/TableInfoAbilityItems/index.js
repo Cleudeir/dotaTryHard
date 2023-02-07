@@ -20,11 +20,10 @@ export default function TableAbility({data, type}) {
         if (key.includes('vecteezy')) {
           continue;
         }
-        const name = key.replace(`https://cdn.datdota.com/images/${type}/`, '').replace('.png', '').split('_').join(' ');
         if (data[key].count >= 0) {
           dataWithWinRate.push({
-            url: key,
-            name,
+            url: `https://cdn.datdota.com/images/${type}/${key}.png`,
+            name: key.split('_').join(' '),
             count: data[key].count,
             win: data[key].win,
             winRate: Math.floor(data[key].win/data[key].count*1000)/10,
