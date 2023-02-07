@@ -83,97 +83,67 @@ function TableMatches({_match, _avg, qnt}) {
                           <td>{player.Hero_level}</td>
                           <td> </td>
                           <td className={styles.hero}>
-                            <img src={player.hero_id} alt={''} />
+                            <img src={`https://cdn.datdota.com/images/heroes/${player.hero_id}_full.png`} alt={''} />
                           </td>
                           <td>
                             <img
-                              src={player.ability_0 === urlImg1 ? urlImg2 : player.ability_0}
+                              src={`https://cdn.datdota.com/images/ability/${player.ability_0}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.ability_1 === urlImg1 ? urlImg2 : player.ability_1}
+                              src={`https://cdn.datdota.com/images/ability/${player.ability_1}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.ability_2 === urlImg1 ? urlImg2 : player.ability_2}
+                              src={`https://cdn.datdota.com/images/ability/${player.ability_2}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.ability_3 === urlImg1 ? urlImg2 : player.ability_3}
+                              src={`https://cdn.datdota.com/images/ability/${player.ability_3}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td> </td>
                           <td>
                             <img
-                              src={player.item_0 === urlImg1 ? urlImg2 : player.item_0}
+                              src={`https://cdn.datdota.com/images/items/${player.item_0}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.item_1 === urlImg1 ? urlImg2 : player.item_1}
+                              src={`https://cdn.datdota.com/images/items/${player.item_1}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.item_2 === urlImg1 ? urlImg2 : player.item_2}
+                              src={`https://cdn.datdota.com/images/items/${player.item_2}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.item_3 === urlImg1 ? urlImg2 : player.item_3}
+                              src={`https://cdn.datdota.com/images/items/${player.item_3}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.item_4 === urlImg1 ? urlImg2 : player.item_4}
+                              src={`https://cdn.datdota.com/images/items/${player.item_4}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td>
                             <img
-                              src={player.item_5 === urlImg1 ? urlImg2 : player.item_5}
+                              src={`https://cdn.datdota.com/images/items/${player.item_5}.png`}
                               alt={''}
-                              onError={(e) => {
-                                e.target.src = urlImg2;
-                              }}
                             />
                           </td>
                           <td> </td>
