@@ -50,6 +50,7 @@ function TableMatches({_match, _avg, qnt}) {
                     <th>Level</th>
                     <th> </th>
                     <th>Hero</th>
+                    <th> </th>
                     <th colSpan="4">Skills</th>
                     <th> </th>
                     <th colSpan="6">Itens</th>
@@ -85,6 +86,7 @@ function TableMatches({_match, _avg, qnt}) {
                           <td className={styles.hero}>
                             <img src={`https://cdn.datdota.com/images/heroes/${player.hero_id}_full.png`} alt={''} />
                           </td>
+                          <td> </td>
                           <td>
                             <img
                               src={`https://cdn.datdota.com/images/ability/${player.ability_0}.png`}
@@ -111,40 +113,40 @@ function TableMatches({_match, _avg, qnt}) {
                           </td>
                           <td> </td>
                           <td>
-                            <img
+                            {+player.item_0 !== 0 && <img
                               src={`https://cdn.datdota.com/images/items/${player.item_0}.png`}
                               alt={''}
-                            />
+                            />}
                           </td>
                           <td>
-                            <img
+                            {+player.item_1 !== 0 && <img
                               src={`https://cdn.datdota.com/images/items/${player.item_1}.png`}
                               alt={''}
-                            />
+                            />}
                           </td>
                           <td>
-                            <img
+                            {+player.item_2 !== 0 && <img
                               src={`https://cdn.datdota.com/images/items/${player.item_2}.png`}
                               alt={''}
-                            />
+                            />}
                           </td>
                           <td>
-                            <img
+                            {+player.item_3 !== 0 && <img
                               src={`https://cdn.datdota.com/images/items/${player.item_3}.png`}
                               alt={''}
-                            />
+                            />}
                           </td>
                           <td>
-                            <img
+                            {+player.item_4 !== 0 && <img
                               src={`https://cdn.datdota.com/images/items/${player.item_4}.png`}
                               alt={''}
-                            />
+                            />}
                           </td>
                           <td>
-                            <img
+                            {+player.item_5 !== 0 && <img
                               src={`https://cdn.datdota.com/images/items/${player.item_5}.png`}
                               alt={''}
-                            />
+                            />}
                           </td>
                           <td> </td>
                           <td>
