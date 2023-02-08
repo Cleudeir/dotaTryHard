@@ -48,6 +48,7 @@ export default function TableAbility({data, type}) {
       <Table className={styles.table} bordered striped={true}>
         <thead>
           <tr>
+          <th>ico</th>
             <th>
               <Form.Control
                 className={styles.form}
@@ -57,8 +58,7 @@ export default function TableAbility({data, type}) {
                   filterName(e.target.value);
                 }}
               />
-            </th>
-            <th>ico</th>
+            </th>            
             <th onClick={(e) => orderTable({type: 'winRate', e, isData, setData})}>winRate ↑</th>
             <th onClick={(e) => orderTable({type: 'count', e, isData, setData})}>Matches ↑</th>
           </tr>
@@ -66,7 +66,6 @@ export default function TableAbility({data, type}) {
         <tbody>{
           isData.map((player) =>(
             <tr key={player.name}>
-              <td>{player.name}</td>
               <td>
                 <img
                   src={player.url}
@@ -76,6 +75,7 @@ export default function TableAbility({data, type}) {
                   }}
                 />
               </td>
+              <td>{player.name}</td>
               <td>{player.winRate}%</td>
               <td>{player.count}</td>
             </tr>

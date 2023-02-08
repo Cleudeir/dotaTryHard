@@ -37,13 +37,8 @@ export default function TableInfos({data, type}) {
               </span>
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'win', e, isData, setData})}>
-                {type.includes('Win') ? 'Win ↓' : 'Loss ↓'}
-              </span>
-            </th>
-            <th>
-              <span onClick={(e) => orderTable({type: 'loss', e, isData, setData})}>
-                {type.includes('Win') ? 'Loss ↓' : 'Win ↓'}
+              <span onClick={(e) => orderTable({type: 'matches', e, isData, setData})}>
+                {'Matches ↓'}
               </span>
             </th>
           </tr>
@@ -55,10 +50,9 @@ export default function TableInfos({data, type}) {
                   <td>
                     <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                   </td>
-                  <td>{player.profile.personaname.slice(0, 10)}</td>
+                  <td>{player.profile.personaname}</td>
                   <td>{player.winRate.toFixed(1)}% </td>
-                  <td>{player.win}</td>
-                  <td>{player.loss}</td>
+                  <td>{player.matches}</td>
                 </tr>
               ))}
         </tbody>
