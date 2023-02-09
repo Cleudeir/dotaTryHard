@@ -23,6 +23,10 @@
 }
 
 .table thead tr th {
+  text-align: center;
+  vertical-align: middle;
+}
+.table thead tr th span{
   color: #37e;
   cursor: pointer;
   text-align: center;

@@ -19,13 +19,13 @@ export default function TableInfos({data, type}) {
         <thead>
           <tr>
             <th>
-              <span onClick={(e) => orderTable({type: 'profile.personaname', e, isData, setData})}>Nick ↓</span>
+              ico
             </th>
             <th>
               <Form.Control
                 className={styles.form}
                 type="text"
-                placeholder="search"
+                placeholder="name"
                 onChange={(e) => {
                   filterName(e.target.value);
                 }}

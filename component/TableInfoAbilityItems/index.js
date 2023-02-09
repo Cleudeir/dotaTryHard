@@ -48,19 +48,29 @@ export default function TableAbility({data, type}) {
       <Table className={styles.table} bordered striped={true}>
         <thead>
           <tr>
-          <th>ico</th>
+            <th>ico</th>
             <th>
-              <Form.Control
-                className={styles.form}
-                type="text"
-                placeholder="name"
-                onChange={(e) => {
-                  filterName(e.target.value);
-                }}
-              />
-            </th>            
-            <th onClick={(e) => orderTable({type: 'winRate', e, isData, setData})}>winRate ↑</th>
-            <th onClick={(e) => orderTable({type: 'count', e, isData, setData})}>Matches ↑</th>
+              <span>
+                <Form.Control
+                  className={styles.form}
+                  type="text"
+                  placeholder="name"
+                  onChange={(e) => {
+                    filterName(e.target.value);
+                  }}
+                />
+              </span>
+            </th>
+            <th>
+              <span onClick={(e) => orderTable({type: 'winRate', e, isData, setData})}>
+              winRate ↑
+              </span>
+            </th>
+            <th>
+              <span onClick={(e) => orderTable({type: 'count', e, isData, setData})}>
+              Matches ↑
+              </span>
+            </th>
           </tr>
         </thead>
         <tbody>{

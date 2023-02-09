@@ -10,7 +10,6 @@
 
 .table {
   width: 100%;
-  white-space: nowrap;
   padding: 0px;
   margin: 0px;
   border-collapse: collapse;
@@ -28,22 +27,21 @@
 .table thead tr th span {
   color: #37e;
   cursor: pointer;
+  white-space: nowrap;
+  text-align: center;
+  vertical-align: middle;
+}
+.table thead tr th {
+  text-align: center;
+  vertical-align: middle;
+  cursor: pointer;
+  white-space: nowrap
 }
 .table tbody tr td {
   text-align: center;
   vertical-align: middle;
   margin: 0px;
   padding: 0px;
-  white-space: nowrap
-}
-
-.table .form {
-  display: flex;
-  color: #37e;
-  width: 170px;
-  flex-direction: row;
-  margin-left: 5px;
-  height: 25px;
 }
 
 .table td img{
@@ -77,3 +75,27 @@
   left: 50px;
   background-color: white;
 }
+
+.table tbody td:nth-child(3) {
+  text-align: center;
+  vertical-align: middle;
+  width: 120px;
+  display: inline-block;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 50px;
+  padding: 0px 5px;
+}
+.table thead th:nth-child(3) {
+  width: 120px;
+}
+
+.table .form {
+  width: 100px !important;
+  display: flex;
+  color: #37e;
+  margin: 0px auto;
+  height: 25px;
+}
+
+

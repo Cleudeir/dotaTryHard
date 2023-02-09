@@ -48,15 +48,13 @@ function TableRanking({isData, filterName, order, setData, avgGlobal}) {
               <span onClick={(e) => order('pos', e)}>Pos ↑</span>
             </th>
             <th>
-              <span onClick={(e) => order('profile.personaname', e)}>
-                Nick ↓
-              </span>
+              Ico
             </th>
             <th>
               <Form.Control
                 className={styles.form}
                 type="text"
-                placeholder="search"
+                placeholder="name"
                 onChange={(e) => {
                   filterName(e.target.value);
                 }}
@@ -114,7 +112,7 @@ function TableRanking({isData, filterName, order, setData, avgGlobal}) {
                     alt={player.profile.account_id}
                   />
                 </td>
-                <td>{player.profile.personaname.slice(0, 20)}</td>
+                <td>{player.profile.personaname}</td>
                 <td>{player.rankingRate} </td>
                 <td>
                   <a
