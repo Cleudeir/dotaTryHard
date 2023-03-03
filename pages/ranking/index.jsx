@@ -8,7 +8,6 @@ import Footer from '../../component/Footer';
 import React from 'react';
 
 export async function getStaticProps() {
-  console.log( 'getStatic - Home: ' );
   const resp = await fetch( `${ process.env.backUrl }/ranking?limit=1000` );
   const {data, avgGlobal} = await resp.json();
   const regionsNames = [

@@ -132,7 +132,6 @@ export default async function mathInfos( {playersMatches, _matchIds, account_id}
 }
 
 async function orderAlliesEnemy( playersUnique ) {
-  console.log( Object.values( playersUnique ) );
   const PlayersWinRate = Object.values( playersUnique );
   const PlayersOrder = PlayersWinRate.sort( ( a, b ) => {
     if ( a.matches > b.matches ) return -1;

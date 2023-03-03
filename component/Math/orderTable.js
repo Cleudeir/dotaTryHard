@@ -1,5 +1,4 @@
-export default function orderTable({type, e, isData, setData}) {
-  console.log('{type, e, isData, setData}: ', {type, e, isData, setData});
+export default function orderTable(type, e, isData, setData) {
   const target = e.target.parentElement.parentElement.parentElement.parentElement;
   target.scrollIntoView();
   const save = isData;

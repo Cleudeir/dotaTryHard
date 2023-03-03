@@ -24,8 +24,7 @@ export default function useRanking({regionData}) {
     if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, 300));
   }
   function order(type, e) {
-    console.log('type, e: ', type, e);
-    orderTable({type, e, isData, setData});
+    orderTable(type, e, isData, setData);
   }
 
   return {filterRegion, isData, setData, filterName, order, isRegion};

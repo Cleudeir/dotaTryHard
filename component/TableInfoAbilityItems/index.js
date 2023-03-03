@@ -62,12 +62,12 @@ export default function TableAbility({data, type}) {
               </span>
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'winRate', e, isData, setData})}>
+              <span onClick={(e) => orderTable('winRate', e, isSave, setData)}>
               winRate ↑
               </span>
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'count', e, isData, setData})}>
+              <span onClick={(e) => orderTable('count', e, isSave, setData)}>
               Matches ↑
               </span>
             </th>

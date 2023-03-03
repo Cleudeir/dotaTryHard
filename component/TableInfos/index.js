@@ -32,12 +32,12 @@ export default function TableInfos({data, type}) {
               />
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'winRate', e, isData, setData})}>
+              <span onClick={(e) => orderTable('winRate', e, isData, setData)}>
                 {type.includes('Win') ? 'WinRate ↓' : 'LossRate ↓'}
               </span>
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'matches', e, isData, setData})}>
+              <span onClick={(e) => orderTable('matches', e, isData, setData)}>
                 {'Matches ↓'}
               </span>
             </th>

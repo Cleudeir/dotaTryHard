@@ -126,7 +126,6 @@ export default async function mathInfos({playersMatches, _matchIds, account_id})
   });
   const alliesPlayers = await orderAlliesEnemy(uniqueAlliesPlayers, playersAlliesTeamGame);
   const enemyPlayers = await orderAlliesEnemy(uniqueEnemyPlayers, playersEnemyTeamGame);
-  console.log({alliesPlayers, enemyPlayers, profile: person, uniqueInfosItem, uniqueInfosItemUsed, uniqueInfosAbility});
   return {alliesPlayers, enemyPlayers, profile: person, uniqueInfosItem, uniqueInfosItemUsed, uniqueInfosAbility};
 }
 
