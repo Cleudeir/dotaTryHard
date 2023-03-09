@@ -19,31 +19,26 @@ export default function TableInfos({data, type}) {
         <thead>
           <tr>
             <th>
-              <span onClick={(e) => orderTable({type: 'profile.personaname', e, isData, setData})}>Nick ↓</span>
+              ico
             </th>
             <th>
               <Form.Control
                 className={styles.form}
                 type="text"
-                placeholder="search"
+                placeholder="name"
                 onChange={(e) => {
                   filterName(e.target.value);
                 }}
               />
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'winRate', e, isData, setData})}>
+              <span onClick={(e) => orderTable('winRate', e, isData, setData)}>
                 {type.includes('Win') ? 'WinRate ↓' : 'LossRate ↓'}
               </span>
             </th>
             <th>
-              <span onClick={(e) => orderTable({type: 'win', e, isData, setData})}>
-                {type.includes('Win') ? 'Win ↓' : 'Loss ↓'}
-              </span>
-            </th>
-            <th>
-              <span onClick={(e) => orderTable({type: 'loss', e, isData, setData})}>
-                {type.includes('Win') ? 'Loss ↓' : 'Win ↓'}
+              <span onClick={(e) => orderTable('matches', e, isData, setData)}>
+                {'Matches ↓'}
               </span>
             </th>
           </tr>
@@ -55,10 +50,9 @@ export default function TableInfos({data, type}) {
                   <td>
                     <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                   </td>
-                  <td>{player.profile.personaname.slice(0, 10)}</td>
+                  <td>{player.profile.personaname}</td>
                   <td>{player.winRate.toFixed(1)}% </td>
-                  <td>{player.win}</td>
-                  <td>{player.loss}</td>
+                  <td>{player.matches}</td>
                 </tr>
               ))}
         </tbody>

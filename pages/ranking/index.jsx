@@ -5,12 +5,15 @@ import Container from '../../component/Container';
 import Head from 'next/head';
 import useRanking from '../../hook/useRanking';
 import Footer from '../../component/Footer';
-
-const React = require('react');
+import React from 'react';
 
 export async function getStaticProps() {
+<<<<<<< HEAD
   console.log('getStatic - Home: ');
   const resp = await fetch(`${process.env.backUrl}/ranking?limit=2000`);
+=======
+  const resp = await fetch( `${ process.env.backUrl }/ranking?limit=1000` );
+>>>>>>> 12817fc59120379187572c04edca7adac1728c4a
   const {data, avgGlobal} = await resp.json();
   const regionsNames = [
     'WORLD',
@@ -20,15 +23,15 @@ export async function getStaticProps() {
     'CHINA',
   ];
   const regionData = [];
-  for (let i = 0; i < regionsNames.length; i++) {
+  for ( let i = 0; i < regionsNames.length; i++ ) {
     const element = regionsNames[i];
-    if (element !== 'WORLD') {
+    if ( element !== 'WORLD' ) {
       const filter = data.filter(
-          (item) => item.profile.loccountrycode === element,
+          ( item ) => item.profile.loccountrycode === element,
       );
-      regionData.push(filter);
+      regionData.push( filter );
     } else {
-      regionData.push(data);
+      regionData.push( data );
     }
   }
   return {
@@ -37,31 +40,31 @@ export async function getStaticProps() {
   };
 }
 
-export default function Home({regionData, regionsNames, avgGlobal}) {
+export default function Home( {regionData, regionsNames, avgGlobal} ) {
   const {filterRegion, isData, setData, filterName, order, isRegion} =
-    useRanking({regionData});
-  console.log('isData, avgGlobal: ', isData, avgGlobal);
+    useRanking( {regionData} );
+
   return (
-    <div className={styles.container}>
+    <div className={ styles.container }>
       <Head>
         <title>DotaTryHard</title>
         <meta name="description" content="DotaTryHard" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.png" />
       </Head>
-      <Header filterRegion={filterRegion} />
-      <Container isLoading={Boolean(isData)}>
-        <h2> {regionsNames[isRegion]} </h2>
-        <h5> Welcome to the ability Draft Rankings, recently {Math.floor(avgGlobal.matches/10).toLocaleString('pt-BR')} saved Matches </h5>
+      <Header filterRegion={ filterRegion } />
+      <Container isLoading={ Boolean( isData ) }>
+        <h2> { regionsNames[isRegion] } </h2>
+        <h5> Welcome to the ability Draft Rankings, recently { Math.floor( avgGlobal.matches / 10 ).toLocaleString( 'pt-BR' ) } saved Matches </h5>
         <TableRanking
-          isData={isData}
-          avgGlobal={avgGlobal}
-          filterName={filterName}
-          order={order}
-          setData={setData}
+          isData={ isData }
+          avgGlobal={ avgGlobal }
+          filterName={ filterName }
+          order={ order }
+          setData={ setData }
         />
       </Container>
-      <Footer/>
+      <Footer />
     </div>
   );
 }

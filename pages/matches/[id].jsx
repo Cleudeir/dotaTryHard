@@ -15,7 +15,6 @@ const qnt = 30;
 
 export async function getStaticProps(context) {
   const {id} = context.params;
-  console.log('getStatic - Home: ');
   const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}&limit=${qnt}`);
   const data = await resp.json();
   return {

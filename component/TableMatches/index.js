@@ -5,15 +5,12 @@ import {unixToHMS} from '../Math/unixToHMS';
 import styles from './index.module.css';
 
 function TableMatches({_match, _avg, qnt}) {
-  console.log('_match, _avg, qnt: ', _match, _avg, qnt);
   function colorWinStyle(win) {
     if (win === 0) {
       return {backgroundColor: 'rgba(234,67,53,0.3)', whiteSpace: 'nowrap'};
     }
     return {backgroundColor: 'rgba(58,182,132,0.3)', whiteSpace: 'nowrap'};
   }
-  const urlImg1 = 'https://static.vecteezy.com/ti/vetor-gratis/t2/375499-ponto-de-interrogacaoial-icone-gr%C3%A1tis-vetor.jpg';
-  const urlImg2 = 'https://www.segalfamilyfoundation.org/wp-content/uploads/2021/07/white-background.jpg';
   return (
     <div className={styles.container}>
       <div>
@@ -53,9 +50,9 @@ function TableMatches({_match, _avg, qnt}) {
                     <th> </th>
                     <th colSpan="4">Skills</th>
                     <th> </th>
-                    <th colSpan="6">Itens</th>
+                    <th colSpan="6">Items</th>
                     <th> </th>
-                    <th colSpan="3">Itens used</th>
+                    <th colSpan="3">Items used</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -87,80 +84,25 @@ function TableMatches({_match, _avg, qnt}) {
                             <img src={`https://cdn.datdota.com/images/heroes/${player.hero_id}_full.png`} alt={''} />
                           </td>
                           <td> </td>
-                          <td>
-                            <img
-                              src={`https://cdn.datdota.com/images/ability/${player.ability_0}.png`}
-                              alt={''}
-                            />
-                          </td>
-                          <td>
-                            <img
-                              src={`https://cdn.datdota.com/images/ability/${player.ability_1}.png`}
-                              alt={''}
-                            />
-                          </td>
-                          <td>
-                            <img
-                              src={`https://cdn.datdota.com/images/ability/${player.ability_2}.png`}
-                              alt={''}
-                            />
-                          </td>
-                          <td>
-                            <img
-                              src={`https://cdn.datdota.com/images/ability/${player.ability_3}.png`}
-                              alt={''}
-                            />
-                          </td>
+                          {[0, 1, 2, 3].map((index) => (
+                            <td key={index}>
+                              <img src={`https://cdn.datdota.com/images/ability/${player[`ability_${index}`]}.png`} alt={''} />
+                            </td>
+                          ))}
                           <td> </td>
-                          <td>
-                            {+player.item_0 !== 0 && <img
-                              src={`https://cdn.datdota.com/images/items/${player.item_0}.png`}
-                              alt={''}
-                            />}
-                          </td>
-                          <td>
-                            {+player.item_1 !== 0 && <img
-                              src={`https://cdn.datdota.com/images/items/${player.item_1}.png`}
-                              alt={''}
-                            />}
-                          </td>
-                          <td>
-                            {+player.item_2 !== 0 && <img
-                              src={`https://cdn.datdota.com/images/items/${player.item_2}.png`}
-                              alt={''}
-                            />}
-                          </td>
-                          <td>
-                            {+player.item_3 !== 0 && <img
-                              src={`https://cdn.datdota.com/images/items/${player.item_3}.png`}
-                              alt={''}
-                            />}
-                          </td>
-                          <td>
-                            {+player.item_4 !== 0 && <img
-                              src={`https://cdn.datdota.com/images/items/${player.item_4}.png`}
-                              alt={''}
-                            />}
-                          </td>
-                          <td>
-                            {+player.item_5 !== 0 && <img
-                              src={`https://cdn.datdota.com/images/items/${player.item_5}.png`}
-                              alt={''}
-                            />}
-                          </td>
+                          {[0, 1, 2, 3, 4, 5].map((index) => (
+                            <td key={index}>{+player[`item_${index}`] !== 0 && <img src={`https://cdn.datdota.com/images/items/${player[`item_${index}`]}.png`} alt={''} />}</td>
+                          ))}
                           <td> </td>
-                          <td>
-                            <img src={'https://cdn.datdota.com/images/items/ultimate_scepter.png'}
-                              alt={''} style={player.aghanims_scepter === 0 ? {opacity: 0} : {filter: 'none'}} />
-                          </td>
-                          <td>
-                            <img src={'https://cdn.datdota.com/images/items/aghanims_shard.png'}
-                              alt={''} style={player.aghanims_shard === 0 ? {opacity: 0} : {filter: 'none'}} />
-                          </td>
-                          <td>
-                            <img src={'https://cdn.datdota.com/images/items/moon_shard.png'}
-                              alt={''} style={player.moonshard === 0 ? {opacity: 0} : {filter: 'none'}} />
-                          </td>
+                          {[
+                            {img: 'ultimate_scepter', name: 'aghanims_scepter'},
+                            {img: 'aghanims_shard', name: 'aghanims_shard'},
+                            {img: 'moon_shard', name: 'moonshard'},
+                          ].map((_item) => (
+                            <td key={_item}>
+                              <img src={`https://cdn.datdota.com/images/items/${_item.img}.png`} alt={''} style={player[_item.name] === 0 ? {opacity: 0} : {filter: 'none'}} />
+                            </td>
+                          ))}
                         </tr>
                       ))}
                 </tbody>
