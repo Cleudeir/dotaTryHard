@@ -6,11 +6,26 @@ import styles from './index.module.css';
 
 function TableMatches({_match, _avg, qnt}) {
   function colorWinStyle(win) {
-    if (win === 0) {
-      return {backgroundColor: 'rgba(234,67,53,0.3)', whiteSpace: 'nowrap'};
-    }
-    return {backgroundColor: 'rgba(58,182,132,0.3)', whiteSpace: 'nowrap'};
+    const backgroundColor = win === 0 ? 'rgba(234, 67, 53, 0.3)' : 'rgba(58, 182, 132, 0.3)';
+    const whiteSpace = 'nowrap';
+    return {backgroundColor, whiteSpace};
   }
+  console.log('Match', _match);
+  const objType = [
+    {type: 'kills', name: 'Kills'},
+    {type: 'deaths', name: 'Deaths'},
+    {type: 'assists', name: 'Assis'},
+    {type: 'last_hits', name: 'Lasts'},
+    {type: 'denies', name: 'Denies'},
+    {type: 'gold_per_min', name: 'GPM'},
+    {type: 'xp_per_min', name: 'XPM'},
+    {type: 'hero_damage', name: 'Hero'},
+    {type: 'tower_damage', name: 'Tower'},
+    {type: 'net_worth', name: 'netWorth'},
+    {type: 'hero_healing', name: 'Heal'},
+    {type: 'Hero_level', name: 'Level'},
+  ];
+
   return (
     <div className={styles.container}>
       <div>
@@ -34,24 +49,12 @@ function TableMatches({_match, _avg, qnt}) {
                   <tr>
                     <th>ico</th>
                     <th>Nick</th>
-                    <th>kills</th>
-                    <th>deaths</th>
-                    <th>Assis</th>
-                    <th>Lasts</th>
-                    <th>Denies</th>
-                    <th>GPM</th>
-                    <th>XPM</th>
-                    <th>Hero</th>
-                    <th>Tower</th>
-                    <th>Heal</th>
-                    <th>Level</th>
-                    <th> </th>
-                    <th>Hero</th>
-                    <th> </th>
+                    {objType.map((_item, idx) => (
+                      <th key={idx}>{_item.name}</th>
+                    ))}
+                    <th colSpan="1">Hero</th>
                     <th colSpan="4">Skills</th>
-                    <th> </th>
                     <th colSpan="6">Items</th>
-                    <th> </th>
                     <th colSpan="3">Items used</th>
                   </tr>
                 </thead>
@@ -68,32 +71,25 @@ function TableMatches({_match, _avg, qnt}) {
                             <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                           </td>
                           <td style={colorWinStyle(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
-                          <td style={colorWinStyle(player.win)}>{player.kills} </td>
-                          <td style={colorWinStyle(player.win)}>{player.deaths} </td>
-                          <td style={colorWinStyle(player.win)}>{player.assists} </td>
-                          <td style={colorWinStyle(player.win)}>{player.last_hits}</td>
-                          <td style={colorWinStyle(player.win)}>{player.denies}</td>
-                          <td style={colorWinStyle(player.win)}>{player.gold_per_min.toLocaleString('pt-BR')} </td>
-                          <td style={colorWinStyle(player.win)}>{player.xp_per_min.toLocaleString('pt-BR')}</td>
-                          <td style={colorWinStyle(player.win)}>{player.hero_damage.toLocaleString('pt-BR')} </td>
-                          <td style={colorWinStyle(player.win)}>{player.tower_damage.toLocaleString('pt-BR')} </td>
-                          <td style={colorWinStyle(player.win)}>{player.hero_healing.toLocaleString('pt-BR')} </td>
-                          <td>{player.Hero_level}</td>
-                          <td> </td>
+                          {objType.map((_item, idx) => (
+                            <td key={idx} style={colorWinStyle(player.win)}>
+                              {player[_item.type]}
+                            </td>
+                          ))}
                           <td className={styles.hero}>
                             <img src={`https://cdn.datdota.com/images/heroes/${player.hero_id}_full.png`} alt={''} />
                           </td>
-                          <td> </td>
+
                           {[0, 1, 2, 3].map((index) => (
                             <td key={index}>
                               <img src={`https://cdn.datdota.com/images/ability/${player[`ability_${index}`]}.png`} alt={''} />
                             </td>
                           ))}
-                          <td> </td>
+
                           {[0, 1, 2, 3, 4, 5].map((index) => (
                             <td key={index}>{+player[`item_${index}`] !== 0 && <img src={`https://cdn.datdota.com/images/items/${player[`item_${index}`]}.png`} alt={''} />}</td>
                           ))}
-                          <td> </td>
+
                           {[
                             {img: 'ultimate_scepter', name: 'aghanims_scepter'},
                             {img: 'aghanims_shard', name: 'aghanims_shard'},
@@ -108,7 +104,6 @@ function TableMatches({_match, _avg, qnt}) {
                 </tbody>
               </Table>
             </div>
-            <Carousel.Caption></Carousel.Caption>
           </div>
         ))}
       </div>
