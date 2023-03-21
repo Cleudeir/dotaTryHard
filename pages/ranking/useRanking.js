@@ -4,7 +4,7 @@ import orderTable from '../../component/Math/orderTable';
 export default function useRanking({regionData}) {
   const [isRegion, setRegion] = useState(1);
   const [isData, setData] = useState(false);
-  const [listLength] = useState(1000);
+  const [listLength] = useState(500);
   useEffect(() => {
     setData(regionData[isRegion].slice(0, listLength));
   }, []);
