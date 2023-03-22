@@ -23,7 +23,7 @@ export default function useMatches() {
     {img: 'ultimate_scepter', name: 'aghanims_scepter'},
     {img: 'aghanims_shard', name: 'aghanims_shard'},
     {img: 'moon_shard', name: 'moonshard'},
-  ]
+  ];
 
   return {colorWinStyle, objType, objItemsUsed};
 }
