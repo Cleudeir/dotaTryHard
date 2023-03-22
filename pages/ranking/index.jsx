@@ -27,7 +27,7 @@ export async function getStaticProps() {
 
 export default function Home({regionData, regionsNames, avgGlobal}) {
   const {filterRegion, objType, isData, setData, filterName, order, isRegion} = useRanking({regionData});
-
+  console.log(isData);
   return (
     <Container filterRegion={filterRegion} isLoading={Boolean(isData)}>
       <h2> {regionsNames[isRegion]} </h2>
@@ -59,7 +59,7 @@ export default function Home({regionData, regionsNames, avgGlobal}) {
             {isData &&
               isData.map((player, i) => (
                 <tr key={player.profile.account_id}>
-                  <td>{player.pos}</td>
+                  <td>{player.pos - 1}</td>
                   <td>
                     <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                   </td>

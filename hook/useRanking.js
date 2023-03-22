@@ -21,7 +21,7 @@ export default function useRanking({regionData}) {
 
   function filterName(e) {
     const useSave = regionData[isRegion];
-    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, 300));
+    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, listLength));
   }
   function order(type, e) {
     orderTable(type, e, isData, setData);
