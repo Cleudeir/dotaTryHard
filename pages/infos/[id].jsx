@@ -1,13 +1,10 @@
 /* eslint-disable no-nested-ternary */
-import Header from '../../component/Header';
 import TableInfos from '../../component/TableInfos/index.js';
 import {useEffect, useState} from 'react';
 const React = require('react');
-import styles from './[id].module.css';
+import styles from './id.module.css';
 import mathInfos from '../../component/Math/infos';
-import ContainerRow from './../../component/ContainerRow/index';
 import Container from './../../component/Container/index';
-import Head from 'next/head';
 import TableAbility from '../../component/TableInfoAbilityItems';
 
 export async function getStaticPaths() {
@@ -34,50 +31,40 @@ export default function Matches({data, account_id}) {
     (async () => {
       const {playersMatches, _matchIds} = data;
       if (playersMatches && _matchIds) {
-        mathInfos({playersMatches, _matchIds, account_id})
-            .then((_infos)=> {
-              setInfos(_infos);
-            });
+        mathInfos({playersMatches, _matchIds, account_id}).then((_infos) => {
+          setInfos(_infos);
+        });
       }
     })();
   }, [data]);
 
   if (infos) {
     return (
-      <div className={styles.container}>
-        <Head>
-          <title>DotaTryHard</title>
-          <meta name="description" content="DotaTryHard" />
-          <meta name="viewport" content="width=device-width, initial-scale=1" />
-          <link rel="icon" href="/favicon.png" />
-        </Head>
-        <Header />
-        <Container isLoading={Boolean(infos)}>
-          <h3>Hello! {infos.profile.personaname}</h3>
-          <ContainerRow>
-            <Container>
-              <h4>Friends</h4>
-              <TableInfos type={'Win'} data={infos.alliesPlayers} />
-            </Container>
-            <Container>
-              <h4>Enemies</h4>
-              <TableInfos type={'Loss'} data={infos.enemyPlayers} />
-            </Container>
-            <Container>
-              <h4>Ability picks</h4>
-              <TableAbility type={'ability'} data={infos.uniqueInfosAbility} />
-            </Container>
-            <Container>
-              <h4>Purchased items</h4>
-              <TableAbility type={'items'} data={infos.uniqueInfosItem} />
-            </Container>
-            <Container>
-              <h4>Purchased items used</h4>
-              <TableAbility type={'items'} data={infos.uniqueInfosItemUsed} />
-            </Container>
-          </ContainerRow>
-        </Container>
-      </div>
+      <Container isLoading={Boolean(infos)}>
+        <h3>Hello! {infos.profile.personaname}</h3>
+        <div className={styles.containerRow}>
+          <div>
+            <h4>Friends</h4>
+            <TableInfos type={'Win'} data={infos.alliesPlayers} />
+          </div>
+          <div>
+            <h4>Enemies</h4>
+            <TableInfos type={'Loss'} data={infos.enemyPlayers} />
+          </div>
+          <div>
+            <h4>Ability picks</h4>
+            <TableAbility type={'ability'} data={infos.uniqueInfosAbility} />
+          </div>
+          <div>
+            <h4>Purchased items</h4>
+            <TableAbility type={'items'} data={infos.uniqueInfosItem} />
+          </div>
+          <div>
+            <h4>Purchased items used</h4>
+            <TableAbility type={'items'} data={infos.uniqueInfosItemUsed} />
+          </div>
+        </div>
+      </Container>
     );
   }
 }
