@@ -1,4 +1,4 @@
-.container {
+.containerAll {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -14,6 +14,7 @@
   width: auto;
   max-width: 97vw;
 }
+
 .match {
   border: 1px solid #dee2e6;
   margin: 10px 0px;
@@ -64,14 +65,17 @@
 .avatarfull img {
   width: 80px !important;
 }
+
 .avatarfullleave {
   background: #de1c1c;
 }
+
 .avatarfullleave img {
   width: 50px !important;
   filter: opacity(70%);
   border: 5px solid #de1c1c;
 }
+
 .hero img {
   width: 90px !important;
 }
@@ -80,6 +84,7 @@
   font-size: smaller;
   color: green;
 }
+
 .negative {
   font-size: smaller;
   color: red;
@@ -90,4 +95,10 @@
   position: sticky;
   left: 0;
   background-color: white;
+}
+.pagination{
+width: 100%;
+display: flex;
+justify-content: center;
+align-items: center;
 }
