@@ -4,7 +4,7 @@ import Head from 'next/head';
 import {Table} from 'react-bootstrap';
 import styles from './index.module.css';
 import {unixToHMS} from '../../component/Math/unixToHMS';
-import useMatches from './useMatches';
+import useMatches from '../../hook/useMatches';
 import Pagination from 'react-bootstrap/Pagination';
 const React = require('react');
 
@@ -29,7 +29,7 @@ export async function getStaticProps(context) {
 
 export default function Matches({data}) {
   const {colorWinStyle, objItemsUsed, objType} = useMatches();
-  const [page, setPage] = React.useState(3);
+  const [page, setPage] = React.useState(0);
   console.log(data);
   return (
     <div>
