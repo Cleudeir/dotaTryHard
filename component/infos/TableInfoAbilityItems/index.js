@@ -52,10 +52,10 @@ export default function TableAbility({data, type}) {
                 </span>
               </th>
               <th>
-                <span onClick={() => orderTable('winRate', setOriginalData, setFilteredData, originalData)}>Win Rate ↑</span>
+                <span onClick={(e) => orderTable('winRate', e, originalData, setFilteredData)}>Win Rate ↑</span>
               </th>
               <th>
-                <span onClick={() => orderTable('count', setOriginalData, setFilteredData, originalData)}>Matches ↑</span>
+                <span onClick={(e) => orderTable('count', e, originalData, setFilteredData)}>Matches ↑</span>
               </th>
             </tr>
           </thead>
