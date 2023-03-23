@@ -1,11 +1,11 @@
 /* eslint-disable no-nested-ternary */
-import TableInfos from '../../component/TableInfos/index.js';
 import {useEffect, useState} from 'react';
 const React = require('react');
 import styles from './id.module.css';
 import mathInfos from '../../component/Math/infos';
 import Container from './../../component/Container/index';
-import TableAbility from '../../component/TableInfoAbilityItems';
+import TableInfos from '../../component/infos/TableInfos/index.js';
+import TableAbility from '../../component/infos/TableInfoAbilityItems/index.js';
 
 export async function getStaticPaths() {
   return {
