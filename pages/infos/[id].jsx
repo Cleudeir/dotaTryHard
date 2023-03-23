@@ -45,6 +45,7 @@ export default function Matches({data, account_id}) {
         <div className={styles.containerRow}>
           <div>
             <h4>Friends</h4>
+
             <TableInfos type={'Win'} data={infos.alliesPlayers} />
           </div>
           <div>
