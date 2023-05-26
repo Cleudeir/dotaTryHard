@@ -15,7 +15,7 @@ export async function getStaticPaths() {
   };
 }
 
-const qnt = 50;
+const qnt = 20;
 
 export async function getStaticProps(context) {
   const {id} = context.params;
