@@ -13,7 +13,6 @@ export async function getStaticPaths() {
     fallback: 'blocking', // false or 'blocking'
   };
 }
-
 export async function getStaticProps(context) {
   const {id} = context.params;
   const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}&limit=500`);
@@ -26,7 +25,6 @@ export async function getStaticProps(context) {
 
 export default function Matches({data, account_id}) {
   const [infos, setInfos] = useState(false);
-
   useEffect(() => {
     (async () => {
       const {playersMatches, _matchIds} = data;
