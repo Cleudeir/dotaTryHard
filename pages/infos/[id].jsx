@@ -2,10 +2,10 @@
 import {useEffect, useState} from 'react';
 const React = require('react');
 import styles from './id.module.css';
-import mathInfos from '../../component/Math/infos';
-import Container from './../../component/Container/index';
+import mathInfos from '../../utils/infos';
 import TableInfos from '../../component/infos/TableInfos/index.js';
 import TableAbility from '../../component/infos/TableInfoAbilityItems/index.js';
+import Container from '../../component/commons/Container';
 
 export async function getStaticPaths() {
   return {
@@ -26,14 +26,13 @@ export async function getStaticProps(context) {
 export default function Matches({data, account_id}) {
   const [infos, setInfos] = useState(false);
   useEffect(() => {
-    (async () => {
-      const {playersMatches, _matchIds} = data;
-      if (playersMatches && _matchIds) {
-        mathInfos({playersMatches, _matchIds, account_id}).then((_infos) => {
-          setInfos(_infos);
-        });
-      }
-    })();
+    const {playersMatches, _matchIds} = data;
+    if (playersMatches && _matchIds) {
+      mathInfos({playersMatches, _matchIds, account_id}).then((_infos) => {
+        setInfos(_infos);
+        console.log('_infos: ', _infos);
+      });
+    }
   }, [data]);
 
   if (infos) {

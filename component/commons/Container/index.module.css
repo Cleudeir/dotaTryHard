@@ -7,12 +7,12 @@
 }
 
 .img {
-  margin-top: 30vh;
-  margin-bottom: 30vh;
-width: 80px;
-height: 80px;
+  margin-top:  calc(50vh - 40px);
+  width: 80px;
+  height: 80px;
 }
-.footer{
+
+.footer {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -20,6 +20,7 @@ height: 80px;
   width: 100%;
   margin: 10px 0px;
 }
+
 .footer img {
   padding: 5px;
 }

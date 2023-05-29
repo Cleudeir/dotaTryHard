@@ -4,7 +4,8 @@
   margin: 0px;
   font-size: 12pt;
   height: calc(100vh - 200px);
-  overflow: auto;
+  overflow-y: auto;
+  overflow-x: hidden;
 }
 
 .table {

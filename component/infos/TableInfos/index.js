@@ -2,14 +2,13 @@ import React, {useState} from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import styles from './index.module.css';
-import orderTable from './../../Math/orderTable';
+import orderTable from '../../../utils/orderTable';
 export default function TableInfos({data, type}) {
   const [isData, setData] = useState(data);
   const [isSave] = useState(data);
   function filterName(e) {
     if (isSave) setData(isSave.filter((x) => x.profile.personaname.slice(0, e.length).toUpperCase().includes(e.toUpperCase())));
   }
-
   return (
     <div className={styles.container} >
       <Table className={styles.table}

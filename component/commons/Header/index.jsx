@@ -12,9 +12,9 @@ function Header({filterRegion}) {
 
   return (
     <div className={styles.container}>
-      <Navbar key={'sm'} bg="light" expand={'sm'} className="mb-3" >
+      <Navbar bg="light" expand={'sm'} className="mb-3" >
         <Container fluid>
-          <Navbar.Brand as={Link} href="/ranking">Dota Try Hard</Navbar.Brand>
+          <Navbar.Brand as={Link} className="text-lg text-black" href="/ranking">Dota Try Hard</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'sm'}`} />
           <Navbar.Offcanvas id={`offcanvasNavbar-expand-${'sm'}`} aria-labelledby={`offcanvasNavbarLabel-expand-${'sm'}`} placement="end">
             <Offcanvas.Header closeButton>

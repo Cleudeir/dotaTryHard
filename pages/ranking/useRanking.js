@@ -1,5 +1,5 @@
 import {useEffect, useState} from 'react';
-import orderTable from '../../component/Math/orderTable';
+import orderTable from '../../utils/orderTable';
 
 export default function useRanking({regionData}) {
   const [isRegion, setRegion] = useState(1);
@@ -17,7 +17,22 @@ export default function useRanking({regionData}) {
 
   function filterName(e) {
     const useSave = regionData[isRegion];
-    if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, listLength));
+    if (useSave) {
+      const _save = useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase()));
+      const sort = _save.sort((a, b) => {
+        const fa = a.profile.personaname.length;
+        const fb = b.profile.personaname.length;
+        if (fa < fb) {
+          return -1;
+        }
+        if (fa > fb) {
+          return 1;
+        }
+        return 0;
+      });
+      const slice = sort.slice(0, 20);
+      setData(slice);
+    }
   }
   function order(type, e) {
     orderTable(type, e, isData, setData, listLength);

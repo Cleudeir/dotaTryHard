@@ -1,11 +1,11 @@
 /* eslint-disable no-nested-ternary */
-import Header from '../../component/Header';
+import Header from '../../component/commons/Header';
 import Head from 'next/head';
 import {Table} from 'react-bootstrap';
 import styles from './index.module.css';
-import {unixToHMS} from '../../component/Math/unixToHMS';
-import useMatches from '../../hook/useMatches';
-import Pagination from 'react-bootstrap/Pagination';
+import useMatches from './useMatches';
+import PaginationBar from './PaginationBar';
+import {unixToHMS} from '../../utils/unixToHMS';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -30,7 +30,6 @@ export async function getStaticProps(context) {
 export default function Matches({data}) {
   const {colorWinStyle, objItemsUsed, objType} = useMatches();
   const [page, setPage] = React.useState(0);
-  console.log(data);
   return (
     <div>
       <Head>
@@ -77,14 +76,14 @@ export default function Matches({data}) {
                         if (a.player_slot > b.player_slot) return 1;
                         return 0;
                       })
-                      .map((player) => (
-                        <tr key={player.profile.account_id}>
+                      .map((player, _index) => (
+                        <tr key={player.profile.account_id + _index}>
                           <td className={player.leaver_status === 1 ? styles.avatarfullleave : styles.avatarfull}>
                             <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                           </td>
                           <td style={colorWinStyle(player.win)}>{player.profile.personaname.slice(0, 15)}</td>
-                          {objType.map((_item, idx) => (
-                            <td key={idx} style={colorWinStyle(player.win)}>
+                          {objType.map((_item, index) => (
+                            <td key={index + 'nick'} style={colorWinStyle(player.win)}>
                               {player[_item.type]}
                             </td>
                           ))}
@@ -93,17 +92,17 @@ export default function Matches({data}) {
                           </td>
 
                           {[0, 1, 2, 3].map((index) => (
-                            <td key={index}>
+                            <td key={index + 'ability'}>
                               <img src={`https://cdn.datdota.com/images/ability/${player[`ability_${index}`]}.png`} alt={''} />
                             </td>
                           ))}
 
                           {[0, 1, 2, 3, 4, 5].map((index) => (
-                            <td key={index}>{+player[`item_${index}`] !== 0 && <img src={`https://cdn.datdota.com/images/items/${player[`item_${index}`]}.png`} alt={''} />}</td>
+                            <td key={index + 'items'}>{+player[`item_${index}`] !== 0 && <img src={`https://cdn.datdota.com/images/items/${player[`item_${index}`]}.png`} alt={''} />}</td>
                           ))}
 
                           {objItemsUsed.map((_item) => (
-                            <td key={_item}>
+                            <td key={_item.name + 'itemsUsed'}>
                               <img src={`https://cdn.datdota.com/images/items/${_item.img}.png`} alt={''} style={player[_item.name] === 0 ? {opacity: 0} : {filter: 'none'}} />
                             </td>
                           ))}
@@ -116,61 +115,7 @@ export default function Matches({data}) {
         </div>
       </div>
       <div className={styles.pagination}>
-        <Pagination>
-          <Pagination.First
-            onClick={() => {
-              setPage(0);
-            }}
-          />
-          <Pagination.Prev
-            onClick={() => {
-              if (page > 0) {
-                setPage((e) => e - 1);
-              }
-            }}
-          />
-          {[2, 1].map((index) => {
-            if (page - index >= 0) {
-              return (
-                <Pagination.Item
-                  key={index}
-                  onClick={(e) => {
-                    setPage(Number(e.target.innerHTML) - 1);
-                  }}
-                >
-                  {page - index + 1}
-                </Pagination.Item>
-              );
-            }
-          })}
-          <Pagination.Item active>{page + 1}</Pagination.Item>
-          {[1, 2].map((index) => {
-            if (index + page < data.matches.length) {
-              return (
-                <Pagination.Item
-                  key={index}
-                  onClick={(e) => {
-                    setPage(Number(e.target.innerHTML) - 1);
-                  }}
-                >
-                  {index + page + 1}
-                </Pagination.Item>
-              );
-            }
-          })}
-          <Pagination.Next
-            onClick={() => {
-              if (page + 1 < data.matches.length) {
-                setPage((e) => e + 1);
-              }
-            }}
-          />
-          <Pagination.Last
-            onClick={() => {
-              setPage(data.matches.length - 1);
-            }}
-          />
-        </Pagination>
+        <PaginationBar page={page} setPage={setPage} data={data} />
       </div>
     </div>
   );

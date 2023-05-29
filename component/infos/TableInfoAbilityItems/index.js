@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import styles from './index.module.css';
-import orderTable from '../../Math/orderTable';
+import orderTable from '../../../utils/orderTable';
 
 export default function TableAbility({data, type}) {
   const [filteredData, setFilteredData] = useState(null);
@@ -34,8 +34,8 @@ export default function TableAbility({data, type}) {
         }
       }
       const sortedData = dataWithWinRate.sort((a, b) => b.count - a.count);
-      setOriginalData(sortedData.slice(0, 200));
-      setFilteredData(sortedData.slice(0, 200));
+      setOriginalData(sortedData);
+      setFilteredData(sortedData);
     }
   }, [data, type]);
 
