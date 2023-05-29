@@ -5,7 +5,6 @@ import NavDropdown from 'react-bootstrap/NavDropdown';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import React from 'react';
 import styles from './index.module.css';
-import Link from 'next/link';
 
 function Header({filterRegion}) {
   const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA'];
@@ -14,7 +13,7 @@ function Header({filterRegion}) {
     <div className={styles.container}>
       <Navbar bg="light" expand={'sm'} className="mb-3" >
         <Container fluid>
-          <Navbar.Brand as={Link} className="text-lg text-black" href="/ranking">Dota Try Hard</Navbar.Brand>
+          <Navbar.Brand className="text-lg text-black" href="/ranking">Dota Try Hard</Navbar.Brand>
           <Navbar.Toggle aria-controls={`offcanvasNavbar-expand-${'sm'}`} />
           <Navbar.Offcanvas id={`offcanvasNavbar-expand-${'sm'}`} aria-labelledby={`offcanvasNavbarLabel-expand-${'sm'}`} placement="end">
             <Offcanvas.Header closeButton>
