@@ -1,22 +1,18 @@
 import {useEffect, useState} from 'react';
-import orderTable from '../component/Math/orderTable';
+import orderTable from '../../component/Math/orderTable';
 
 export default function useRanking({regionData}) {
   const [isRegion, setRegion] = useState(1);
   const [isData, setData] = useState(false);
-  const [listLength] = useState(500);
+  const listLength = 500;
+
   useEffect(() => {
     setData(regionData[isRegion].slice(0, listLength));
   }, []);
 
   function filterRegion(region) {
-    setData(regionData[region].slice(0, 30).map((x, i) => ({...x, pos: i + 1})));
     setRegion(region);
-    setTimeout(() => {
-      setData(
-          regionData[region].slice(0, listLength).map((x, i) => ({...x, pos: i + 1})),
-      );
-    }, 1000);
+    setData(regionData[region].slice(0, listLength));
   }
 
   function filterName(e) {
@@ -24,7 +20,7 @@ export default function useRanking({regionData}) {
     if (useSave) setData(useSave.filter((x) => x.profile.personaname.toUpperCase().includes(e.toUpperCase())).slice(0, listLength));
   }
   function order(type, e) {
-    orderTable(type, e, isData, setData);
+    orderTable(type, e, isData, setData, listLength);
   }
 
   const objType = [
@@ -41,7 +37,6 @@ export default function useRanking({regionData}) {
     {type: 'tower_damage', name: 'Tower'},
     {type: 'hero_healing', name: 'Heal'},
   ];
-
 
   return {filterRegion, objType, isData, setData, filterName, order, isRegion};
 }

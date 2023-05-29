@@ -2,11 +2,11 @@ import styles from './index.module.css';
 import Container from '../../component/Container';
 import React from 'react';
 import {Form, Table} from 'react-bootstrap';
-import useRanking from '../../hook/useRanking';
+import useRanking from './useRanking';
 
 export async function getStaticProps() {
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/ranking?limit=2000`);
+  const resp = await fetch(`${process.env.backUrl}/ranking?limit=2500`);
   const {data, avgGlobal} = await resp.json();
   const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA'];
   const regionData = [];
@@ -14,9 +14,15 @@ export async function getStaticProps() {
     const element = regionsNames[i];
     if (element !== 'WORLD') {
       const filter = data.filter((item) => item.profile.loccountrycode === element);
-      regionData.push(filter);
+      const reposition = filter.map((item, index) => {
+        return {...item, pos: index + 1};
+      });
+      regionData.push(reposition);
     } else {
-      regionData.push(data);
+      const reposition = data.map((item, index) => {
+        return {...item, pos: index + 1};
+      });
+      regionData.push(reposition);
     }
   }
   return {
@@ -27,7 +33,6 @@ export async function getStaticProps() {
 
 export default function Home({regionData, regionsNames, avgGlobal}) {
   const {filterRegion, objType, isData, setData, filterName, order, isRegion} = useRanking({regionData});
-  console.log(isData);
   return (
     <Container filterRegion={filterRegion} isLoading={Boolean(isData)}>
       <h2> {regionsNames[isRegion]} </h2>
@@ -37,7 +42,7 @@ export default function Home({regionData, regionsNames, avgGlobal}) {
           <thead>
             <tr>
               <th>
-                <span onClick={(e) => order('pos', e)}>Pos ↑</span>
+                <span onClick={(e) => order('pos', e)}>Pos ↓</span>
               </th>
               <th>Ico</th>
               <th>
@@ -59,7 +64,7 @@ export default function Home({regionData, regionsNames, avgGlobal}) {
             {isData &&
               isData.map((player, i) => (
                 <tr key={player.profile.account_id}>
-                  <td>{player.pos - 1}</td>
+                  <td>{player.pos}</td>
                   <td>
                     <img src={player.profile.avatarfull} alt={player.profile.account_id} />
                   </td>
