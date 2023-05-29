@@ -1,8 +1,8 @@
 import styles from './index.module.css';
 import React from 'react';
 import {Form, Table} from 'react-bootstrap';
-import useRanking from './useRanking';
 import Container from '../../component/commons/Container';
+import useRanking from '../../component/ranking/useRanking';
 
 export async function getStaticProps() {
   console.log('getStatic - Home: ');

@@ -3,8 +3,8 @@ import Header from '../../component/commons/Header';
 import Head from 'next/head';
 import {Table} from 'react-bootstrap';
 import styles from './index.module.css';
-import useMatches from './useMatches';
-import PaginationBar from './PaginationBar';
+import useMatches from '../../component/matches/useMatches';
+import PaginationBar from '../../component/matches/PaginationBar';
 import {unixToHMS} from '../../utils/unixToHMS';
 const React = require('react');
 
