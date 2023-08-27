@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import styles from './index.module.css';
+import styles from '../index.module.css';
 import orderTable from '../../../utils/orderTable';
 export default function TableInfos({data, type}) {
   const [isData, setData] = useState(data);

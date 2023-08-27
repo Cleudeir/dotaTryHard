@@ -36,7 +36,7 @@ export default function Home({regionData, regionsNames, avgGlobal}) {
   return (
     <Container filterRegion={filterRegion} isLoading={Boolean(isData)}>
       <h2> {regionsNames[isRegion]} </h2>
-      <h5> Welcome to the ability Draft Rankings, recently {Math.floor(avgGlobal.matches / 10).toLocaleString('pt-BR')} saved Matches </h5>
+      <h5 className={styles.h5}> Welcome to the ability Draft Rankings, recently {Math.floor(avgGlobal.matches / 10).toLocaleString('pt-BR')} saved Matches </h5>
       <div className={styles.containerTable}>
         <Table className={styles.table} bordered striped={true}>
           <thead>

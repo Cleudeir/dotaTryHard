@@ -15,6 +15,18 @@
   max-width: 97vw;
 }
 
+.textHeader {
+  padding: 0px;
+  margin: 0px;
+}
+
+.h3 {
+  width: 100%;
+  text-align: center;
+  padding: 0px;
+  margin: 0px;
+}
+
 .match {
   border: 1px solid #dee2e6;
   margin: 10px 0px;
@@ -34,6 +46,9 @@
 .score {
   width: 100%;
   text-align: center;
+  padding: 0px;
+  margin: 0px;
+  gap: 0px;
 }
 
 .table thead {
@@ -58,12 +73,9 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  width: 50px !important;
+  width: 100% !important;
+  min-width: 50px !important;
   height: 40px !important;
-}
-
-.avatarfull img {
-  width: 80px !important;
 }
 
 .avatarfullleave {
@@ -71,13 +83,8 @@
 }
 
 .avatarfullleave img {
-  width: 50px !important;
   filter: opacity(70%);
-  border: 5px solid #de1c1c;
-}
-
-.hero img {
-  width: 90px !important;
+  border: 2px solid #de1c1c;
 }
 
 .positive {
@@ -94,11 +101,13 @@
 .table tbody td:nth-child(1) {
   position: sticky;
   left: 0;
+  width: 50px;
   background-color: white;
 }
-.pagination{
-width: 100%;
-display: flex;
-justify-content: center;
-align-items: center;
+
+.pagination {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }

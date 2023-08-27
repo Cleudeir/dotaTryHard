@@ -47,5 +47,6 @@
     "Usuario",
     "USUARIOS",
     "vecteezy"
-  ]
+  ],
+  "editor.formatOnSave": true
 }

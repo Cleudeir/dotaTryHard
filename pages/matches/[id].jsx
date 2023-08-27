@@ -1,11 +1,10 @@
 /* eslint-disable no-nested-ternary */
-import Header from '../../component/commons/Header';
-import Head from 'next/head';
 import {Table} from 'react-bootstrap';
 import styles from './index.module.css';
 import useMatches from '../../component/matches/useMatches';
 import PaginationBar from '../../component/matches/PaginationBar';
 import {unixToHMS} from '../../utils/unixToHMS';
+import Container from '../../component/commons/Container';
 const React = require('react');
 
 export async function getStaticPaths() {
@@ -31,28 +30,21 @@ export default function Matches({data}) {
   const {colorWinStyle, objItemsUsed, objType} = useMatches();
   const [page, setPage] = React.useState(0);
   return (
-    <div>
-      <Head>
-        <title>DotaTryHard</title>
-        <meta name="description" content="DotaTryHard" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.png" />
-      </Head>
-      <Header />
+    <Container>
       <div className={styles.containerAll}>
         <div>
-          <h2>
+          <h3 className={styles.h3}>
             {data.avg.profile.personaname}, See the last {data.matches.length} Matches
-          </h2>
+          </h3>
         </div>
         <div>
           <div key={data.matches[page].match_id} className={styles.match}>
             <div className={styles.score}>
-              <h3>MATCH SCORE</h3>
-              <h4>
+              <h3 className={styles.textHeader}>MATCH SCORE</h3>
+              <h4 className={styles.textHeader}>
                 RADIANT {data.matches[page].radiant_score} - {data.matches[page].dire_score} DIRE
               </h4>
-              <h5>{unixToHMS(data.matches[page].start_time)}</h5>
+              <h5 className={styles.textHeader}>{unixToHMS(data.matches[page].start_time)}</h5>
             </div>
             <div className={styles.containerTable}>
               <Table className={styles.table} bordered striped={true}>
@@ -117,6 +109,6 @@ export default function Matches({data}) {
       <div className={styles.pagination}>
         <PaginationBar page={page} setPage={setPage} data={data} />
       </div>
-    </div>
+    </Container>
   );
 }

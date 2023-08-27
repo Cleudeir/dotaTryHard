@@ -1,5 +1,6 @@
 module.exports = {
   swcMinify: false,
+  webpack5: false,
   images: {
     domains: ['steamcdn-a.akamaihd.net', 'steamuserimages-a.akamaihd.net', 'cdn.datdota.com', 'www.segalfamilyfoundation.org'],
   },

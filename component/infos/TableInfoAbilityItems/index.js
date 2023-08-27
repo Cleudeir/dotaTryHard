@@ -1,7 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import {Table} from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
-import styles from './index.module.css';
+import styles from '../index.module.css';
 import orderTable from '../../../utils/orderTable';
 
 export default function TableAbility({data, type}) {
