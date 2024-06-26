@@ -3,10 +3,10 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "rm -rf .next/cache; next dev",
-    "build": "next build",
-    "start": "next start",
-    "lint": "next lint",
+    "dev": "node --openssl-legacy-provider ./node_modules/.bin/next dev",
+    "build": "node --openssl-legacy-provider ./node_modules/.bin/next build",
+    "start": "node --openssl-legacy-provider ./node_modules/.bin/next start",
+    "lint": "node --openssl-legacy-provider ./node_modules/.bin/next lint",
     "format": "eslint . --fix"
   },
   "dependencies": {
@@ -20,7 +20,7 @@
     "style-loader": "^3.3.3"
   },
   "devDependencies": {
-    "eslint": "^8.23.0",
+    "eslint": "^9.5.0",
     "eslint-config-google": "^0.14.0",
     "eslint-plugin-react": "^7.31.1",
     "prettier-eslint": "^15.0.1"
