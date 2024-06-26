@@ -2,11 +2,11 @@ import styles from './index.module.css';
 import React from 'react';
 import {Form, Table} from 'react-bootstrap';
 import Container from '../../component/commons/Container';
-import useRanking from '../../component/ranking/useRanking';
+import useRanking from './useRanking';
 
 export async function getStaticProps() {
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/ranking?limit=2500`);
+  const resp = await fetch(`${process.env.backUrl}/ranking`);
   const {data, avgGlobal} = await resp.json();
   const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA'];
   const regionData = [];

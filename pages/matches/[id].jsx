@@ -14,15 +14,15 @@ export async function getStaticPaths() {
   };
 }
 
-const qnt = 20;
+
 
 export async function getStaticProps(context) {
   const {id} = context.params;
-  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}&limit=${qnt}`);
+  const resp = await fetch(`${process.env.backUrl}/player?account_id=${id}`);
   const data = await resp.json();
   return {
     props: {data},
-    revalidate: 1 * 60 * 60,
+    revalidate: 1 * 60,
   };
 }
 

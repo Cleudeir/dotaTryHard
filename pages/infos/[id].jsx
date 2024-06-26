@@ -16,11 +16,11 @@ export async function getStaticPaths() {
 }
 export async function getStaticProps(context) {
   const { id } = context.params;
-  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}&limit=500`);
+  const resp = await fetch(`${process.env.backUrl}/infos?account_id=${id}`);
   const data = await resp.json();
   return {
     props: { data, account_id: Number(id) },
-    revalidate: 1 * 60 * 60,
+    revalidate: 1 * 60,
   };
 }
 
