@@ -1,8 +1,7 @@
-
-                # index.jsx                
-                ## project structure
-                ```                    
-                dotatryhard_next/
+# dotatryhard_next                
+## project structure
+```                    
+dotatryhard_next/
     package-lock.json
     README.md
     package.json
@@ -50,8 +49,8 @@
         favicon.png
         icons/
             lupa.png                
-                ```
-                ## Propósito e Descrição do Projeto
+```
+## Propósito e Descrição do Projeto
 
 Este projeto é um aplicativo web que exibe rankings de jogadores de Dota 2 e estatísticas detalhadas de partidas.  Ele utiliza Next.js para renderização do lado do servidor, React para a interface do usuário, e React Bootstrap para componentes de estilo. O aplicativo busca dados de uma API externa e apresenta as informações em tabelas filtráveis e ordenáveis.  A paginação é implementada para lidar com grandes conjuntos de dados.
 
