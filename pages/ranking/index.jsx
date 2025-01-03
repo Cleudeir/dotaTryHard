@@ -1,48 +1,35 @@
 import styles from './index.module.css';
 import React from 'react';
-import {Form, Table} from 'react-bootstrap';
+import { Form, Table } from 'react-bootstrap';
 import Container from '../../component/commons/Container';
 import useRanking from '../../component/ranking/useRanking';
 
 export async function getStaticProps() {
   console.log('getStatic - Home: ');
-  const resp = await fetch(`${process.env.backUrl}/ranking`);
-  const {data, avgGlobal} = await resp.json();
-  const regionsNames = ['WORLD', 'SOUTH AMERICA', 'NORTH AMERICA', 'EUROPE', 'CHINA'];
-  const regionData = [];
-  for (let i = 0; i < regionsNames.length; i++) {
-    const element = regionsNames[i];
-    if (element !== 'WORLD') {
-      const filter = data.filter((item) => item.profile.loccountrycode === element);
-      const reposition = filter.map((item, index) => {
-        return {...item, pos: index + 1};
-      });
-      regionData.push(reposition);
-    } else {
-      const reposition = data.map((item, index) => {
-        return {...item, pos: index + 1};
-      });
-      regionData.push(reposition);
-    }
-  }
+  const resp = await fetch(`${process.env.backUrl}/api/PlayersMatches/average`);
+  const { playersMatches, averages } = await resp.json();
+  const regionsNames = playersMatches.map((x) => x.region);
   return {
-    props: {regionData, regionsNames, avgGlobal},
+    props: { playersMatches, regionsNames, avgGlobal: averages },
     revalidate: 1 * 60,
   };
 }
 
-export default function Home({regionData, regionsNames, avgGlobal}) {
-  const {filterRegion, objType, isData, setData, filterName, order, isRegion} = useRanking({regionData});
+
+export default function Home({ playersMatches, regionsNames, avgGlobal }) {
+
+  const { filterRegion, objType, isData, setData, filterName, order, isRegion } = useRanking({ playersMatches });
+  const { data, region } = avgGlobal.find(item => item.region === isRegion)
   return (
     <Container filterRegion={filterRegion} isLoading={Boolean(isData)}>
-      <h2> {regionsNames[isRegion]} </h2>
-      <h5 className={styles.h5}> Welcome to the ability Draft Rankings, recently {Math.floor(avgGlobal.matches / 10).toLocaleString('pt-BR')} saved Matches </h5>
+      <h4 className={styles.title}> {region} </h4>
+      <h6 className={styles.subTitle}>   Welcome to the ability Draft Rankings, recently {Math.floor(avgGlobal.matches / 10).toLocaleString('pt-BR')} saved Matches </h6>
       <div className={styles.containerTable}>
         <Table className={styles.table} bordered striped={true}>
           <thead>
             <tr>
               <th>
-                <span onClick={(e) => order('pos', e)}>Pos ↓</span>
+                <span onClick={(e) => order('position', e)}>Pos ↓</span>
               </th>
               <th>Ico</th>
               <th>
@@ -62,33 +49,34 @@ export default function Home({regionData, regionsNames, avgGlobal}) {
           </thead>
           <tbody>
             {isData &&
-              isData.map((player, i) => (
-                <tr key={player.profile.account_id}>
-                  <td>{player.pos}</td>
+              isData.map((playerMatch, i) => (
+                <tr key={playerMatch.account_id}>
+                  <td>{playerMatch.position}</td>
                   <td>
-                    <img src={player.profile.avatarfull} alt={player.profile.account_id} />
+                    <img src={playerMatch.player.avatarfull} alt={playerMatch.account_id} />
                   </td>
-                  <td>{player.profile.personaname}</td>
-                  <td>{player.rankingRate} </td>
+                  <td>{playerMatch.player.personaname}</td>
+                  <td>{playerMatch.score} </td>
                   <td>
-                    <a href={`/matches/${player.profile.account_id}`} onClick={() => setData(false)}>
-                      {player.matches} 👀
+                    <a href={`/matches/${playerMatch.account_id}`} onClick={() => setData(false)}>
+                      {playerMatch.matches} 👀
                     </a>
                   </td>
                   <td>
-                    <a href={`/infos/${player.profile.account_id}`} onClick={() => setData(false)}>
-                      {player.winRate.toFixed(1)}% 👀
+                    <a href={`/infos/${playerMatch.account_id}`} onClick={() => setData(false)}>
+                      {playerMatch.win_rate.toFixed(1)}% 👀
                     </a>
                   </td>
-                  {objType.slice(3, 13).map((_item, idx) => {
-                    let value = Math.floor(((player[_item.type] - avgGlobal[_item.type]) / avgGlobal[_item.type]) * 100 * 10) / 10;
-                    if (_item.type === 'deaths') {
-                      value = value * -1;
+                  {objType.slice(3, 13).map(({ type }, idx) => {
+                    console.log(JSON.stringify(data, null, 2));
+                    let value = Math.floor(((playerMatch[type] - data[type]) / data[type] * 100));
+                    if (type === 'deaths') {
+                      value = value * -1
                     }
                     const isPositive = value > 0;
                     return (
                       <td key={idx}>
-                        {player[_item.type].toFixed(1)}
+                        {playerMatch[{ type }.type].toFixed(0)}
                         <br />
                         <span className={isPositive ? styles.positive : styles.negative}>{isPositive ? `+${value}%` : `${value}%`}</span>
                       </td>

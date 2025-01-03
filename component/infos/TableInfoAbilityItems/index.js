@@ -1,10 +1,10 @@
-import React, {useState, useEffect} from 'react';
-import {Table} from 'react-bootstrap';
+import React, { useState, useEffect } from 'react';
+import { Table } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import styles from '../index.module.css';
 import orderTable from '../../../utils/orderTable';
 
-export default function TableAbility({data, type}) {
+export default function TableAbility({ data, type }) {
   const [filteredData, setFilteredData] = useState(null);
   const [originalData, setOriginalData] = useState(data);
 
@@ -72,7 +72,7 @@ export default function TableAbility({data, type}) {
                   />
                 </td>
                 <td>{player.name}</td>
-                <td>{player.winRate}%</td>
+                <td>{player.win_rate}%</td>
                 <td>{player.count}</td>
               </tr>
             ))}

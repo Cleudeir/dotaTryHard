@@ -1,9 +1,9 @@
-import React, {useState} from 'react';
-import {Table} from 'react-bootstrap';
+import React, { useState } from 'react';
+import { Table } from 'react-bootstrap';
 import Form from 'react-bootstrap/Form';
 import styles from '../index.module.css';
 import orderTable from '../../../utils/orderTable';
-export default function TableInfos({data, type}) {
+export default function TableInfos({ data, type }) {
   const [isData, setData] = useState(data);
   const [isSave] = useState(data);
   function filterName(e) {
@@ -44,16 +44,16 @@ export default function TableInfos({data, type}) {
         </thead>
         <tbody>
           {isData &&
-              isData.map((player, i) => (
-                <tr key={player.profile.account_id}>
-                  <td>
-                    <img src={player.profile.avatarfull} alt={player.profile.account_id} />
-                  </td>
-                  <td>{player.profile.personaname}</td>
-                  <td>{player.winRate.toFixed(1)}% </td>
-                  <td>{player.matches}</td>
-                </tr>
-              ))}
+            isData.map((player, i) => (
+              <tr key={player.account_id}>
+                <td>
+                  <img src={player.avatarfull} alt={player.account_id} />
+                </td>
+                <td>{player.personaname}</td>
+                <td>{player.win_rate.toFixed(1)}% </td>
+                <td>{player.matches}</td>
+              </tr>
+            ))}
         </tbody>
       </Table>
     </div>

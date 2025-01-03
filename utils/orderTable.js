@@ -18,7 +18,7 @@ export default function orderTable(type, e, isData, setData) {
         }
       });
       e.target.innerHTML = `${name} ${filterDirection === "↓" ? "↑" : "↓"}`;
-      setData(_sort.slice(0, 20));
+      setData(_sort);
     }
     if (prop.length === 2) {
       const sortDirection = filterDirection === "↓" ? 1 : -1;
@@ -33,7 +33,7 @@ export default function orderTable(type, e, isData, setData) {
       });
 
       e.target.innerHTML = `${name} ${filterDirection === "↓" ? "↑" : "↓"}`;
-      setData(_sort.slice(0, 20));
+      setData(_sort);
     }
   }, 100);
 }
